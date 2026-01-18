@@ -1,0 +1,5 @@
+- [ ] **Mobile Check:** Prüfen, ob der 3D-Globus auf dem Handy nicht zu groß ist
+- [ ] **Sprachwahl:** Testen, ob die Buttons oben rechts klickbar sind
+- [ ] **Insolvenz-Tabelle:** Sicherstellen, dass die Spalten auf Mobile nicht gequetscht sind
+- [ ] **Steuer-Rechner:** Prüfen, ob der Slider auf Touch-Geräten funktioniert
+- [ ] **Design:** Letzter Check auf "Silber Glanz" und "Glas-Effekte"

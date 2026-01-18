@@ -43,60 +43,27 @@
 }
 
 :root {
-  /* Fallback Light Mode (should not be used due to forced dark mode) */
+  /* Hardcoded Dark Mode / Titanium Theme */
   --background: #000000;
-  --foreground: #FFFFFF;
-  --card: #111111;
-  --card-foreground: #FFFFFF;
-  --popover: #111111;
-  --popover-foreground: #FFFFFF;
-  --primary: #FFFFFF;
+  --foreground: #ffffff;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --popover: #0a0a0a;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
   --primary-foreground: #000000;
-  --secondary: #222222;
-  --secondary-foreground: #FFFFFF;
-  --muted: #222222;
-  --muted-foreground: #888888;
-  --accent: #333333;
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF0000;
-  --destructive-foreground: #FFFFFF;
-  --border: #333333;
-  --input: #333333;
-  --ring: #FFFFFF;
-  --radius: 1rem;
-}
-
-.dark {
-  /* Titanium Glass Theme - Dark Mode (Default) */
-  --background: #000000; /* Pure Black */
-  --foreground: #F0F0F0; /* Platinum White */
-  
-  --card: rgba(20, 20, 20, 0.6); /* Glass Card */
-  --card-foreground: #FFFFFF;
-  
-  --popover: rgba(10, 10, 10, 0.9);
-  --popover-foreground: #FFFFFF;
-  
-  --primary: #FFFFFF; /* Platinum White for Actions */
-  --primary-foreground: #000000; /* Black Text on White Button */
-  
-  --secondary: rgba(40, 40, 40, 0.5); /* Titanium Grey */
-  --secondary-foreground: #FFFFFF;
-  
-  --muted: rgba(40, 40, 40, 0.3);
-  --muted-foreground: #AAAAAA;
-  
-  --accent: rgba(50, 50, 50, 0.5); /* Hover State */
-  --accent-foreground: #FFFFFF;
-  
-  --destructive: #990000;
-  --destructive-foreground: #FFFFFF;
-  
-  --border: rgba(255, 255, 255, 0.15); /* Subtle White Border */
-  --input: rgba(255, 255, 255, 0.1);
-  --ring: rgba(255, 255, 255, 0.3);
-  
-  --radius: 1.5rem; /* Apple-like rounded corners */
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
+  --accent: #262626;
+  --accent-foreground: #ffffff;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #ffffff;
+  --border: #262626;
+  --input: #262626;
+  --ring: #ffffff;
+  --radius: 0.5rem;
 }
 
 @layer base {
@@ -104,39 +71,44 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    background-color: #000000;
-    color: #FFFFFF;
+    @apply bg-black text-white antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   }
 }
 
 @layer components {
-  .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
   }
   
-  @media (min-width: 1024px) {
-    .container {
-      max-width: 1200px;
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+  .glass-button {
+    @apply bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white transition-all duration-300;
   }
 
-  /* Glassmorphism Utilities */
-  .glass-panel {
-    @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl;
+  .text-silver-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-400;
+  }
+
+  .silver-border {
+    @apply border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)];
   }
   
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-xl border border-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-500;
+  .container {
+    @apply mx-auto px-4 max-w-7xl;
   }
-  
-  .text-glow {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

@@ -1,0 +1,6 @@
+- [ ] **Design:** "Silber Glänzend" & Glas-Effekte in `index.css` definieren
+- [ ] **Feature:** Echten 3D-Globus mit `react-globe.gl` oder Three.js implementieren
+- [ ] **Feature:** Steuer-Rechner erweitern (Dubai 0% Option, Freibetrag 375k AED)
+- [ ] **Content:** Insolvenz-Vergleichstabelle (DE vs. ES) erstellen
+- [ ] **Content:** FAQ-Sektion mit recherchierten Fakten füllen
+- [ ] **Fix:** Sprachwahl (DE/EN/ES) funktional machen

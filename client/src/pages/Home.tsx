@@ -2,44 +2,78 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Check, Shield, Globe, Building2, Scale, Clock, Calendar, ChevronRight, MessageSquare, Coins } from "lucide-react";
+import { ArrowRight, Check, Shield, Globe, Building2, Scale, Clock, Calendar, ChevronRight, MessageSquare, Coins, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Slider } from "@/components/ui/slider";
+import Globe3D from "@/components/Globe3D";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { faqs } from "@/data/faqs";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default function Home() {
   const [income, setIncome] = useState(200000);
-  const [taxSavings, setTaxSavings] = useState(0);
+  const [taxSavingsBeckham, setTaxSavingsBeckham] = useState(0);
+  const [taxSavingsDubai, setTaxSavingsDubai] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [language, setLanguage] = useState("EN");
 
-  // Calculate tax savings (German Tax ~45% vs Beckham Law 24%)
+  // Calculate tax savings
   useEffect(() => {
-    const germanTax = income * 0.45;
+    const germanTax = income * 0.45; // Approx 45%
+    
+    // Beckham Law: 24% flat rate up to 600k
     const beckhamTax = income * 0.24;
-    setTaxSavings(germanTax - beckhamTax);
+    
+    // Dubai: 0% up to 375k AED (~95k EUR), 9% above
+    const dubaiThreshold = 95000;
+    let dubaiTax = 0;
+    if (income > dubaiThreshold) {
+      dubaiTax = (income - dubaiThreshold) * 0.09;
+    }
+
+    setTaxSavingsBeckham(germanTax - beckhamTax);
+    setTaxSavingsDubai(germanTax - dubaiTax);
   }, [income]);
 
   return (
     <Layout>
+      {/* LANGUAGE SWITCHER (Fixed Top Right) */}
+      <div className="fixed top-6 right-6 z-50 flex gap-2 bg-black/50 backdrop-blur-md p-1 rounded-full border border-white/10">
+        {["DE", "EN", "ES"].map((lang) => (
+          <button
+            key={lang}
+            onClick={() => setLanguage(lang)}
+            className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
+              language === lang 
+                ? "bg-white text-black shadow-[0_0_10px_rgba(255,255,255,0.5)]" 
+                : "text-white/50 hover:text-white"
+            }`}
+          >
+            {lang}
+          </button>
+        ))}
+      </div>
+
       {/* SECTION 1: CINEMATIC HERO (Fullscreen) */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/hero-dubai-cinematic.jpg" 
             alt="Dubai Skyline Night" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-black/40"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black"></div>
         </div>
 
         <div className="container relative z-10 text-center space-y-8 pt-20">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md mb-4">
-            <span className="text-xs font-medium text-white tracking-[0.3em] uppercase">The Future of Wealth</span>
+          <div className="inline-block px-6 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md mb-4 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            <span className="text-xs font-bold text-white tracking-[0.3em] uppercase">The Future of Wealth</span>
           </div>
           
           <h1 className="text-6xl md:text-9xl font-bold text-white tracking-tighter leading-none drop-shadow-2xl">
-            BEYOND <br/> BORDERS.
+            BEYOND <br/> 
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500">BORDERS.</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-lg">
@@ -47,45 +81,53 @@ export default function Home() {
             <span className="text-white font-medium">Dubai Company Formation. Spanish Golden Visa. Tax Optimization.</span>
           </p>
 
-          <div className="pt-8">
-            <Button size="lg" className="h-16 px-12 rounded-full bg-white text-black hover:bg-white/90 text-lg font-bold tracking-wide shadow-[0_0_50px_rgba(255,255,255,0.3)] transition-all hover:scale-105 border-none">
+          <div className="pt-12">
+            <Button size="lg" className="h-16 px-12 rounded-full bg-white text-black hover:bg-gray-200 text-lg font-bold tracking-wide shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border-none">
               Start Your Journey
             </Button>
-          </div>
-        </div>
-        
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
-            <div className="w-1 h-2 bg-white rounded-full"></div>
           </div>
         </div>
       </section>
 
       {/* SECTION 2: INTERACTIVE TAX CALCULATOR (The "Hook") */}
       <section className="py-32 bg-black relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/grid.png')] opacity-10"></div>
         
         <div className="container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
               <h2 className="text-5xl md:text-7xl font-bold text-white leading-tight">
                 Stop Paying <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Too Much.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Too Much.</span>
               </h2>
               <p className="text-xl text-white/60 font-light leading-relaxed">
-                With the <strong>Lex Beckham</strong> in Spain or a <strong>Dubai Freezone Company</strong>, you legally reduce your tax burden to a minimum. See the difference yourself.
+                Compare your current tax burden with our optimized solutions. 
+                <strong>Dubai Freezone (0% Tax)</strong> or <strong>Spanish Beckham Law (24% Flat)</strong>.
               </p>
               
-              <div className="flex items-center gap-4 text-white/80">
-                <Check className="w-6 h-6 text-white" /> <span>100% Legal Compliance</span>
-                <Check className="w-6 h-6 text-white" /> <span>EU Recognized</span>
+              <div className="flex flex-col gap-4 pt-4">
+                <div className="flex items-center gap-4 text-white/80 bg-white/5 p-4 rounded-xl border border-white/10">
+                  <Check className="w-6 h-6 text-green-400" /> 
+                  <div>
+                    <div className="font-bold text-white">Dubai Freezone</div>
+                    <div className="text-sm text-white/50">0% Tax up to 375k AED (~95k EUR)</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 text-white/80 bg-white/5 p-4 rounded-xl border border-white/10">
+                  <Check className="w-6 h-6 text-green-400" /> 
+                  <div>
+                    <div className="font-bold text-white">Beckham Law (Spain)</div>
+                    <div className="text-sm text-white/50">24% Flat Rate up to 600k EUR</div>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Calculator Card */}
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-10 backdrop-blur-xl shadow-2xl">
-              <div className="space-y-8">
+            <div className="glass-panel rounded-3xl p-10 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="space-y-8 relative z-10">
                 <div className="flex justify-between items-end">
                   <label className="text-sm uppercase tracking-widest text-white/50">Annual Income</label>
                   <span className="text-3xl font-bold text-white">€ {income.toLocaleString()}</span>
@@ -99,16 +141,23 @@ export default function Home() {
                   className="py-4"
                 />
                 
-                <div className="pt-8 border-t border-white/10 space-y-2">
-                  <div className="text-sm uppercase tracking-widest text-white/50">Potential Annual Savings</div>
-                  <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70">
-                    € {taxSavings.toLocaleString()}
+                <div className="grid grid-cols-2 gap-4 pt-8 border-t border-white/10">
+                  <div className="space-y-2">
+                    <div className="text-xs uppercase tracking-widest text-white/50">Savings (Beckham)</div>
+                    <div className="text-3xl font-bold text-white">
+                      € {taxSavingsBeckham.toLocaleString()}
+                    </div>
                   </div>
-                  <p className="text-xs text-white/30 pt-2">*Estimated comparison vs. standard German tax rate.</p>
+                  <div className="space-y-2">
+                    <div className="text-xs uppercase tracking-widest text-white/50">Savings (Dubai)</div>
+                    <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                      € {taxSavingsDubai.toLocaleString()}
+                    </div>
+                  </div>
                 </div>
 
-                <Button className="w-full h-14 bg-white text-black font-bold rounded-xl hover:bg-white/90 shadow-lg border-none">
-                  Optimize My Taxes Now
+                <Button className="w-full h-14 bg-white text-black font-bold rounded-xl hover:bg-gray-200 shadow-lg border-none mt-4">
+                  Get Optimized Now
                 </Button>
               </div>
             </div>
@@ -116,25 +165,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: GLOBAL PRESENCE (3D Globe Concept) */}
-      <section className="py-32 bg-black relative">
+      {/* SECTION 3: GLOBAL PRESENCE (Real 3D Globe) */}
+      <section className="py-32 bg-black relative overflow-hidden">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="w-full md:w-1/2 aspect-square relative flex items-center justify-center">
-              {/* Placeholder for 3D Globe - using the generated image */}
-              <div className="relative w-full h-full rounded-full overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.1)] border border-white/10">
-                <img 
-                  src="/images/globe-dark.jpg" 
-                  alt="Global Connections" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]"
-                />
-                {/* Overlay Points */}
-                <div className="absolute top-[30%] left-[45%] w-3 h-3 bg-white rounded-full shadow-[0_0_20px_white] animate-pulse"></div>
-                <div className="absolute top-[45%] left-[55%] w-3 h-3 bg-white rounded-full shadow-[0_0_20px_white] animate-pulse delay-700"></div>
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-50">
-                  <path d="M 250 200 Q 350 150 400 280" stroke="white" strokeWidth="1" fill="none" strokeDasharray="5,5" />
-                </svg>
-              </div>
+            <div className="w-full md:w-1/2 h-[500px] relative flex items-center justify-center">
+              <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full"></div>
+              <Globe3D />
             </div>
             
             <div className="w-full md:w-1/2 space-y-8">
@@ -148,23 +185,29 @@ export default function Home() {
               </h2>
               
               <div className="space-y-6">
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                <div className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer">
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
                     <Building2 className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white">Dubai Freezone</h3>
-                    <p className="text-white/60 mt-2">0% Corporate Tax. 100% Ownership. Full privacy for your business operations.</p>
+                    <p className="text-white/60 mt-2 text-sm">
+                      100% Foreign Ownership. 0% Corporate Tax (Qualifying Income). 
+                      Full repatriation of capital and profits. No currency restrictions.
+                    </p>
                   </div>
                 </div>
                 
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                <div className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer">
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
                     <Coins className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white">Spanish Golden Visa</h3>
-                    <p className="text-white/60 mt-2">Residency through investment. Freedom of movement within the Schengen Zone.</p>
+                    <p className="text-white/60 mt-2 text-sm">
+                      Residency through real estate investment (€500k). 
+                      Freedom of movement within the Schengen Zone. Path to citizenship.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -173,42 +216,65 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 4: THE OFFICE (Trust & Authority) */}
-      <section className="relative h-[80vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/office-cinematic.jpg" 
-            alt="Luxury Office" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
-        
-        <div className="container relative z-10">
-          <div className="max-w-2xl bg-black/80 backdrop-blur-xl p-12 border border-white/10 rounded-none md:rounded-3xl">
-            <h2 className="text-4xl font-bold text-white mb-6">Master Law Firm.</h2>
-            <p className="text-lg text-white/70 mb-8 leading-relaxed">
-              We are not just lawyers. We are strategic partners for your wealth. 
-              Located in the heart of Palma de Mallorca, we serve clients who demand excellence, discretion, and results.
-            </p>
-            <div className="grid grid-cols-2 gap-8 mb-8">
-              <div>
-                <div className="text-3xl font-bold text-white">15+</div>
-                <div className="text-sm text-white/50 uppercase tracking-widest">Years Experience</div>
+      {/* SECTION 4: INSOLVENCY COMPARISON (Deep Research) */}
+      <section className="py-32 bg-black relative">
+        <div className="container">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-6xl font-bold text-white">Second Chance.</h2>
+            <p className="text-xl text-white/60">Why Spain's "Ley de Segunda Oportunidad" beats German Insolvency.</p>
+          </div>
+
+          <div className="glass-panel rounded-3xl overflow-hidden border border-white/10">
+            <div className="grid grid-cols-3 bg-white/5 border-b border-white/10 p-6">
+              <div className="text-white/50 font-bold uppercase tracking-widest text-sm">Feature</div>
+              <div className="text-white font-bold text-center text-xl">Germany 🇩🇪</div>
+              <div className="text-white font-bold text-center text-xl">Spain 🇪🇸</div>
+            </div>
+            
+            <div className="divide-y divide-white/5">
+              <div className="grid grid-cols-3 p-6 hover:bg-white/5 transition-colors">
+                <div className="text-white/70 font-medium">Duration</div>
+                <div className="text-white text-center">3 Years</div>
+                <div className="text-green-400 font-bold text-center">12 - 18 Months</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-white">€50M+</div>
-                <div className="text-sm text-white/50 uppercase tracking-widest">Tax Saved</div>
+              <div className="grid grid-cols-3 p-6 hover:bg-white/5 transition-colors">
+                <div className="text-white/70 font-medium">Debt Discharge</div>
+                <div className="text-white text-center">Complex Process</div>
+                <div className="text-green-400 font-bold text-center">Immediate (BEPI)</div>
+              </div>
+              <div className="grid grid-cols-3 p-6 hover:bg-white/5 transition-colors">
+                <div className="text-white/70 font-medium">Public Record</div>
+                <div className="text-white text-center">Schufa Entry (3 Years)</div>
+                <div className="text-green-400 font-bold text-center">Private (CIRBE only)</div>
+              </div>
+              <div className="grid grid-cols-3 p-6 hover:bg-white/5 transition-colors">
+                <div className="text-white/70 font-medium">Asset Protection</div>
+                <div className="text-white text-center">Strict Seizure</div>
+                <div className="text-green-400 font-bold text-center">Flexible Plans</div>
               </div>
             </div>
-            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black h-12 px-8 rounded-full transition-colors">
-              Meet the Team
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: AI CONCIERGE & CONTACT */}
+      {/* SECTION 5: FAQ (High-Tech Accordion) */}
+      <section className="py-32 bg-black relative border-t border-white/10">
+        <div className="container max-w-4xl">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">Expert Insights.</h2>
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:bg-white/10 transition-all">
+                <AccordionTrigger className="text-white hover:text-white/80 text-lg font-medium py-6">{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-white/60 text-base pb-6 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* SECTION 6: AI CONCIERGE & CONTACT */}
       <section className="py-32 bg-black text-center relative">
         <div className="container max-w-3xl">
           <h2 className="text-5xl font-bold text-white mb-8">Ready to Upgrade?</h2>
@@ -217,13 +283,13 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" className="h-16 px-10 bg-white text-black hover:bg-white/90 rounded-full text-lg font-bold shadow-[0_0_30px_rgba(255,255,255,0.2)] border-none">
+            <Button size="lg" className="h-16 px-10 bg-white text-black hover:bg-gray-200 rounded-full text-lg font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)] border-none transition-transform hover:scale-105">
               Book Consultation
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="h-16 px-10 border-white/20 text-white hover:bg-white/10 rounded-full text-lg"
+              className="h-16 px-10 border-white/20 text-white hover:bg-white/10 rounded-full text-lg backdrop-blur-md"
               onClick={() => setIsChatOpen(!isChatOpen)}
             >
               <MessageSquare className="w-5 h-5 mr-2" />
@@ -235,38 +301,51 @@ export default function Home() {
 
       {/* AI CHATBOT WIDGET (Fixed Bottom Right) */}
       {isChatOpen && (
-        <div className="fixed bottom-8 right-8 w-[350px] h-[500px] bg-black border border-white/20 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300">
+        <div className="fixed bottom-8 right-8 w-[380px] h-[600px] bg-black/90 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300">
           <div className="bg-white/10 p-4 flex justify-between items-center border-b border-white/10">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.5)]">
                 <span className="font-bold text-black text-xs">AI</span>
               </div>
               <div>
                 <div className="font-bold text-white text-sm">Master Law Concierge</div>
                 <div className="text-[10px] text-white/50 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> Online
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Online
                 </div>
               </div>
             </div>
-            <button onClick={() => setIsChatOpen(false)} className="text-white/50 hover:text-white">
-              <ChevronRight className="w-5 h-5 rotate-90" />
+            <button onClick={() => setIsChatOpen(false)} className="text-white/50 hover:text-white transition-colors">
+              <X className="w-5 h-5" />
             </button>
           </div>
-          <div className="flex-1 p-4 space-y-4 overflow-y-auto bg-black/90">
-            <div className="bg-white/10 p-3 rounded-2xl rounded-tl-none text-sm text-white/90 max-w-[80%]">
-              Hello. I am your digital legal assistant. How can I help you optimize your taxes or structure your company today?
+          
+          <div className="flex-1 p-4 space-y-4 overflow-y-auto">
+            <div className="bg-white/10 p-4 rounded-2xl rounded-tl-none text-sm text-white/90 max-w-[85%] border border-white/5">
+              Hello. I am your digital legal assistant. I can help you with:
+              <ul className="list-disc list-inside mt-2 space-y-1 text-white/70">
+                <li>Dubai Company Formation (0% Tax)</li>
+                <li>Spanish Golden Visa</li>
+                <li>Insolvency & Debt Relief</li>
+              </ul>
             </div>
-            <div className="bg-white text-black p-3 rounded-2xl rounded-tr-none text-sm max-w-[80%] ml-auto">
-              Tell me more about the Dubai Freezone setup.
+            <div className="bg-white text-black p-4 rounded-2xl rounded-tr-none text-sm max-w-[85%] ml-auto shadow-lg font-medium">
+              What are the requirements for 0% tax in Dubai?
             </div>
-             <div className="bg-white/10 p-3 rounded-2xl rounded-tl-none text-sm text-white/90 max-w-[80%]">
-              A Dubai Freezone company offers 100% foreign ownership, 0% corporate tax for qualifying income, and full repatriation of profits. It also grants you a UAE residency visa. Would you like to see the setup costs?
+             <div className="bg-white/10 p-4 rounded-2xl rounded-tl-none text-sm text-white/90 max-w-[85%] border border-white/5">
+              To qualify for 0% Corporate Tax in a Dubai Freezone, you must:
+              <br/><br/>
+              1. Maintain "adequate substance" in the UAE.<br/>
+              2. Derive "Qualifying Income" (e.g., trade with other Freezone entities).<br/>
+              3. Comply with Transfer Pricing rules.<br/>
+              <br/>
+              Income up to AED 375,000 (~€95,000) is generally taxed at 0% for small businesses.
             </div>
           </div>
-          <div className="p-4 border-t border-white/10 bg-black">
+          
+          <div className="p-4 border-t border-white/10 bg-black/50">
             <div className="relative">
-              <Input className="bg-white/5 border-white/10 rounded-full pr-10 text-white placeholder:text-white/30" placeholder="Type your question..." />
-              <button className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white">
+              <Input className="bg-white/5 border-white/10 rounded-full pr-12 h-12 text-white placeholder:text-white/30 focus:border-white/30 focus:ring-0" placeholder="Type your question..." />
+              <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-transform">
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -278,9 +357,9 @@ export default function Home() {
       {!isChatOpen && (
         <button 
           onClick={() => setIsChatOpen(true)}
-          className="fixed bottom-8 right-8 w-14 h-14 bg-white text-black rounded-full shadow-[0_0_30px_rgba(255,255,255,0.2)] flex items-center justify-center hover:scale-110 transition-transform z-50"
+          className="fixed bottom-8 right-8 w-16 h-16 bg-white text-black rounded-full shadow-[0_0_40px_rgba(255,255,255,0.3)] flex items-center justify-center hover:scale-110 transition-transform z-50 group"
         >
-          <MessageSquare className="w-6 h-6" />
+          <MessageSquare className="w-7 h-7 group-hover:animate-pulse" />
         </button>
       )}
     </Layout>
