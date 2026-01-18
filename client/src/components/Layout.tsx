@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Globe } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,78 +11,82 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [lang, setLang] = useState("DE");
 
-  // Add scroll listener to change header background
-  if (typeof window !== "undefined") {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    });
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { name: "Firmenbetreuung", href: "#firmenbetreuung" },
-    { name: "Dubai Gründung", href: "#dubai" },
-    { name: "Insolvenz", href: "#insolvenz" },
-    { name: "Über uns", href: "#ueber-uns" },
-    { name: "Kontakt", href: "#kontakt" },
+    { name: "Expertise", href: "#expertise" },
+    { name: "Global Tax", href: "#global-tax" },
+    { name: "Dubai", href: "#dubai" },
+    { name: "Insolvency", href: "#insolvency" },
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-white/20 selection:text-white overflow-x-hidden">
+      {/* Ambient Background Light */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none z-0 opacity-50"></div>
+
       {/* Fixed Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border/50 py-4"
-            : "bg-transparent py-6"
+            ? "bg-black/50 backdrop-blur-xl border-b border-white/5 py-4"
+            : "bg-transparent py-8"
         }`}
       >
         <div className="container flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer group">
-              <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-primary to-yellow-600 rounded-lg shadow-[0_0_15px_rgba(212,175,55,0.3)] group-hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] transition-all duration-300">
-                <span className="text-black font-bold text-xl">M</span>
+            <div className="flex items-center gap-3 cursor-pointer group">
+              <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-white/20 to-white/5 rounded-xl border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-all duration-500">
+                <span className="text-white font-bold text-xl tracking-tighter">M</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold tracking-wide text-white group-hover:text-primary transition-colors">
+                <span className="text-lg font-bold tracking-wide text-white group-hover:text-glow transition-all duration-500">
                   MASTER LAW
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  Firm Since 1997
+                <span className="text-[9px] uppercase tracking-[0.3em] text-white/40">
+                  Global Tax & Legal
                 </span>
               </div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
+                className="px-5 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </nav>
 
-          {/* CTA Buttons */}
+          {/* Right Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="https://wa.me/34657565656" target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" size="icon" className="text-green-500 hover:text-green-400 hover:bg-green-500/10">
-                <MessageCircle className="w-5 h-5" />
-              </Button>
-            </a>
-            <a href="#kontakt">
-              <Button className="bg-gradient-to-r from-primary to-yellow-600 text-black font-bold hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 border-none">
-                Termin buchen
+            {/* Language Switcher */}
+            <div className="flex items-center gap-2 text-xs font-medium text-white/50 bg-white/5 px-3 py-2 rounded-full border border-white/5">
+              <Globe className="w-3 h-3" />
+              <span className={lang === "DE" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("DE")}>DE</span>
+              <span className="text-white/20">|</span>
+              <span className={lang === "EN" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("EN")}>EN</span>
+              <span className="text-white/20">|</span>
+              <span className={lang === "ES" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("ES")}>ES</span>
+            </div>
+
+            <a href="#contact">
+              <Button className="bg-white text-black hover:bg-white/90 font-medium rounded-full px-6 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 border-none">
+                Book Consultation
               </Button>
             </a>
           </div>
@@ -91,34 +95,27 @@ export default function Layout({ children }: LayoutProps) {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="text-white">
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-background/95 backdrop-blur-xl border-l border-border">
-                <div className="flex flex-col gap-8 mt-10">
+              <SheetContent side="right" className="bg-black/90 backdrop-blur-2xl border-l border-white/10 w-full sm:w-[400px]">
+                <div className="flex flex-col gap-8 mt-20 px-6">
                   {navLinks.map((link) => (
                     <a
                       key={link.name}
                       href={link.href}
-                      className="text-2xl font-light text-foreground hover:text-primary transition-colors"
+                      className="text-3xl font-light text-white/80 hover:text-white transition-colors"
                     >
                       {link.name}
                     </a>
                   ))}
-                  <div className="flex flex-col gap-4 mt-4">
-                    <a href="https://wa.me/34657565656" target="_blank" rel="noopener noreferrer" className="w-full">
-                      <Button variant="outline" className="w-full border-green-500/50 text-green-500 hover:bg-green-500/10">
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        WhatsApp
-                      </Button>
-                    </a>
-                    <a href="#kontakt" className="w-full">
-                      <Button className="w-full bg-gradient-to-r from-primary to-yellow-600 text-black font-bold">
-                        Termin buchen
-                      </Button>
-                    </a>
-                  </div>
+                  <div className="h-px w-full bg-white/10 my-4"></div>
+                  <a href="#contact" className="w-full">
+                    <Button className="w-full bg-white text-black font-bold h-12 rounded-xl text-lg">
+                      Book Consultation
+                    </Button>
+                  </a>
                 </div>
               </SheetContent>
             </Sheet>
@@ -127,78 +124,53 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="pt-0">
+      <main className="relative z-10">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="bg-card border-t border-border py-12 mt-20">
-        <div className="container grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 flex items-center justify-center bg-primary rounded-md">
-                <span className="text-black font-bold">M</span>
+      <footer className="bg-black border-t border-white/5 py-20 mt-20 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/5 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div className="container relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div className="col-span-1 md:col-span-2 space-y-6">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 flex items-center justify-center bg-white/10 rounded-lg border border-white/10">
+                  <span className="text-white font-bold">M</span>
+                </div>
+                <span className="text-xl font-bold text-white tracking-wide">MASTER LAW</span>
               </div>
-              <span className="text-xl font-bold text-white">MASTER LAW FIRM</span>
+              <p className="text-white/50 max-w-md leading-relaxed">
+                International legal structures, tax optimization, and insolvency protection for high-net-worth individuals and corporations.
+              </p>
             </div>
-            <p className="text-muted-foreground max-w-md mb-6">
-              Seit 1997 Ihr verlässlicher Partner für internationales Recht, Firmenstrukturen und Insolvenzverwaltung.
-              "Machen Sie es lieber gleich richtig!"
-            </p>
-            <div className="flex gap-4">
-              {/* Social Icons Placeholder */}
-              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-black transition-colors cursor-pointer">
-                <span className="sr-only">Instagram</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-black transition-colors cursor-pointer">
-                <span className="sr-only">Facebook</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </div>
+            
+            <div>
+              <h3 className="text-white font-medium mb-6">Legal</h3>
+              <ul className="space-y-4 text-white/50">
+                <li><Link href="/impressum"><a className="hover:text-white transition-colors">Imprint</a></Link></li>
+                <li><Link href="/privacy"><a className="hover:text-white transition-colors">Privacy Policy</a></Link></li>
+                <li><Link href="/terms"><a className="hover:text-white transition-colors">Terms of Service</a></Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-white font-medium mb-6">Contact</h3>
+              <ul className="space-y-4 text-white/50">
+                <li>Avda. Alexandre Rosselló 15, 6º D<br/>07002 Palma de Mallorca</li>
+                <li>+34 871 24 24 04</li>
+                <li>info@master-law.de</li>
+              </ul>
             </div>
           </div>
           
-          <div>
-            <h3 className="text-white font-bold mb-4">Rechtliches</h3>
-            <ul className="space-y-2">
-              <li><Link href="/impressum"><a className="text-muted-foreground hover:text-primary transition-colors">Impressum</a></Link></li>
-              <li><Link href="/datenschutz"><a className="text-muted-foreground hover:text-primary transition-colors">Datenschutz</a></Link></li>
-              <li><Link href="/agb"><a className="text-muted-foreground hover:text-primary transition-colors">AGB</a></Link></li>
-            </ul>
+          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
+            <p>&copy; {new Date().getFullYear()} Master Law Firm SL. All rights reserved.</p>
+            <p>Designed with precision.</p>
           </div>
-
-          <div>
-            <h3 className="text-white font-bold mb-4">Kontakt</h3>
-            <ul className="space-y-3 text-muted-foreground">
-              <li className="flex items-start gap-3">
-                <div className="mt-1 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                <span>Avda. Alexandre Rosselló 15, 5º H<br/>07002 Palma de Mallorca</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="text-primary"><Phone className="w-4 h-4" /></div>
-                <span>+34 871180619</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="text-green-500"><MessageCircle className="w-4 h-4" /></div>
-                <span>+34 657 56 56 56 (24h WhatsApp)</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="container mt-12 pt-8 border-t border-border/30 text-center text-muted-foreground text-sm">
-          <p>&copy; {new Date().getFullYear()} Master Law Firm SL. Alle Rechte vorbehalten.</p>
         </div>
       </footer>
-
-      {/* Floating WhatsApp Button */}
-      <a
-        href="https://wa.me/34657565656"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.5)] hover:scale-110 hover:shadow-[0_0_30px_rgba(34,197,94,0.7)] transition-all duration-300 animate-in fade-in slide-in-from-bottom-10"
-      >
-        <MessageCircle className="w-8 h-8" />
-      </a>
     </div>
   );
 }

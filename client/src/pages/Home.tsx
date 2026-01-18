@@ -1,410 +1,252 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Check, Shield, Globe, Building2, Scale, Clock, Award, Star, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Check, Shield, Globe, Building2, Scale, Clock, Calendar, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 export default function Home() {
+  const [isHovered, setIsHovered] = useState<number | null>(null);
+
+  const services = [
+    {
+      id: 1,
+      title: "Corporate Structure",
+      subtitle: "Master Law Firm",
+      desc: "Strategic company formation and management. Protect your assets with legally robust structures.",
+      icon: "/images/icon-glass-company.png",
+      features: ["Asset Protection", "Holding Structures", "Legal Compliance"]
+    },
+    {
+      id: 2,
+      title: "Global Tax Saving",
+      subtitle: "Beckham Law & Optimization",
+      desc: "Intelligent tax planning for high-net-worth individuals. Utilize the Lex Beckham (24% flat tax).",
+      icon: "/images/icon-glass-tax.png",
+      features: ["Lex Beckham Application", "Tax Residency Planning", "Fiscal Efficiency"]
+    },
+    {
+      id: 3,
+      title: "Dubai & Golden Visa",
+      subtitle: "International Expansion",
+      desc: "Seamless relocation to Dubai or Spain via Golden Visa. 0% tax strategies and residency.",
+      icon: "/images/icon-glass-globe.png",
+      features: ["UAE Company Formation", "Golden Visa Spain", "Emirates ID Service"]
+    },
+    {
+      id: 4,
+      title: "Insolvency Protection",
+      subtitle: "Discreet Resolution",
+      desc: "Fast and discreet personal insolvency proceedings in Spain. A fresh start for your financial future.",
+      icon: "/images/icon-glass-shield.png",
+      features: ["Debt Restructuring", "Legal Representation", "Fast-Track Process"]
+    }
+  ];
+
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-dubai-gold.jpg" 
-            alt="Dubai Skyline at Night" 
-            className="w-full h-full object-cover"
+            src="/images/hero-titanium-glass.jpg" 
+            alt="Titanium Glass Abstract" 
+            className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--background)_100%)]"></div>
         </div>
 
-        <div className="container relative z-10 pt-20">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+        <div className="container relative z-10">
+          <div className="max-w-5xl mx-auto text-center space-y-10">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl"
             >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span className="text-sm font-medium text-primary-foreground tracking-wide">PREMIUM RECHTSBERATUNG SEIT 1997</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_white]"></span>
+              <span className="text-xs font-medium text-white tracking-[0.2em] uppercase">Private Client Services</span>
             </motion.div>
 
             <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight"
+              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+              className="text-6xl md:text-8xl font-bold text-white leading-[1.1] tracking-tight"
             >
-              Machen Sie es lieber <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-primary drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">
-                gleich richtig.
+              Financial Freedom. <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white/80 to-white/40 filter drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+                Legal Security.
               </span>
             </motion.h1>
 
             <motion.p 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
+              transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+              className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto leading-relaxed font-light"
             >
-              Internationale Firmenstrukturen, Insolvenzschutz und Dubai-Gründungen. 
-              Wir schützen Ihr Vermögen und sichern Ihre Zukunft.
+              We engineer bespoke legal and tax structures for the global elite. 
+              From Dubai to Palma, we protect what you have built.
             </motion.p>
 
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+              transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8"
             >
-              <a href="#pakete" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg bg-primary text-black font-bold hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all duration-300 rounded-full">
-                  Lösungen entdecken
-                </Button>
-              </a>
-              <a href="#kontakt" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 text-white hover:bg-white/10 hover:border-white/40 backdrop-blur-sm rounded-full">
-                  Kostenloses Erstgespräch
-                </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button size="lg" className="h-16 px-10 text-lg bg-white text-black hover:bg-white/90 rounded-full font-medium shadow-[0_0_40px_rgba(255,255,255,0.15)] transition-all duration-500 hover:scale-105 border-none">
+                    Book Consultation
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="bg-black/90 backdrop-blur-2xl border border-white/10 text-white sm:max-w-[500px]">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-light text-center mb-4">Schedule Your Strategy Session</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-xl bg-white/5 border border-white/5 flex items-center gap-4 cursor-pointer hover:bg-white/10 transition-colors">
+                      <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                        <Calendar className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-medium">Online Consultation</div>
+                        <div className="text-sm text-white/50">Via Zoom or Google Meet</div>
+                      </div>
+                      <ChevronRight className="w-5 h-5 text-white/30 ml-auto" />
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/5 border border-white/5 flex items-center gap-4 cursor-pointer hover:bg-white/10 transition-colors">
+                      <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                        <Building2 className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-medium">In-Person Meeting</div>
+                        <div className="text-sm text-white/50">Palma de Mallorca Office</div>
+                      </div>
+                      <ChevronRight className="w-5 h-5 text-white/30 ml-auto" />
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+              
+              <a href="#expertise" className="text-white/50 hover:text-white transition-colors flex items-center gap-2 text-sm uppercase tracking-widest font-medium group">
+                Explore Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50"
-        >
-          <span className="text-xs uppercase tracking-widest">Scrollen</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
-        </motion.div>
       </section>
 
-      {/* Trust Indicators */}
-      <section className="py-10 border-b border-white/5 bg-black/40 backdrop-blur-sm">
+      {/* Bento Grid Services Section */}
+      <section id="expertise" className="py-32 relative">
         <div className="container">
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            {/* Logos would go here, using text placeholders for now */}
-            <span className="text-lg font-bold text-white/80 flex items-center gap-2"><Globe className="w-5 h-5"/> Dubai Chamber</span>
-            <span className="text-lg font-bold text-white/80 flex items-center gap-2"><Award className="w-5 h-5"/> JuraForum Premium</span>
-            <span className="text-lg font-bold text-white/80 flex items-center gap-2"><Building2 className="w-5 h-5"/> IHK Partner</span>
-            <span className="text-lg font-bold text-white/80 flex items-center gap-2"><Scale className="w-5 h-5"/> Spanische Handelskammer</span>
-          </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                onMouseEnter={() => setIsHovered(service.id)}
+                onMouseLeave={() => setIsHovered(null)}
+                className="group relative overflow-hidden rounded-[2rem] bg-white/[0.03] border border-white/5 backdrop-blur-sm hover:bg-white/[0.06] hover:border-white/10 transition-all duration-500 min-h-[400px] flex flex-col p-10"
+              >
+                {/* Spotlight Effect */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.06), transparent 40%)`
+                  }}
+                ></div>
 
-      {/* Main Products Section */}
-      <section id="pakete" className="py-24 relative">
-        <div className="container">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-white">Unsere Premium Lösungen</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Maßgeschneiderte Pakete für Ihren geschäftlichen Erfolg und rechtliche Sicherheit.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Product 1: Firmenbetreuung */}
-            <div id="firmenbetreuung" className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-b from-primary/50 to-transparent rounded-2xl blur opacity-20 group-hover:opacity-75 transition duration-500"></div>
-              <Card className="relative h-full bg-card border-white/10 overflow-hidden flex flex-col">
-                <div className="h-48 overflow-hidden relative">
-                  <img src="/images/icon-company.jpg" alt="Firmenbetreuung" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                </div>
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 border border-primary/20">
-                    <Building2 className="w-6 h-6 text-primary" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex justify-between items-start mb-8">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center backdrop-blur-md shadow-lg group-hover:scale-110 transition-transform duration-500">
+                      <img src={service.icon} alt={service.title} className="w-10 h-10 object-contain opacity-90" />
+                    </div>
+                    <div className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-widest text-white/50">
+                      {service.subtitle}
+                    </div>
                   </div>
-                  <CardTitle className="text-2xl text-white">Firmenbetreuung</CardTitle>
-                  <CardDescription className="text-base">Unternehmensberatung & Steuersparmodelle</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4 flex-grow">
-                  <p className="text-muted-foreground">
-                    Optimierung von Firmenstrukturen und legale Steuersparmodelle. Gehen Sie dorthin, wo Sie am besten behandelt werden.
-                  </p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2 text-sm text-gray-300">
-                      <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                      <span>Schutz des Vermögens vor Rechtsstreitigkeiten</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-gray-300">
-                      <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                      <span>Legale Steueroptimierung (Offshore)</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-gray-300">
-                      <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                      <span>Reduzierung bürokratischer Pflichten</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-white/5 hover:bg-primary hover:text-black border border-white/10 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]">
-                    Jetzt anfragen <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
 
-            {/* Product 2: Dubai Gründung */}
-            <div id="dubai" className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-b from-primary to-transparent rounded-2xl blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
-              <Card className="relative h-full bg-card border-primary/30 overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-                <div className="absolute top-4 right-4 z-20">
-                  <span className="px-3 py-1 bg-primary text-black text-xs font-bold rounded-full uppercase tracking-wider">Bestseller</span>
-                </div>
-                <div className="h-48 overflow-hidden relative">
-                  <img src="/images/icon-dubai.jpg" alt="Dubai Gründung" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                </div>
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(212,175,55,0.5)]">
-                    <Globe className="w-6 h-6 text-black" />
-                  </div>
-                  <CardTitle className="text-2xl text-white">Firmengründung Dubai</CardTitle>
-                  <CardDescription className="text-base">Starten Sie im Wirtschaftszentrum der Zukunft</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4 flex-grow">
-                  <p className="text-muted-foreground">
-                    Nutzen Sie die Vorteile der VAE: 0% Einkommensteuer, 100% Eigentum und strategische Lage. Wir sind Mitglied der Dubai Chamber.
-                  </p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2 text-sm text-gray-300">
-                      <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                      <span>Komplette Gründungsabwicklung</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-gray-300">
-                      <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                      <span>Visa & Emirates ID Service</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-gray-300">
-                      <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                      <span>Bankkonto-Eröffnung inklusive</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-primary text-black hover:bg-yellow-400 font-bold shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300">
-                    Paket buchen <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
+                  <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-glow transition-all duration-300">{service.title}</h3>
+                  <p className="text-lg text-white/60 mb-8 leading-relaxed font-light">{service.desc}</p>
 
-            {/* Product 3: Insolvenz */}
-            <div id="insolvenz" className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-b from-primary/50 to-transparent rounded-2xl blur opacity-20 group-hover:opacity-75 transition duration-500"></div>
-              <Card className="relative h-full bg-card border-white/10 overflow-hidden flex flex-col">
-                <div className="h-48 overflow-hidden relative">
-                  <img src="/images/icon-insolvency.jpg" alt="Insolvenzverwaltung" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                </div>
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 border border-primary/20">
-                    <Shield className="w-6 h-6 text-primary" />
+                  <div className="mt-auto space-y-3">
+                    {service.features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3 text-sm text-white/40 group-hover:text-white/70 transition-colors">
+                        <div className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-white transition-colors"></div>
+                        {feature}
+                      </div>
+                    ))}
                   </div>
-                  <CardTitle className="text-2xl text-white">Insolvenz & Schutz</CardTitle>
-                  <CardDescription className="text-base">Professionelle Insolvenzverwaltung</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4 flex-grow">
-                  <p className="text-muted-foreground">
-                    Diskrete und effiziente Unterstützung bei Insolvenzverfahren und Schuldenmanagement für Firmen und Privatpersonen.
-                  </p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2 text-sm text-gray-300">
-                      <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                      <span>Schuldnerberatung & Verhandlungen</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-gray-300">
-                      <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                      <span>Schutz vor Vollstreckungsmaßnahmen</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-gray-300">
-                      <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                      <span>Neustart-Strategien</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-white/5 hover:bg-primary hover:text-black border border-white/10 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]">
-                    Beratung anfordern <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* About Section */}
-      <section id="ueber-uns" className="py-24 bg-secondary/30 relative overflow-hidden">
-        <div className="container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <h2 className="text-3xl md:text-5xl font-bold text-white">
-                Erfahrung, die <br/>
-                <span className="text-primary">Sicherheit schafft.</span>
-              </h2>
-              <div className="space-y-6 text-lg text-muted-foreground">
-                <p>
-                  Die Master Law Firm SL mit Sitz in Palma de Mallorca bietet seit 1997 umfassende Rechtsberatung an. 
-                  Unser Ziel ist es, stets durch erstrangige Leistungen bestmögliche Ergebnisse für unsere Mandantschaft zu erwirken.
-                </p>
-                <p>
-                  Wir setzen auf Diskretion, Effizienz und Verlässlichkeit. Unsere Erfahrung erstreckt sich über nationale und internationale Grenzen hinweg, 
-                  um Ihnen Lösungen zu bieten, die funktionieren.
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-6 pt-4">
-                <div className="p-4 rounded-xl bg-background border border-white/5">
-                  <div className="text-3xl font-bold text-primary mb-1">1997</div>
-                  <div className="text-sm text-muted-foreground">Gegründet</div>
-                </div>
-                <div className="p-4 rounded-xl bg-background border border-white/5">
-                  <div className="text-3xl font-bold text-primary mb-1">24h</div>
-                  <div className="text-sm text-muted-foreground">Service</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="absolute -inset-4 bg-primary/20 rounded-3xl blur-xl"></div>
-              <img 
-                src="/images/hero-palma-office.jpg" 
-                alt="Kanzlei Büro" 
-                className="relative rounded-2xl shadow-2xl border border-white/10 w-full"
-              />
-              
-              {/* Floating Card */}
-              <div className="absolute -bottom-10 -left-10 bg-card p-6 rounded-xl border border-white/10 shadow-xl max-w-xs hidden md:block">
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500">
-                    <MessageCircle className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-white">WhatsApp Service</div>
-                    <div className="text-xs text-muted-foreground">Immer erreichbar</div>
+                  <div className="absolute bottom-10 right-10 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                    <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center">
+                      <ArrowRight className="w-5 h-5" />
+                    </div>
                   </div>
                 </div>
-                <p className="text-sm text-gray-400">"In dringlichen Fällen rufen wir Sie sofort zurück."</p>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="kontakt" className="py-24 relative">
-        <div className="container max-w-5xl">
-          <div className="bg-card border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
-            <div className="grid grid-cols-1 lg:grid-cols-5">
-              {/* Contact Info */}
-              <div className="lg:col-span-2 bg-secondary p-10 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-6">Kontaktieren Sie uns</h3>
-                  <p className="text-muted-foreground mb-8">
-                    Unser kompetentes Team ist gerne für Sie da. Wir melden uns innerhalb von 24 Stunden.
-                  </p>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <Phone className="w-5 h-5 text-primary mt-1" />
-                      <div>
-                        <div className="font-medium text-white">Telefon</div>
-                        <div className="text-muted-foreground">+34 871180619</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <MessageCircle className="w-5 h-5 text-primary mt-1" />
-                      <div>
-                        <div className="font-medium text-white">WhatsApp</div>
-                        <div className="text-muted-foreground">+34 657 56 56 56</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <Building2 className="w-5 h-5 text-primary mt-1" />
-                      <div>
-                        <div className="font-medium text-white">Büro</div>
-                        <div className="text-muted-foreground">
-                          Avda. Alexandre Rosselló 15, 5º H<br/>
-                          07002 Palma de Mallorca
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <Clock className="w-5 h-5 text-primary mt-1" />
-                      <div>
-                        <div className="font-medium text-white">Öffnungszeiten</div>
-                        <div className="text-muted-foreground">
-                          Mo - Fr: 10:00 - 17:00<br/>
-                          Sa: 10:00 - 14:00
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+      <section id="contact" className="py-32 relative border-t border-white/5">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Start the Conversation.</h2>
+            <p className="text-xl text-white/50 font-light">
+              Discretion and efficiency are our core values. Contact us to discuss your case.
+            </p>
+          </div>
+
+          <div className="bg-white/[0.02] border border-white/5 rounded-[2rem] p-8 md:p-12 backdrop-blur-sm">
+            <form className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest text-white/40 ml-1">First Name</label>
+                  <Input className="bg-white/5 border-white/10 h-14 rounded-xl text-white focus:border-white/30 focus:bg-white/10 transition-all" />
                 </div>
-                
-                <div className="mt-10">
-                  <div className="w-full h-32 rounded-xl bg-black/50 overflow-hidden relative">
-                    {/* Map Placeholder */}
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
-                      Karte wird geladen...
-                    </div>
-                  </div>
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest text-white/40 ml-1">Last Name</label>
+                  <Input className="bg-white/5 border-white/10 h-14 rounded-xl text-white focus:border-white/30 focus:bg-white/10 transition-all" />
                 </div>
               </div>
 
-              {/* Contact Form */}
-              <div className="lg:col-span-3 p-10 bg-background">
-                <h3 className="text-2xl font-bold text-white mb-2">Termin vereinbaren</h3>
-                <p className="text-muted-foreground mb-8">Füllen Sie das Formular aus für ein kostenloses Erstgespräch.</p>
-                
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300">Vorname</label>
-                      <Input placeholder="Max" className="bg-secondary/50 border-white/10 focus:border-primary/50" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300">Nachname</label>
-                      <Input placeholder="Mustermann" className="bg-secondary/50 border-white/10 focus:border-primary/50" />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">E-Mail Adresse</label>
-                    <Input type="email" placeholder="max@beispiel.de" className="bg-secondary/50 border-white/10 focus:border-primary/50" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Interesse an</label>
-                    <select className="flex h-10 w-full rounded-md border border-white/10 bg-secondary/50 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-white">
-                      <option>Firmenbetreuung</option>
-                      <option>Firmengründung Dubai</option>
-                      <option>Insolvenzberatung</option>
-                      <option>Sonstiges</option>
-                    </select>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Nachricht</label>
-                    <Textarea placeholder="Beschreiben Sie kurz Ihr Anliegen..." className="min-h-[120px] bg-secondary/50 border-white/10 focus:border-primary/50" />
-                  </div>
-                  
-                  <Button size="lg" className="w-full bg-primary text-black font-bold hover:bg-yellow-400 transition-all duration-300">
-                    Anfrage absenden
-                  </Button>
-                </form>
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-white/40 ml-1">Email Address</label>
+                <Input type="email" className="bg-white/5 border-white/10 h-14 rounded-xl text-white focus:border-white/30 focus:bg-white/10 transition-all" />
               </div>
-            </div>
+
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-white/40 ml-1">Topic</label>
+                <select className="w-full bg-white/5 border border-white/10 h-14 rounded-xl text-white px-4 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all appearance-none">
+                  <option className="bg-black">Corporate Structure</option>
+                  <option className="bg-black">Global Tax Saving (Beckham Law)</option>
+                  <option className="bg-black">Dubai / Golden Visa</option>
+                  <option className="bg-black">Insolvency</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-white/40 ml-1">Message</label>
+                <Textarea className="bg-white/5 border-white/10 min-h-[150px] rounded-xl text-white focus:border-white/30 focus:bg-white/10 transition-all resize-none p-4" />
+              </div>
+
+              <Button size="lg" className="w-full h-16 bg-white text-black hover:bg-white/90 rounded-xl font-bold text-lg shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 border-none">
+                Send Request
+              </Button>
+            </form>
           </div>
         </div>
       </section>
