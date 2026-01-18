@@ -1,0 +1,7 @@
+- [ ] **Bilder:** Cinematische Real-Bilder generieren (Dubai Skyline, High-End Office, Globus)
+- [ ] **Struktur:** `Home.tsx` komplett neu schreiben (Scrollytelling statt Grid)
+- [ ] **Feature:** Interaktiven Steuer-Rechner (Slider) implementieren
+- [ ] **Feature:** 3D-Globus (Three.js oder Video-Loop) integrieren
+- [ ] **Feature:** AI-Concierge UI (unten rechts, elegant)
+- [ ] **Design:** Parallax-Effekte und Fullscreen-Sektionen
+- [ ] **Sprachen:** Prominenten Sprach-Umschalter einbauen
