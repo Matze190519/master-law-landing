@@ -9,10 +9,13 @@ import { Slider } from "@/components/ui/slider";
 import Globe3D from "@/components/Globe3D";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { faqs } from "@/data/faqs";
+import { translations } from "@/data/translations";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default function Home() {
   const [income, setIncome] = useState(200000);
+  const [lang, setLang] = useState<"EN" | "DE" | "ES">("DE");
+  const t = translations[lang];
   const [taxSavingsBeckham, setTaxSavingsBeckham] = useState(0);
   const [taxSavingsDubai, setTaxSavingsDubai] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -39,18 +42,18 @@ export default function Home() {
   return (
     <Layout>
       {/* LANGUAGE SWITCHER (Fixed Top Right) */}
-      <div className="fixed top-6 right-6 z-50 flex gap-2 bg-black/50 backdrop-blur-md p-1 rounded-full border border-white/10">
-        {["DE", "EN", "ES"].map((lang) => (
+      <div className="fixed top-4 right-4 md:top-6 md:right-6 z-[100] flex gap-2 bg-black/80 backdrop-blur-xl p-1 rounded-full border border-white/20 shadow-2xl">
+        {(["DE", "EN", "ES"] as const).map((l) => (
           <button
-            key={lang}
-            onClick={() => setLanguage(lang)}
-            className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-              language === lang 
-                ? "bg-white text-black shadow-[0_0_10px_rgba(255,255,255,0.5)]" 
+            key={l}
+            onClick={() => setLang(l)}
+            className={`px-3 py-2 md:py-1 rounded-full text-xs font-bold transition-all ${
+              lang === l 
+                ? "bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.6)]" 
                 : "text-white/50 hover:text-white"
             }`}
           >
-            {lang}
+            {l}
           </button>
         ))}
       </div>
@@ -71,19 +74,17 @@ export default function Home() {
             <span className="text-xs font-bold text-white tracking-[0.3em] uppercase">The Future of Wealth</span>
           </div>
           
-          <h1 className="text-6xl md:text-9xl font-bold text-white tracking-tighter leading-none drop-shadow-2xl">
-            BEYOND <br/> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500">BORDERS.</span>
+          <h1 className="text-5xl md:text-9xl font-bold text-white tracking-tighter leading-none drop-shadow-2xl">
+            {t.heroTitle}
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-lg">
-            Master Law architects your global freedom. <br/>
-            <span className="text-white font-medium">Dubai Company Formation. Spanish Golden Visa. Tax Optimization.</span>
+          <p className="text-lg md:text-2xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-lg px-4">
+            {t.heroSubtitle}
           </p>
 
-          <div className="pt-12">
-            <Button size="lg" className="h-16 px-12 rounded-full bg-white text-black hover:bg-gray-200 text-lg font-bold tracking-wide shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border-none">
-              Start Your Journey
+          <div className="pt-8 md:pt-12">
+            <Button size="lg" className="h-14 md:h-16 px-8 md:px-12 rounded-full bg-white text-black hover:bg-gray-200 text-base md:text-lg font-bold tracking-wide shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border-none">
+              {t.ctaStart}
             </Button>
           </div>
         </div>
@@ -96,13 +97,11 @@ export default function Home() {
         <div className="container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
-              <h2 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-                Stop Paying <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Too Much.</span>
+              <h2 className="text-4xl md:text-7xl font-bold text-white leading-tight">
+                {t.taxTitle}
               </h2>
-              <p className="text-xl text-white/60 font-light leading-relaxed">
-                Compare your current tax burden with our optimized solutions. 
-                <strong>Dubai Freezone (0% Tax)</strong> or <strong>Spanish Beckham Law (24% Flat)</strong>.
+              <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
+                {t.taxSubtitle}
               </p>
               
               <div className="flex flex-col gap-4 pt-4">
@@ -129,8 +128,8 @@ export default function Home() {
               
               <div className="space-y-8 relative z-10">
                 <div className="flex justify-between items-end">
-                  <label className="text-sm uppercase tracking-widest text-white/50">Annual Income</label>
-                  <span className="text-3xl font-bold text-white">€ {income.toLocaleString()}</span>
+                  <label className="text-xs md:text-sm uppercase tracking-widest text-white/50">{t.incomeLabel}</label>
+                  <span className="text-2xl md:text-3xl font-bold text-white">€ {income.toLocaleString()}</span>
                 </div>
                 
                 <Slider 
@@ -143,14 +142,14 @@ export default function Home() {
                 
                 <div className="grid grid-cols-2 gap-4 pt-8 border-t border-white/10">
                   <div className="space-y-2">
-                    <div className="text-xs uppercase tracking-widest text-white/50">Savings (Beckham)</div>
-                    <div className="text-3xl font-bold text-white">
+                    <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsBeckham}</div>
+                    <div className="text-xl md:text-3xl font-bold text-white">
                       € {taxSavingsBeckham.toLocaleString()}
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="text-xs uppercase tracking-widest text-white/50">Savings (Dubai)</div>
-                    <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                    <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsDubai}</div>
+                    <div className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
                       € {taxSavingsDubai.toLocaleString()}
                     </div>
                   </div>
@@ -216,8 +215,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SECTION 3.5: PACKAGES (Restored & Upgraded) */}
+      <section className="py-20 md:py-32 bg-black relative">
+        <div className="container">
+          <h2 className="text-4xl md:text-6xl font-bold text-white text-center mb-16">{t.packagesTitle}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Package 1 */}
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 hover:border-white/30 transition-all group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                <Building2 className="w-24 h-24 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">{t.package1Title}</h3>
+              <p className="text-white/60 mb-8 h-20">{t.package1Desc}</p>
+              <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl">{t.bookBtn}</Button>
+            </div>
+            {/* Package 2 */}
+            <div className="glass-panel p-8 rounded-3xl border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:scale-105 transition-transform relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent"></div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-white mb-4">{t.package2Title}</h3>
+                <p className="text-white/60 mb-8 h-20">{t.package2Desc}</p>
+                <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl shadow-lg">{t.bookBtn}</Button>
+              </div>
+            </div>
+            {/* Package 3 */}
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 hover:border-white/30 transition-all group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                <Shield className="w-24 h-24 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">{t.package3Title}</h3>
+              <p className="text-white/60 mb-8 h-20">{t.package3Desc}</p>
+              <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl">{t.bookBtn}</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 4: INSOLVENCY COMPARISON (Deep Research) */}
-      <section className="py-32 bg-black relative">
+      <section className="py-20 md:py-32 bg-black relative">
         <div className="container">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-6xl font-bold text-white">Second Chance.</h2>
@@ -284,7 +319,7 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" className="h-16 px-10 bg-white text-black hover:bg-gray-200 rounded-full text-lg font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)] border-none transition-transform hover:scale-105">
-              Book Consultation
+              {t.bookBtn}
             </Button>
             <Button 
               size="lg" 
@@ -293,7 +328,7 @@ export default function Home() {
               onClick={() => setIsChatOpen(!isChatOpen)}
             >
               <MessageSquare className="w-5 h-5 mr-2" />
-              Ask AI Assistant
+              {t.chatBtn}
             </Button>
           </div>
         </div>

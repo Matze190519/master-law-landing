@@ -1,0 +1,5 @@
+- [ ] **Sprachen:** `translations.ts` erstellen und in `Home.tsx` integrieren
+- [ ] **Mobile Fix:** CSS Media Queries für Steuer-Rechner und Globus anpassen
+- [ ] **Pakete:** "Pricing Section" mit 3 Cards (Firma, Dubai, Insolvenz) wieder einbauen
+- [ ] **UI:** Chatbot-Button und Kalender-Button fixieren (z-index erhöhen)
+- [ ] **Design:** Sicherstellen, dass die neuen Elemente zum "Titanium"-Look passen
