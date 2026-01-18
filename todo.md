@@ -1,0 +1,4 @@
+- [ ] Dark Mode in `index.html` erzwingen (Klasse `dark` im `html`-Tag hinzufügen)
+- [ ] Hintergrundfarbe in `index.css` explizit auf Schwarz setzen, um White-on-White zu verhindern
+- [ ] Mobile-Darstellung der Bento-Grid-Karten prüfen und optimieren
+- [ ] Sicherstellen, dass alle Texte lesbar sind (Kontrastprüfung)
