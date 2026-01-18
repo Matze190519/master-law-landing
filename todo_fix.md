@@ -1,0 +1,4 @@
+- [ ] `index.css`: Alle `oklch` Farben durch Hex-Codes ersetzen (#000000, #FFFFFF)
+- [ ] `Home.tsx`: `motion.div` Animationen entfernen oder `initial={{ opacity: 1 }}` setzen
+- [ ] `Layout.tsx`: Hintergrund-Effekte vereinfachen, um Rendering-Probleme zu vermeiden
+- [ ] Testen: Sicherstellen, dass Text sofort sichtbar ist
