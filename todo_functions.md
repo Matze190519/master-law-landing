@@ -1,0 +1,4 @@
+- [ ] **Kalender-Modal:** `Dialog` Komponente in `Home.tsx` für alle "Book Consultation" Buttons integrieren
+- [ ] **Chat-Button:** `z-index` erhöhen und `onClick` Handler prüfen
+- [ ] **Calendly:** Platzhalter-Iframe in das Modal einbauen
+- [ ] **Mobile:** Testen, ob das Modal auf dem Handy korrekt scrollbar ist

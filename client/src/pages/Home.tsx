@@ -19,6 +19,7 @@ export default function Home() {
   const [taxSavingsBeckham, setTaxSavingsBeckham] = useState(0);
   const [taxSavingsDubai, setTaxSavingsDubai] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [language, setLanguage] = useState("EN");
 
   // Calculate tax savings
@@ -397,6 +398,44 @@ export default function Home() {
           <MessageSquare className="w-7 h-7 group-hover:animate-pulse" />
         </button>
       )}
+      {/* FIXED BOTTOM BAR (Mobile) or FLOATING BUTTONS (Desktop) */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur-xl border-t border-white/10 md:bg-transparent md:border-none md:bottom-8 md:right-8 md:left-auto md:p-0 z-[100] flex gap-4 justify-center md:flex-col">
+        <Button 
+          size="lg" 
+          onClick={() => setIsCalendarOpen(true)}
+          className="h-14 md:h-16 px-6 md:px-10 bg-white text-black hover:bg-gray-200 rounded-full text-base md:text-lg font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)] border-none transition-transform hover:scale-105"
+        >
+          {t.bookBtn}
+        </Button>
+        <Button 
+          size="lg" 
+          variant="outline" 
+          className="h-14 md:h-16 px-6 md:px-10 border-white/20 text-white hover:bg-white/10 rounded-full text-base md:text-lg backdrop-blur-md"
+          onClick={() => setIsChatOpen(!isChatOpen)}
+        >
+          <MessageSquare className="w-5 h-5 mr-2" />
+          {t.chatBtn}
+        </Button>
+      </div>
+
+      {/* CALENDAR MODAL */}
+      <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
+        <DialogContent className="sm:max-w-[900px] h-[80vh] bg-black/95 border-white/10 backdrop-blur-xl p-0 overflow-hidden">
+          <DialogHeader className="p-6 border-b border-white/10">
+            <DialogTitle className="text-2xl font-bold text-white">{t.bookBtn}</DialogTitle>
+          </DialogHeader>
+          <div className="w-full h-full bg-white">
+            {/* Placeholder for Calendly - Replace src with actual Calendly URL */}
+            <iframe 
+              src="https://calendly.com/master-law-firm/consultation" 
+              width="100%" 
+              height="100%" 
+              frameBorder="0"
+              title="Calendly Scheduling"
+            ></iframe>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 }
