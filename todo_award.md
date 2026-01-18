@@ -1,0 +1,13 @@
+- [ ] **Sprachen & FAQs**
+  - [ ] `translations.ts` prüfen: Sind alle FAQ-Fragen und Antworten übersetzt?
+  - [ ] Home.tsx: Sicherstellen, dass `t.faqs` korrekt gemappt wird.
+- [ ] **Layout & Mobile**
+  - [ ] Steuer-Rechner: Schriftgrößen auf Mobile vereinheitlichen (kein "Mäusekino").
+  - [ ] `z-index` Check: Liegen Glas-Elemente über Buttons? (Pointer-Events prüfen).
+- [ ] **Content & Preise**
+  - [ ] Dubai-Sektion: Doppelte Inhalte mergen/löschen.
+  - [ ] Preise: "999€" Platzhalter bei den Paketen einfügen.
+  - [ ] Zahlungs-Icons: Stripe, Visa, Mastercard Logos hinzufügen.
+- [ ] **Chatbot**
+  - [ ] Eigenen Chat-Button entfernen.
+  - [ ] Botpress Webchat Script in `index.html` vorbereiten (auskommentiert oder mit Demo-ID).

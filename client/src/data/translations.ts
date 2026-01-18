@@ -11,12 +11,22 @@ export const translations = {
     packagesTitle: "Exclusive Solutions.",
     package1Title: "Corporate Structure",
     package1Desc: "Full company formation in Dubai or Spain. Includes bank account opening and substance setup.",
+    package1Price: "from €999",
     package2Title: "Dubai & Golden Visa",
     package2Desc: "Residency processing for UAE (0% Tax) or Spain (EU Access). Fast-track service.",
+    package2Price: "from €999",
     package3Title: "Insolvency Protection",
     package3Desc: "Legal shielding and debt restructuring under Spanish 'Second Chance' law.",
+    package3Price: "from €999",
     bookBtn: "Book Consultation",
-    chatBtn: "Ask AI Assistant"
+    chatBtn: "Ask AI Assistant",
+    paymentMethods: "Secure payment with all major methods:",
+    faqsTitle: "Frequently Asked Questions",
+    faqs: [
+      { q: "How does the 0% tax in Dubai work?", a: "Dubai offers 0% corporate tax for profits up to 375,000 AED (approx. €95,000). Above that, a low 9% applies, which can be further optimized." },
+      { q: "What is the 'Beckham Law' in Spain?", a: "A special tax regime for foreigners moving to Spain, allowing you to pay a flat 24% tax rate on Spanish income only, shielding foreign assets." },
+      { q: "Can you help with insolvency in Germany?", a: "We specialize in the Spanish 'Second Chance Law', which can be a strategic alternative for EU citizens to achieve debt relief faster than in Germany." }
+    ]
   },
   DE: {
     heroTitle: "GRENZENLOS.",
@@ -30,12 +40,22 @@ export const translations = {
     packagesTitle: "Exklusive Lösungen.",
     package1Title: "Firmenstruktur",
     package1Desc: "Komplette Firmengründung in Dubai oder Spanien. Inklusive Bankkonto und Substanz-Aufbau.",
+    package1Price: "ab 999€",
     package2Title: "Dubai & Golden Visa",
     package2Desc: "Residenz-Abwicklung für VAE (0% Steuer) oder Spanien (EU-Zugang). Express-Service.",
+    package2Price: "ab 999€",
     package3Title: "Insolvenzschutz",
     package3Desc: "Rechtlicher Schutzschirm und Schuldenbereinigung nach spanischem 'Second Chance' Gesetz.",
+    package3Price: "ab 999€",
     bookBtn: "Beratung Buchen",
-    chatBtn: "KI-Assistent Fragen"
+    chatBtn: "KI-Assistent Fragen",
+    paymentMethods: "Sichere Zahlung mit allen gängigen Methoden:",
+    faqsTitle: "Häufig gestellte Fragen",
+    faqs: [
+      { q: "Wie funktioniert die 0% Steuer in Dubai?", a: "Dubai bietet 0% Körperschaftsteuer für Gewinne bis 375.000 AED (ca. 95.000€). Darüber fallen nur 9% an, die weiter optimiert werden können." },
+      { q: "Was ist das 'Beckham Law' in Spanien?", a: "Ein Sondersteuerregime für Zuzügler nach Spanien. Sie zahlen pauschal 24% auf spanisches Einkommen, ausländisches Vermögen bleibt oft steuerfrei." },
+      { q: "Helfen Sie bei Insolvenz in Deutschland?", a: "Wir sind spezialisiert auf das spanische 'Ley de Segunda Oportunidad', das für EU-Bürger oft eine schnellere Restschuldbefreiung als in Deutschland ermöglicht." }
+    ]
   },
   ES: {
     heroTitle: "SIN FRONTERAS.",
@@ -49,11 +69,21 @@ export const translations = {
     packagesTitle: "Soluciones Exclusivas.",
     package1Title: "Estructura Corporativa",
     package1Desc: "Constitución completa de empresas en Dubai o España. Incluye apertura de cuenta bancaria.",
+    package1Price: "desde 999€",
     package2Title: "Dubai y Golden Visa",
     package2Desc: "Tramitación de residencia para EAU (0% Impuestos) o España (Acceso UE). Servicio exprés.",
+    package2Price: "desde 999€",
     package3Title: "Protección Insolvencia",
     package3Desc: "Blindaje legal y reestructuración de deuda bajo la Ley de Segunda Oportunidad.",
+    package3Price: "desde 999€",
     bookBtn: "Reservar Consulta",
-    chatBtn: "Preguntar a IA"
+    chatBtn: "Preguntar a IA",
+    paymentMethods: "Pago seguro con todos los métodos:",
+    faqsTitle: "Preguntas Frecuentes",
+    faqs: [
+      { q: "¿Cómo funciona el 0% de impuestos en Dubai?", a: "Dubai ofrece 0% de impuesto corporativo para ganancias hasta 375.000 AED. Por encima aplica un 9%, que puede optimizarse." },
+      { q: "¿Qué es la 'Ley Beckham' en España?", a: "Un régimen fiscal especial para extranjeros que se mudan a España, permitiendo pagar una tarifa plana del 24% solo sobre ingresos españoles." },
+      { q: "¿Ayudan con la insolvencia en Alemania?", a: "Nos especializamos en la 'Ley de Segunda Oportunidad' española, que puede ser una alternativa estratégica para ciudadanos de la UE." }
+    ]
   }
 };

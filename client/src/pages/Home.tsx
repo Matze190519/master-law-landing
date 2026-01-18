@@ -335,69 +335,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI CHATBOT WIDGET (Fixed Bottom Right) */}
-      {isChatOpen && (
-        <div className="fixed bottom-8 right-8 w-[380px] h-[600px] bg-black/90 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300">
-          <div className="bg-white/10 p-4 flex justify-between items-center border-b border-white/10">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-                <span className="font-bold text-black text-xs">AI</span>
-              </div>
-              <div>
-                <div className="font-bold text-white text-sm">Master Law Concierge</div>
-                <div className="text-[10px] text-white/50 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Online
-                </div>
-              </div>
-            </div>
-            <button onClick={() => setIsChatOpen(false)} className="text-white/50 hover:text-white transition-colors">
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-          
-          <div className="flex-1 p-4 space-y-4 overflow-y-auto">
-            <div className="bg-white/10 p-4 rounded-2xl rounded-tl-none text-sm text-white/90 max-w-[85%] border border-white/5">
-              Hello. I am your digital legal assistant. I can help you with:
-              <ul className="list-disc list-inside mt-2 space-y-1 text-white/70">
-                <li>Dubai Company Formation (0% Tax)</li>
-                <li>Spanish Golden Visa</li>
-                <li>Insolvency & Debt Relief</li>
-              </ul>
-            </div>
-            <div className="bg-white text-black p-4 rounded-2xl rounded-tr-none text-sm max-w-[85%] ml-auto shadow-lg font-medium">
-              What are the requirements for 0% tax in Dubai?
-            </div>
-             <div className="bg-white/10 p-4 rounded-2xl rounded-tl-none text-sm text-white/90 max-w-[85%] border border-white/5">
-              To qualify for 0% Corporate Tax in a Dubai Freezone, you must:
-              <br/><br/>
-              1. Maintain "adequate substance" in the UAE.<br/>
-              2. Derive "Qualifying Income" (e.g., trade with other Freezone entities).<br/>
-              3. Comply with Transfer Pricing rules.<br/>
-              <br/>
-              Income up to AED 375,000 (~€95,000) is generally taxed at 0% for small businesses.
-            </div>
-          </div>
-          
-          <div className="p-4 border-t border-white/10 bg-black/50">
-            <div className="relative">
-              <Input className="bg-white/5 border-white/10 rounded-full pr-12 h-12 text-white placeholder:text-white/30 focus:border-white/30 focus:ring-0" placeholder="Type your question..." />
-              <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-transform">
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-      
-      {/* Floating Chat Trigger (if closed) */}
-      {!isChatOpen && (
-        <button 
-          onClick={() => setIsChatOpen(true)}
-          className="fixed bottom-8 right-8 w-16 h-16 bg-white text-black rounded-full shadow-[0_0_40px_rgba(255,255,255,0.3)] flex items-center justify-center hover:scale-110 transition-transform z-50 group"
-        >
-          <MessageSquare className="w-7 h-7 group-hover:animate-pulse" />
-        </button>
-      )}
+      {/* Botpress Integration Placeholder */}
+      {/* The actual script is injected in index.html. This space is reserved for the widget. */}
       {/* FIXED BOTTOM BAR (Mobile) or FLOATING BUTTONS (Desktop) */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur-xl border-t border-white/10 md:bg-transparent md:border-none md:bottom-8 md:right-8 md:left-auto md:p-0 z-[100] flex gap-4 justify-center md:flex-col">
         <Button 
@@ -407,15 +346,7 @@ export default function Home() {
         >
           {t.bookBtn}
         </Button>
-        <Button 
-          size="lg" 
-          variant="outline" 
-          className="h-14 md:h-16 px-6 md:px-10 border-white/20 text-white hover:bg-white/10 rounded-full text-base md:text-lg backdrop-blur-md"
-          onClick={() => setIsChatOpen(!isChatOpen)}
-        >
-          <MessageSquare className="w-5 h-5 mr-2" />
-          {t.chatBtn}
-        </Button>
+        {/* Chat button removed as Botpress has its own trigger */}
       </div>
 
       {/* CALENDAR MODAL */}
