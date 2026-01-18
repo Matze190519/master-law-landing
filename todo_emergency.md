@@ -1,0 +1,6 @@
+- [ ] Botpress-Skripte aus `index.html` entfernen
+- [ ] Custom Chat-Widget in `Home.tsx` wiederherstellen (High-End UI)
+- [ ] FAQ-Rendering in `Home.tsx` prüfen und korrigieren (Sprach-Logik)
+- [ ] Mobile-Styles für Steuer-Rechner anpassen (Schriftgrößen, Umbrüche)
+- [ ] Globus-Container für Mobile optimieren
+- [ ] Finaler Check aller Buttons und Links
