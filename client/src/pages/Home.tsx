@@ -190,40 +190,76 @@ export default function Home() {
                 />
                 
                 <div className="space-y-6 pt-8 border-t border-white/10">
-                  {/* German Tax Baseline */}
-                  <div className="flex justify-between items-center text-sm text-white/50">
-                    <span>Estimated German Tax (approx. 42% + Soli):</span>
-                    <span className="text-white">€ {Math.round(germanTaxLiability).toLocaleString()}</span>
+                  {/* German Tax Baseline (Red Bar) */}
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-white/50">Germany (Standard)</span>
+                      <span className="text-red-400 font-bold">€ {Math.round(germanTaxLiability).toLocaleString()}</span>
+                    </div>
+                    <div className="h-3 bg-white/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-red-500/80 w-full"></div>
+                    </div>
+                    <div className="text-[10px] text-white/30 text-right">Your current tax burden</div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-2 gap-6 pt-4">
                     {/* Spain / Beckham */}
-                    <div className="space-y-2 p-4 rounded-xl bg-white/5 border border-white/10">
-                      <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mb-2">Spain (Beckham Law)</div>
-                      <div className="flex justify-between text-xs text-white/60">
-                        <span>New Tax:</span>
-                        <span>€ {Math.round(beckhamTaxLiability).toLocaleString()}</span>
+                    <div className="space-y-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                      <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">Spain (Beckham Law)</div>
+                      
+                      <div className="space-y-1">
+                        <div className="flex justify-between items-end">
+                          <span className="text-xs text-white/60">Tax:</span>
+                          <span className="text-xl font-bold text-white">€ {Math.round(beckhamTaxLiability).toLocaleString()}</span>
+                        </div>
+                        {/* Visual Bar relative to German Tax */}
+                        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-yellow-500/80 transition-all duration-500" 
+                            style={{ width: `${(beckhamTaxLiability / germanTaxLiability) * 100}%` }}
+                          ></div>
+                        </div>
                       </div>
+                      
                       <div className="pt-2 border-t border-white/10">
-                        <div className="text-[10px] uppercase tracking-widest text-green-400">Your Savings</div>
-                        <div className="text-2xl font-bold text-white">
-                          € {Math.round(taxSavingsBeckham).toLocaleString()}
+                        <div className="flex justify-between text-[10px] text-green-400">
+                          <span>Savings:</span>
+                          <span>€ {Math.round(taxSavingsBeckham).toLocaleString()}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Dubai */}
-                    <div className="space-y-2 p-4 rounded-xl bg-white/5 border border-white/10">
-                      <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mb-2">Dubai (Freezone)</div>
-                      <div className="flex justify-between text-xs text-white/60">
-                        <span>New Tax:</span>
-                        <span>€ {Math.round(dubaiTaxLiability).toLocaleString()}</span>
-                      </div>
-                      <div className="pt-2 border-t border-white/10">
-                        <div className="text-[10px] uppercase tracking-widest text-green-400">Your Savings</div>
-                        <div className="text-2xl font-bold text-white">
-                          € {Math.round(taxSavingsDubai).toLocaleString()}
+                    <div className="space-y-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors relative overflow-hidden">
+                      {/* Highlight Effect */}
+                      <div className="absolute top-0 right-0 w-16 h-16 bg-green-500/10 blur-xl rounded-full -mr-8 -mt-8"></div>
+                      
+                      <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">Dubai (Freezone)</div>
+                      
+                      <div className="space-y-1">
+                        <div className="flex justify-between items-end">
+                          <span className="text-xs text-white/60">Tax:</span>
+                          <span className="text-xl font-bold text-white">€ {Math.round(dubaiTaxLiability).toLocaleString()}</span>
                         </div>
+                        {/* Visual Bar relative to German Tax */}
+                        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-green-500/80 transition-all duration-500" 
+                            style={{ width: `${Math.max(1, (dubaiTaxLiability / germanTaxLiability) * 100)}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                      
+                      <div className="pt-2 border-t border-white/10">
+                        <div className="flex justify-between text-[10px] text-green-400">
+                          <span>Savings:</span>
+                          <span>€ {Math.round(taxSavingsDubai).toLocaleString()}</span>
+                        </div>
+                        {dubaiTaxLiability === 0 && (
+                          <div className="text-[9px] text-white/40 mt-1 italic">
+                            *0% Tax up to €95k Profit
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
