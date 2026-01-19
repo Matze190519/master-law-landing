@@ -68,7 +68,7 @@ export default function Home() {
 
         <div className="container relative z-10 text-center space-y-8 pt-20">
           <div className="inline-block px-6 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md mb-4 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-            <span className="text-xs font-bold text-white tracking-[0.3em] uppercase">The Future of Wealth</span>
+            <span className="text-xs font-bold text-white tracking-[0.3em] uppercase">PREMIUM RECHTSBERATUNG</span>
           </div>
           
           <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-none drop-shadow-2xl">
