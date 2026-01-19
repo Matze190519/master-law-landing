@@ -12,10 +12,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { faqs } from "@/data/faqs";
 import { translations } from "@/data/translations";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
 
 export default function Home() {
   const [income, setIncome] = useState(200000);
-  const [lang, setLang] = useState<"EN" | "DE" | "ES">("DE");
+  const { lang } = useLanguage();
   const t = translations[lang];
   const [taxSavingsBeckham, setTaxSavingsBeckham] = useState(0);
   const [taxSavingsDubai, setTaxSavingsDubai] = useState(0);
@@ -45,22 +47,11 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* LANGUAGE SWITCHER (Fixed Top Right) */}
-      <div className="fixed top-4 right-4 md:top-6 md:right-6 z-[100] flex gap-2 bg-black/80 backdrop-blur-xl p-1 rounded-full border border-white/20 shadow-2xl">
-        {(["DE", "EN", "ES"] as const).map((l) => (
-          <button
-            key={l}
-            onClick={() => setLang(l)}
-            className={`px-3 py-2 md:py-1 rounded-full text-xs font-bold transition-all ${
-              lang === l 
-                ? "bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.6)]" 
-                : "text-white/50 hover:text-white"
-            }`}
-          >
-            {l}
-          </button>
-        ))}
-      </div>
+      <SEO 
+        title={t.heroTitle}
+        description={t.heroSubtitle}
+      />
+
 
       {/* SECTION 1: CINEMATIC HERO (Fullscreen) */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -363,7 +354,8 @@ export default function Home() {
         <div className="container max-w-4xl">
           <h2 className="text-3xl font-bold text-white mb-12 text-center">{t.faqsTitle}</h2>
           <Accordion type="single" collapsible className="space-y-4">
-            {t.faqs.map((faq, index) => (
+            {/* @ts-ignore */}
+            {(t.faqs || []).map((faq: any, index: number) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:bg-white/10 transition-all">
                 <AccordionTrigger className="text-white hover:text-white/80 text-lg font-medium py-6 text-left">{faq.q}</AccordionTrigger>
                 <AccordionContent className="text-white/60 text-base pb-6 leading-relaxed">

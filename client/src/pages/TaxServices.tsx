@@ -6,10 +6,20 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { serviceFaqs } from "@/data/serviceFaqs";
 import { testimonials } from "@/data/testimonials";
 import { Quote } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/data/translations";
+import SEO from "@/components/SEO";
 
 export default function TaxServices() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <Layout>
+      <SEO 
+        title={t.taxPageTitle}
+        description={t.taxPageSubtitle}
+      />
       <div className="pt-32 pb-20 container">
         <div className="max-w-5xl mx-auto space-y-16">
           {/* Hero Section */}

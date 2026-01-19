@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface LayoutProps {
   children: ReactNode;
@@ -10,7 +11,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [lang, setLang] = useState("DE");
+  const { lang, setLang } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
