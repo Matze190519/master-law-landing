@@ -18,3 +18,7 @@
 - [ ] Synthesize findings into a unified "Master Law Concept" (6-step process, transparent pricing)
 - [ ] Update all service pages (Dubai, Tax, Insolvency) with the unified concept
 - [ ] Ensure all content is fact-based and lawyer-grade (no filler text)
+
+- [ ] Create `build:static` script in package.json (vite build only)
+- [ ] Update netlify.toml to use `npm run build:static`
+- [ ] Verify _redirects file content and location
