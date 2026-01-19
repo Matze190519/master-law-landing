@@ -71,7 +71,7 @@ export default function Home() {
             <span className="text-xs font-bold text-white tracking-[0.3em] uppercase">The Future of Wealth</span>
           </div>
           
-          <h1 className="text-5xl md:text-9xl font-bold text-white tracking-tighter leading-none drop-shadow-2xl">
+          <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-none drop-shadow-2xl">
             {t.heroTitle}
           </h1>
           
@@ -140,13 +140,13 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-4 pt-8 border-t border-white/10">
                   <div className="space-y-2">
                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsBeckham}</div>
-                    <div className="text-4xl font-bold text-white">
+                    <div className="text-3xl font-bold text-white">
                       € {taxSavingsBeckham.toLocaleString()}
                     </div>
                   </div>
                   <div className="space-y-2">
                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsDubai}</div>
-                    <div className="text-4xl font-bold text-white">
+                    <div className="text-3xl font-bold text-white">
                       € {taxSavingsDubai.toLocaleString()}
                     </div>
                   </div>
@@ -316,7 +316,7 @@ export default function Home() {
       {/* SECTION 5: FAQ (High-Tech Accordion) */}
       <section className="py-32 bg-black relative border-t border-white/10">
         <div className="container max-w-4xl">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">{t.faqsTitle}</h2>
+          <h2 className="text-3xl font-bold text-white mb-12 text-center">{t.faqsTitle}</h2>
           <Accordion type="single" collapsible className="space-y-4">
             {t.faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:bg-white/10 transition-all">
@@ -333,7 +333,7 @@ export default function Home() {
       {/* SECTION 6: AI CONCIERGE & CONTACT */}
       <section className="py-32 bg-black text-center relative">
         <div className="container max-w-3xl">
-          <h2 className="text-4xl font-bold text-white mb-28">Ready to Upgrade?</h2>
+          <h2 className="text-3xl font-bold text-white mb-28">Ready to Upgrade?</h2>
           <p className="text-xl text-white/60 mb-12">
             Schedule your private consultation today. Or ask our AI Concierge for immediate assistance.
           </p>
