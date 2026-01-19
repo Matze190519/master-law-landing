@@ -7,8 +7,8 @@ export default function Privacy() {
         <div className="container max-w-3xl">
           <h1 className="text-4xl font-bold text-white mb-8">Datenschutzerklärung</h1>
           
-          <div className="space-y-8 text-muted-foreground">
-            <div className="bg-card border border-white/10 p-8 rounded-2xl">
+          <div className="space-y-8 text-white/80">
+            <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
               <h2 className="text-xl font-bold text-white mb-4">1. Datenschutz auf einen Blick</h2>
               <h3 className="text-lg font-semibold text-white mb-2">Allgemeine Hinweise</h3>
               <p className="mb-4">
@@ -26,7 +26,7 @@ export default function Privacy() {
               </p>
             </div>
 
-            <div className="bg-card border border-white/10 p-8 rounded-2xl">
+            <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
               <h2 className="text-xl font-bold text-white mb-4">2. Hosting</h2>
               <p className="mb-4">
                 Wir hosten die Inhalte unserer Website bei folgendem Anbieter:<br />
@@ -36,7 +36,7 @@ export default function Privacy() {
               </p>
             </div>
 
-            <div className="bg-card border border-white/10 p-8 rounded-2xl">
+            <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
               <h2 className="text-xl font-bold text-white mb-4">3. Allgemeine Hinweise und Pflichtinformationen</h2>
               <h3 className="text-lg font-semibold text-white mb-2">Datenschutz</h3>
               <p className="mb-4">
@@ -53,7 +53,7 @@ export default function Privacy() {
               </p>
             </div>
 
-            <div className="bg-card border border-white/10 p-8 rounded-2xl">
+            <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
               <h2 className="text-xl font-bold text-white mb-4">4. Datenerfassung auf dieser Website</h2>
               <h3 className="text-lg font-semibold text-white mb-2">Kontaktformular</h3>
               <p className="mb-4">
