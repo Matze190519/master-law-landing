@@ -88,7 +88,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: INTERACTIVE TAX CALCULATOR (The "Hook") */}
-      <section className="py-32 bg-black relative overflow-hidden">
+      <section id="expertise" className="py-32 bg-black relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/grid.png')] opacity-10"></div>
         
         <div className="container relative z-10">
@@ -162,7 +162,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 3: GLOBAL PRESENCE (Real 3D Globe) */}
-      <section className="py-32 bg-black relative overflow-hidden">
+      <section id="global-tax" className="py-32 bg-black relative overflow-hidden">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 h-[500px] relative flex items-center justify-center">
@@ -213,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 3.5: PACKAGES (Restored & Upgraded) */}
-      <section className="py-20 md:py-32 bg-black relative">
+      <section id="dubai" className="py-20 md:py-32 bg-black relative">
         <div className="container">
           <h2 className="text-4xl md:text-6xl font-bold text-white text-center mb-16">{t.packagesTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -273,7 +273,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: INSOLVENCY COMPARISON (Deep Research) */}
-      <section className="py-20 md:py-32 bg-black relative">
+      <section id="insolvency" className="py-20 md:py-32 bg-black relative">
         <div className="container">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-6xl font-bold text-white">Second Chance.</h2>
