@@ -26,10 +26,16 @@ export default function Home() {
   useEffect(() => {
     const germanTax = income * 0.45; // Approx 45%
     
-    // Beckham Law: 24% flat rate up to 600k
-    const beckhamTax = income * 0.24;
+    // Beckham Law: 24% flat rate up to 600k (capped)
+    // If income > 600k, the excess is taxed at 47% (approx)
+    let beckhamTax = 0;
+    if (income <= 600000) {
+      beckhamTax = income * 0.24;
+    } else {
+      beckhamTax = (600000 * 0.24) + ((income - 600000) * 0.47);
+    }
     
-    // Dubai: 0% Tax (Qualifying Income)
+    // Dubai: 0% Tax (Qualifying Income) - Assuming Freezone Company
     const dubaiTax = 0;
 
     setTaxSavingsBeckham(germanTax - beckhamTax);
@@ -380,32 +386,7 @@ export default function Home() {
             <Button size="lg" className="h-16 px-10 bg-white text-black hover:bg-gray-200 rounded-full text-lg font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)] border-none transition-transform hover:scale-105">
               {t.bookBtn}
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="h-16 px-10 border-white/20 text-white hover:bg-white/10 rounded-full text-lg backdrop-blur-md"
-              onClick={() => {
-                // Open buildmyagent widget
-                const widget = document.querySelector('buildmyagent-widget');
-                if (widget) {
-                  // @ts-ignore
-                  widget.open();
-                } else {
-                  // Fallback: try to find the iframe or button injected by the script
-                  const iframe = document.querySelector('iframe[src*="buildmyagent.io"]');
-                  if (iframe) {
-                     // If it's an iframe, we might not be able to open it programmatically easily without the API
-                     // But usually the script exposes a global object.
-                     // Let's try the standard way most widgets work
-                     // @ts-ignore
-                     if (window.buildmyagent) window.buildmyagent.open();
-                  }
-                }
-              }}
-            >
-              <MessageSquare className="w-5 h-5 mr-2" />
-              {t.chatBtn}
-            </Button>
+            
           </div>
         </div>
       </section>
@@ -420,15 +401,7 @@ export default function Home() {
         >
           {t.bookBtn}
         </Button>
-        <Button 
-          size="lg" 
-          variant="outline" 
-          className="h-14 md:h-16 px-6 md:px-10 border-white/20 text-white hover:bg-white/10 rounded-full text-base md:text-lg backdrop-blur-md"
-          onClick={() => setIsChatOpen(!isChatOpen)}
-        >
-          <MessageSquare className="w-5 h-5 mr-2" />
-          {t.chatBtn}
-        </Button>
+        
       </div>
 
       {/* CALENDAR MODAL */}
