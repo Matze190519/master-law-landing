@@ -224,7 +224,10 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">{t.package1Title}</h3>
               <p className="text-white/60 mb-8 h-20">{t.package1Desc}</p>
-              <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl">{t.bookBtn}</Button>
+              <div className="space-y-2">
+                <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl">{t.bookBtn}</Button>
+                <p className="text-xs text-center text-white/40">{t.consultationNote}</p>
+              </div>
             </div>
             {/* Package 2 */}
             <div className="glass-panel p-8 rounded-3xl border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:scale-105 transition-transform relative overflow-hidden">
@@ -232,7 +235,10 @@ export default function Home() {
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-white mb-4">{t.package2Title}</h3>
                 <p className="text-white/60 mb-8 h-20">{t.package2Desc}</p>
-                <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl shadow-lg">{t.bookBtn}</Button>
+                <div className="space-y-2">
+                  <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl shadow-lg">{t.bookBtn}</Button>
+                  <p className="text-xs text-center text-white/40">{t.consultationNote}</p>
+                </div>
               </div>
             </div>
             {/* Package 3 */}
@@ -242,7 +248,10 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">{t.package3Title}</h3>
               <p className="text-white/60 mb-8 h-20">{t.package3Desc}</p>
-              <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl">{t.bookBtn}</Button>
+              <div className="space-y-2">
+                <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl">{t.bookBtn}</Button>
+                <p className="text-xs text-center text-white/40">{t.consultationNote}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -374,6 +383,7 @@ export default function Home() {
         <DialogContent className="sm:max-w-[900px] h-[80vh] bg-black/95 border-white/10 backdrop-blur-xl p-0 overflow-hidden">
           <DialogHeader className="p-6 border-b border-white/10">
             <DialogTitle className="text-2xl font-bold text-white">{t.bookBtn}</DialogTitle>
+            <p className="text-sm text-white/60 mt-2">{t.consultationNote}</p>
           </DialogHeader>
           <div className="w-full h-full bg-white">
             {/* Placeholder for Calendly - Replace src with actual Calendly URL */}
