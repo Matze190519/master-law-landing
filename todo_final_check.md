@@ -6,3 +6,6 @@
 - [ ] React-Fehler "<a> cannot contain a nested <a>" finden und beheben
 - [ ] buildmyagent.io Script in index.html einfügen
 - [ ] Alten Chatbot-Code aus Home.tsx entfernen
+- [ ] Chatbot-Verhalten korrigieren (Widget statt neues Fenster)
+- [ ] Umfassende Wissensdatenbank (Knowledge Base) erstellen
+- [ ] Knowledge Base als Markdown-Datei speichern

@@ -327,11 +327,21 @@ export default function Home() {
               variant="outline" 
               className="h-16 px-10 border-white/20 text-white hover:bg-white/10 rounded-full text-lg backdrop-blur-md"
               onClick={() => {
-                // Try to open buildmyagent widget if available
-                // @ts-ignore
-                if (window.buildmyagent && window.buildmyagent.open) {
+                // Open buildmyagent widget
+                const widget = document.querySelector('buildmyagent-widget');
+                if (widget) {
                   // @ts-ignore
-                  window.buildmyagent.open();
+                  widget.open();
+                } else {
+                  // Fallback: try to find the iframe or button injected by the script
+                  const iframe = document.querySelector('iframe[src*="buildmyagent.io"]');
+                  if (iframe) {
+                     // If it's an iframe, we might not be able to open it programmatically easily without the API
+                     // But usually the script exposes a global object.
+                     // Let's try the standard way most widgets work
+                     // @ts-ignore
+                     if (window.buildmyagent) window.buildmyagent.open();
+                  }
                 }
               }}
             >
