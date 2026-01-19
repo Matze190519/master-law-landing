@@ -212,6 +212,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SECTION 3.4: CONTACT FORM */}
+      <section id="contact" className="py-20 bg-zinc-900 relative">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t.contactTitle || "Kontakt"}</h2>
+            <p className="text-white/60">{t.contactSubtitle || "Senden Sie uns eine Nachricht. Wir melden uns umgehend."}</p>
+          </div>
+          
+          <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10">
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-white/70">Name</label>
+                  <Input placeholder="Max Mustermann" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-white/70">E-Mail</label>
+                  <Input type="email" placeholder="max@beispiel.de" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-white/70">Betreff</label>
+                <Input placeholder="Firmengründung Dubai" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" />
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-white/70">Nachricht</label>
+                <Textarea placeholder="Ich interessiere mich für..." className="bg-white/5 border-white/10 text-white placeholder:text-white/30 min-h-[150px]" />
+              </div>
+              
+              <Button className="w-full h-14 bg-white text-black font-bold text-lg rounded-xl hover:bg-gray-200 transition-all">
+                Nachricht senden
+              </Button>
+            </form>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 3.5: PACKAGES (Restored & Upgraded) */}
       <section id="dubai" className="py-20 md:py-32 bg-black relative">
         <div className="container">
