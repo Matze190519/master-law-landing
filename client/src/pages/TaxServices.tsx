@@ -2,6 +2,8 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, FileText, Calculator, Scale, Briefcase, TrendingUp } from "lucide-react";
 import { Link } from "wouter";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { serviceFaqs } from "@/data/serviceFaqs";
 
 export default function TaxServices() {
   return (
@@ -133,8 +135,23 @@ export default function TaxServices() {
             </div>
           </div>
 
+          {/* FAQ Section */}
+          <div className="max-w-3xl mx-auto pt-8">
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">Häufige Fragen</h2>
+            <Accordion type="single" collapsible className="space-y-4">
+              {serviceFaqs.tax.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:bg-white/10 transition-all">
+                  <AccordionTrigger className="text-white hover:text-white/80 text-lg font-medium py-6 text-left">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-white/60 text-base pb-6 leading-relaxed">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
           {/* CTA Section */}
-          <div className="text-center pt-8 border-t border-white/10">
+          <div className="text-center pt-12 border-t border-white/10">
             <h2 className="text-3xl font-bold text-white mb-6">Lassen Sie uns Ihre Steuern optimieren.</h2>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <Button size="lg" className="h-14 px-8 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-lg">
