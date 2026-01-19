@@ -4,6 +4,9 @@ import { Check, ArrowRight, Scale, Clock, ShieldAlert, XCircle, AlertTriangle, F
 import { Link } from "wouter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { serviceFaqs } from "@/data/serviceFaqs";
+import { testimonials } from "@/data/testimonials";
+import { Quote } from "lucide-react";
+import EligibilityCheck from "@/components/EligibilityCheck";
 
 export default function Insolvency() {
   return (
@@ -121,6 +124,38 @@ export default function Insolvency() {
                   <div className="text-4xl font-bold text-white/10 mb-4">{item.step}</div>
                   <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                   <p className="text-white/50 text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Eligibility Check */}
+          <div className="pt-12 border-t border-white/10">
+            <EligibilityCheck 
+              title="Ist das spanische Insolvenzverfahren für mich geeignet?"
+              questions={[
+                { id: "q1", text: "Sind Sie bereit, Ihren Wohnsitz tatsächlich nach Spanien zu verlegen?", correctAnswer: true },
+                { id: "q2", text: "Haben Sie Schulden, die Sie voraussichtlich nicht mehr bedienen können?", correctAnswer: true },
+                { id: "q3", text: "Sind Sie bereit, alle Vermögenswerte offenzulegen?", correctAnswer: true }
+              ]}
+              successMessage="Sie erfüllen die Grundvoraussetzungen für das spanische Insolvenzverfahren (Ley de Segunda Oportunidad). Eine Restschuldbefreiung in 12-18 Monaten ist realistisch."
+              failMessage="Das Verfahren erfordert einen echten Wohnsitzwechsel und Transparenz. Gerne prüfen wir in einem persönlichen Gespräch, ob es dennoch Wege für Sie gibt."
+            />
+          </div>
+
+          {/* Testimonials Section */}
+          <div className="pt-12 border-t border-white/10">
+            <h2 className="text-3xl font-bold text-white mb-12 text-center">Was unsere Mandanten sagen</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {testimonials.insolvency.map((t, i) => (
+                <div key={i} className="glass-panel p-8 rounded-3xl border border-white/10 relative">
+                  <Quote className="w-10 h-10 text-white/20 absolute top-6 right-6" />
+                  <p className="text-white/80 text-lg italic mb-6">"{t.text}"</p>
+                  <div>
+                    <div className="font-bold text-white">{t.name}</div>
+                    <div className="text-white/50 text-sm">{t.role}</div>
+                    <div className="text-white/30 text-xs mt-1">{t.location}</div>
+                  </div>
                 </div>
               ))}
             </div>

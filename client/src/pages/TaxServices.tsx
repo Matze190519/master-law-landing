@@ -4,6 +4,8 @@ import { Check, ArrowRight, FileText, Calculator, Scale, Briefcase, TrendingUp }
 import { Link } from "wouter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { serviceFaqs } from "@/data/serviceFaqs";
+import { testimonials } from "@/data/testimonials";
+import { Quote } from "lucide-react";
 
 export default function TaxServices() {
   return (
@@ -135,8 +137,26 @@ export default function TaxServices() {
             </div>
           </div>
 
+          {/* Testimonials Section */}
+          <div className="pt-12 border-t border-white/10">
+            <h2 className="text-3xl font-bold text-white mb-12 text-center">Was unsere Mandanten sagen</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {testimonials.tax.map((t, i) => (
+                <div key={i} className="glass-panel p-8 rounded-3xl border border-white/10 relative">
+                  <Quote className="w-10 h-10 text-white/20 absolute top-6 right-6" />
+                  <p className="text-white/80 text-lg italic mb-6">"{t.text}"</p>
+                  <div>
+                    <div className="font-bold text-white">{t.name}</div>
+                    <div className="text-white/50 text-sm">{t.role}</div>
+                    <div className="text-white/30 text-xs mt-1">{t.location}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* FAQ Section */}
-          <div className="max-w-3xl mx-auto pt-8">
+          <div className="max-w-3xl mx-auto pt-12">
             <h2 className="text-3xl font-bold text-white mb-8 text-center">Häufige Fragen</h2>
             <Accordion type="single" collapsible className="space-y-4">
               {serviceFaqs.tax.map((faq, index) => (

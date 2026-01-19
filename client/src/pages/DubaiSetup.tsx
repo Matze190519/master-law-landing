@@ -4,6 +4,9 @@ import { Check, ArrowRight, Building2, Globe, Shield, Plane, FileText, Coins } f
 import { Link } from "wouter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { serviceFaqs } from "@/data/serviceFaqs";
+import { testimonials } from "@/data/testimonials";
+import { Quote } from "lucide-react";
+import EligibilityCheck from "@/components/EligibilityCheck";
 
 export default function DubaiSetup() {
   return (
@@ -130,6 +133,38 @@ export default function DubaiSetup() {
               <p className="text-center text-white/30 text-xs mt-4">
                 Beratungsgebühr (49,90€) wird bei Auftragserteilung verrechnet.
               </p>
+            </div>
+          </div>
+
+          {/* Eligibility Check */}
+          <div className="pt-12 border-t border-white/10">
+            <EligibilityCheck 
+              title="Bin ich für eine Dubai Freezone Firma qualifiziert?"
+              questions={[
+                { id: "q1", text: "Planen Sie, Geschäfte international (außerhalb der VAE) zu tätigen?", correctAnswer: true },
+                { id: "q2", text: "Möchten Sie 100% Eigentümer Ihrer Firma bleiben?", correctAnswer: true },
+                { id: "q3", text: "Suchen Sie nach einer Lösung ohne persönliche Einkommensteuer?", correctAnswer: true }
+              ]}
+              successMessage="Ihr Profil passt perfekt für eine Dubai Freezone Company! Sie können von 0% Steuern und 100% Eigentum profitieren."
+              failMessage="Basierend auf Ihren Antworten könnte eine andere Unternehmensform besser passen. Lassen Sie uns Ihre Situation im Detail besprechen."
+            />
+          </div>
+
+          {/* Testimonials Section */}
+          <div className="pt-12 border-t border-white/10">
+            <h2 className="text-3xl font-bold text-white mb-12 text-center">Was unsere Mandanten sagen</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {testimonials.dubai.map((t, i) => (
+                <div key={i} className="glass-panel p-8 rounded-3xl border border-white/10 relative">
+                  <Quote className="w-10 h-10 text-white/20 absolute top-6 right-6" />
+                  <p className="text-white/80 text-lg italic mb-6">"{t.text}"</p>
+                  <div>
+                    <div className="font-bold text-white">{t.name}</div>
+                    <div className="text-white/50 text-sm">{t.role}</div>
+                    <div className="text-white/30 text-xs mt-1">{t.location}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
