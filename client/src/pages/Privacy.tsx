@@ -1,9 +1,11 @@
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/data/translations";
 import SEO from "@/components/SEO";
 
 export default function Privacy() {
   const { lang } = useLanguage();
+  const t = translations[lang];
 
   return (
     <Layout>
@@ -14,17 +16,17 @@ export default function Privacy() {
       <section className="pt-32 pb-20 min-h-screen">
         <div className="container max-w-3xl">
           <h1 className="text-4xl font-bold text-white mb-8">
-            {lang === "DE" ? "Datenschutzerklärung" : lang === "ES" ? "Política de Privacidad" : "Privacy Policy"}
+            {t.privacyTitle}
           </h1>
           
           <div className="space-y-8 text-white/80">
             <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-xl font-bold text-white mb-4">1. Datenschutz auf einen Blick</h2>
-              <h3 className="text-lg font-semibold text-white mb-2">Allgemeine Hinweise</h3>
+              <h2 className="text-xl font-bold text-white mb-4">1. {t.privacyIntro}</h2>
+              <h3 className="text-lg font-semibold text-white mb-2">{t.generalInfo}</h3>
               <p className="mb-4">
                 Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
               </p>
-              <h3 className="text-lg font-semibold text-white mb-2">Datenerfassung auf dieser Website</h3>
+              <h3 className="text-lg font-semibold text-white mb-2">{t.dataCollection}</h3>
               <p className="mb-4">
                 <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br />
                 Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.
@@ -37,7 +39,7 @@ export default function Privacy() {
             </div>
 
             <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-xl font-bold text-white mb-4">2. Hosting</h2>
+              <h2 className="text-xl font-bold text-white mb-4">2. {t.hosting}</h2>
               <p className="mb-4">
                 Wir hosten die Inhalte unserer Website bei folgendem Anbieter:<br />
                 <strong>Netlify</strong><br />
@@ -47,7 +49,7 @@ export default function Privacy() {
             </div>
 
             <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-xl font-bold text-white mb-4">3. Allgemeine Hinweise und Pflichtinformationen</h2>
+              <h2 className="text-xl font-bold text-white mb-4">3. {t.generalInfo}</h2>
               <h3 className="text-lg font-semibold text-white mb-2">Datenschutz</h3>
               <p className="mb-4">
                 Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
@@ -64,7 +66,7 @@ export default function Privacy() {
             </div>
 
             <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-xl font-bold text-white mb-4">4. Datenerfassung auf dieser Website</h2>
+              <h2 className="text-xl font-bold text-white mb-4">4. {t.dataCollection}</h2>
               <h3 className="text-lg font-semibold text-white mb-2">Kontaktformular</h3>
               <p className="mb-4">
                 Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.

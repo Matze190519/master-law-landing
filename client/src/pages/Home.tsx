@@ -27,10 +27,27 @@ export default function Home() {
 
   // Calculate tax savings
   useEffect(() => {
-    const germanTax = income * 0.45; // Approx 45%
-    
-    // Beckham Law: 24% flat rate up to 600k (capped)
-    // If income > 600k, the excess is taxed at 47% (approx)
+    // German Tax Calculation (Progressive + Soli)
+    // Simplified 2026 estimation:
+    // 0 - 11k: 0%
+    // 11k - 66k: ~14-42%
+    // 66k - 277k: 42%
+    // > 277k: 45%
+    // + 5.5% Soli on tax
+    let germanTax = 0;
+    if (income <= 11604) {
+      germanTax = 0;
+    } else if (income <= 66760) {
+      germanTax = (income - 11604) * 0.30; // Average
+    } else if (income <= 277825) {
+      germanTax = (66760 - 11604) * 0.30 + (income - 66760) * 0.42;
+    } else {
+      germanTax = (66760 - 11604) * 0.30 + (277825 - 66760) * 0.42 + (income - 277825) * 0.45;
+    }
+    germanTax = germanTax * 1.055; // Add Soli
+
+    // Beckham Law (Spain): 24% flat rate up to 600k
+    // > 600k: 47%
     let beckhamTax = 0;
     if (income <= 600000) {
       beckhamTax = income * 0.24;
@@ -38,11 +55,16 @@ export default function Home() {
       beckhamTax = (600000 * 0.24) + ((income - 600000) * 0.47);
     }
     
-    // Dubai: 0% Tax (Qualifying Income) - Assuming Freezone Company
-    const dubaiTax = 0;
+    // Dubai: 9% Corporate Tax on income > 375,000 AED (~95,000 EUR)
+    // 0% up to 375,000 AED
+    const aeThreshold = 95000; 
+    let dubaiTax = 0;
+    if (income > aeThreshold) {
+      dubaiTax = (income - aeThreshold) * 0.09;
+    }
 
-    setTaxSavingsBeckham(germanTax - beckhamTax);
-    setTaxSavingsDubai(germanTax - dubaiTax);
+    setTaxSavingsBeckham(Math.max(0, germanTax - beckhamTax));
+    setTaxSavingsDubai(Math.max(0, germanTax - dubaiTax));
   }, [income]);
 
   return (
@@ -186,7 +208,7 @@ export default function Home() {
                   <div>
                     <h3 className="text-xl font-bold text-white">Dubai Freezone</h3>
                     <p className="text-white/60 mt-2 text-sm">
-                      100% Foreign Ownership. 0% Corporate Tax (Qualifying Income). 
+                      100% Foreign Ownership. 0% - 9% Corporate Tax (Gewinnabhängig). 
                       Full repatriation of capital and profits. No currency restrictions.
                     </p>
                   </div>

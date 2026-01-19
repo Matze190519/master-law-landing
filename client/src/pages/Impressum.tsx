@@ -1,15 +1,20 @@
 import Layout from "@/components/Layout";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/data/translations";
 
 export default function Impressum() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <Layout>
       <section className="pt-32 pb-20 min-h-screen">
         <div className="container max-w-3xl">
-          <h1 className="text-4xl font-bold text-white mb-8">Impressum</h1>
+          <h1 className="text-4xl font-bold text-white mb-8">{t.imprintTitle}</h1>
           
           <div className="space-y-8 text-muted-foreground">
             <div className="bg-card border border-white/10 p-8 rounded-2xl">
-              <h2 className="text-xl font-bold text-white mb-4">Angaben gemäß § 5 TMG</h2>
+              <h2 className="text-xl font-bold text-white mb-4">{t.legalAddress}</h2>
               <p className="mb-4">
                 <strong className="text-white">Master Law Firm SL</strong><br />
                 Avda. Alexandre Rosselló 15, 5º H<br />
@@ -18,13 +23,13 @@ export default function Impressum() {
               </p>
               
               <p>
-                <strong className="text-white">Vertreten durch:</strong><br />
+                <strong className="text-white">{t.representedBy}:</strong><br />
                 Die Geschäftsführung
               </p>
             </div>
 
             <div className="bg-card border border-white/10 p-8 rounded-2xl">
-              <h2 className="text-xl font-bold text-white mb-4">Kontakt</h2>
+              <h2 className="text-xl font-bold text-white mb-4">{t.contact}</h2>
               <p className="space-y-2">
                 <div className="flex justify-between max-w-xs">
                   <span>Telefon:</span>
@@ -42,7 +47,7 @@ export default function Impressum() {
             </div>
 
             <div className="bg-card border border-white/10 p-8 rounded-2xl">
-              <h2 className="text-xl font-bold text-white mb-4">Registereintrag</h2>
+              <h2 className="text-xl font-bold text-white mb-4">{t.registerEntry}</h2>
               <p>
                 Eintragung im Handelsregister.<br />
                 Registergericht: Palma de Mallorca<br />
@@ -51,7 +56,7 @@ export default function Impressum() {
             </div>
 
             <div className="bg-card border border-white/10 p-8 rounded-2xl">
-              <h2 className="text-xl font-bold text-white mb-4">Streitschlichtung</h2>
+              <h2 className="text-xl font-bold text-white mb-4">{t.disputeResolution}</h2>
               <p>
                 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
                 <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">

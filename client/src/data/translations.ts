@@ -71,6 +71,19 @@ export const translations = {
     insolvencyComparisonTitle: "Germany vs. Spain",
     insolvencyDeDuration: "3-6 Years",
     insolvencyEsDuration: "approx. 12 Months",
+    
+    // Legal Pages
+    imprintTitle: "Imprint",
+    privacyTitle: "Privacy Policy",
+    legalAddress: "Legal Address",
+    representedBy: "Represented by",
+    contact: "Contact",
+    registerEntry: "Commercial Register",
+    disputeResolution: "Dispute Resolution",
+    privacyIntro: "Privacy policy at a glance",
+    hosting: "Hosting",
+    generalInfo: "General Information",
+    dataCollection: "Data Collection"
   },
   DE: {
     // ... existing translations ...
@@ -144,6 +157,19 @@ export const translations = {
     insolvencyComparisonTitle: "Deutschland vs. Spanien",
     insolvencyDeDuration: "3-6 Jahre",
     insolvencyEsDuration: "ca. 12 Monate",
+    
+    // Legal Pages
+    imprintTitle: "Impressum",
+    privacyTitle: "Datenschutzerklärung",
+    legalAddress: "Anschrift",
+    representedBy: "Vertreten durch",
+    contact: "Kontakt",
+    registerEntry: "Registereintrag",
+    disputeResolution: "Streitschlichtung",
+    privacyIntro: "Datenschutz auf einen Blick",
+    hosting: "Hosting",
+    generalInfo: "Allgemeine Hinweise",
+    dataCollection: "Datenerfassung"
   },
   ES: {
     // ... existing translations ...
@@ -217,5 +243,18 @@ export const translations = {
     insolvencyComparisonTitle: "Alemania vs. España",
     insolvencyDeDuration: "3-6 Años",
     insolvencyEsDuration: "aprox. 12 Meses",
+    
+    // Legal Pages
+    imprintTitle: "Aviso Legal",
+    privacyTitle: "Política de Privacidad",
+    legalAddress: "Dirección Legal",
+    representedBy: "Representado por",
+    contact: "Contacto",
+    registerEntry: "Registro Mercantil",
+    disputeResolution: "Resolución de Disputas",
+    privacyIntro: "Política de privacidad de un vistazo",
+    hosting: "Alojamiento",
+    generalInfo: "Información General",
+    dataCollection: "Recopilación de Datos"
   }
 };

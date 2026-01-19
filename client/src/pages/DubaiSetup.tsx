@@ -106,7 +106,7 @@ export default function DubaiSetup() {
               Firmengründung <br/> <span className="text-white/50">in Dubai.</span>
             </h1>
               <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-                Starten Sie Ihr steuerfreies Business in den VAE. 
+                Starten Sie Ihr steueroptimiertes Business in den VAE. 
                 Rechtssicher, schnell und transparent. Ab 2.999 €.
               </p>
           </div>
@@ -180,7 +180,7 @@ export default function DubaiSetup() {
           <div className="grid md:grid-cols-4 gap-6 pt-12 border-t border-white/10">
              <div className="text-center space-y-2">
                 <div className="text-3xl font-bold text-white">0%</div>
-                <div className="text-white/50 text-sm">Steuern auf Einkommen</div>
+                <div className="text-white/50 text-sm">0% - 9% Corporate Tax</div>
              </div>
              <div className="text-center space-y-2">
                 <div className="text-3xl font-bold text-white">100%</div>
@@ -205,7 +205,7 @@ export default function DubaiSetup() {
                 { id: "q2", text: "Möchten Sie 100% Eigentümer Ihrer Firma bleiben?", correctAnswer: true },
                 { id: "q3", text: "Suchen Sie nach einer Lösung ohne persönliche Einkommensteuer?", correctAnswer: true }
               ]}
-              successMessage="Ihr Profil passt perfekt für eine Dubai Freezone Company! Sie können von 0% Steuern und 100% Eigentum profitieren."
+              successMessage="Ihr Profil passt perfekt für eine Dubai Freezone Company! Sie können von niedrigen Steuern (0-9%) und 100% Eigentum profitieren."
               failMessage="Basierend auf Ihren Antworten könnte eine andere Unternehmensform besser passen. Lassen Sie uns Ihre Situation im Detail besprechen."
             />
           </div>
