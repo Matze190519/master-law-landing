@@ -52,7 +52,7 @@ export default function DubaiSetup() {
     {
       name: "Basic (Nur Firma)",
       price: "2.999 €",
-      desc: "Ideal für den Start ohne Wohnsitzverlagerung.",
+      desc: "Ideal für den Start ohne Wohnsitzverlagerung (keine Anwesenheitspflicht).",
       features: [
         "Firmengründung (Trade License)",
         "100% Eigentum",
@@ -64,10 +64,10 @@ export default function DubaiSetup() {
     {
       name: "Standard (Firma + Visa)",
       price: "4.999 €",
-      desc: "Das beliebteste Paket für Auswanderer.",
+      desc: "Das beliebteste Paket für Unternehmer (Residency Status).",
       features: [
         "Alles aus Basic",
-        "1 Residence Visa (2 Jahre)",
+        "1 Residence Visa (2 Jahre, Einreise nur 1x alle 6 Monate nötig)",
         "Emirates ID Beantragung",
         "Medical Test Begleitung",
         "E-Channel Registrierung"
