@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -187,7 +188,7 @@ export default function Home() {
               </h2>
               
               <div className="space-y-6">
-                <a href="/dubai-setup" className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer block">
+                <Link to="/dubai-setup" className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer block">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
                     <Building2 className="w-6 h-6 text-white" />
                   </div>
@@ -198,9 +199,9 @@ export default function Home() {
                       Full repatriation of capital and profits. No currency restrictions.
                     </p>
                   </div>
-                </a>
+                </Link>
                 
-                <a href="/insolvency" className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer block">
+                <Link to="/insolvency" className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer block">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
                     <Scale className="w-6 h-6 text-white" />
                   </div>
@@ -210,7 +211,7 @@ export default function Home() {
                       Schnellere Restschuldbefreiung in Spanien (Vergleich DE). Laufende rechtliche Betreuung für Firmenkunden (Monthly Retainer).
                     </p>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

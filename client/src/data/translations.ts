@@ -36,6 +36,8 @@ export const translations = {
     consultationNote: "Fee will be credited towards your first invoice.",
     chatBtn: "Ask AI Assistant",
     paymentMethods: "Secure payment with all major methods:",
+    contactTitle: "Contact Us",
+    contactSubtitle: "Send us a message. We will get back to you shortly.",
     faqsTitle: "Frequently Asked Questions",
     faqs: [
       { q: "How does the 0% tax in Dubai work?", a: "Dubai offers 0% corporate tax for profits up to 375,000 AED (approx. €95,000). Above that, a low 9% applies, which can be further optimized." },
@@ -80,6 +82,8 @@ export const translations = {
     consultationNote: "Gebühr wird bei Auftragserteilung verrechnet.",
     chatBtn: "KI-Assistent Fragen",
     paymentMethods: "Sichere Zahlung mit allen gängigen Methoden:",
+    contactTitle: "Kontakt",
+    contactSubtitle: "Senden Sie uns eine Nachricht. Wir melden uns umgehend.",
     faqsTitle: "Häufig gestellte Fragen",
     faqs: [
       { q: "Wie funktioniert die 0% Steuer in Dubai?", a: "Dubai bietet 0% Körperschaftsteuer für Gewinne bis 375.000 AED (ca. 95.000€). Darüber fallen nur 9% an, die weiter optimiert werden können." },
@@ -124,6 +128,8 @@ export const translations = {
     consultationNote: "La tarifa se abonará en su primera factura.",
     chatBtn: "Preguntar a IA",
     paymentMethods: "Pago seguro con todos los métodos:",
+    contactTitle: "Contacto",
+    contactSubtitle: "Envíenos un mensaje. Nos pondremos en contacto con usted en breve.",
     faqsTitle: "Preguntas Frecuentes",
     faqs: [
       { q: "¿Cómo funciona el 0% de impuestos en Dubai?", a: "Dubai ofrece 0% de impuesto corporativo para ganancias hasta 375.000 AED. Por encima aplica un 9%, que puede optimizarse." },

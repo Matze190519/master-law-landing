@@ -21,10 +21,10 @@ export default function Layout({ children }: LayoutProps) {
   }, []);
 
   const navLinks = [
-    { name: "Expertise", href: "#expertise" },
-    { name: "Global Tax", href: "#global-tax" },
-    { name: "Dubai", href: "#dubai" },
-    { name: "Insolvency", href: "#insolvency" },
+    { name: "Home", href: "/" },
+    { name: "Dubai Setup", href: "/dubai-setup" },
+    { name: "Tax Services", href: "/tax-services" },
+    { name: "Insolvency", href: "/insolvency" },
   ];
 
   return (
@@ -60,15 +60,15 @@ export default function Layout({ children }: LayoutProps) {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-md">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="px-5 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
-              >
-                {link.name}
-              </a>
-            ))}
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="px-5 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
           </nav>
 
           {/* Right Actions */}
@@ -101,13 +101,13 @@ export default function Layout({ children }: LayoutProps) {
               <SheetContent side="right" className="bg-black border-l border-white/10 w-full sm:w-[400px]">
                 <div className="flex flex-col gap-8 mt-20 px-6">
                   {navLinks.map((link) => (
-                    <a
+                    <Link
                       key={link.name}
                       href={link.href}
                       className="text-3xl font-light text-white/80 hover:text-white transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   ))}
                   <div className="h-px w-full bg-white/10 my-4"></div>
                   <a href="#contact" className="w-full">
