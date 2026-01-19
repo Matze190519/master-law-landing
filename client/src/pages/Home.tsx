@@ -269,8 +269,11 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Button className="w-full h-14 bg-white text-black font-bold rounded-xl hover:bg-gray-200 shadow-lg border-none mt-4">
-                  Get Optimized Now
+                <Button 
+                  onClick={() => setIsCalendarOpen(true)}
+                  className="w-full h-14 bg-white text-black font-bold rounded-xl hover:bg-gray-200 shadow-lg border-none mt-4"
+                >
+                  {t.ctaStart}
                 </Button>
               </div>
             </div>
