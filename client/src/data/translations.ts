@@ -3,7 +3,7 @@ export const translations = {
     // ... existing translations ...
     heroTitle: "COMPANY FORMATION & TAX OPTIMIZATION.",
     heroSubtitle: "Legally secure emigration. Visa Service. Insolvency Protection. Dubai & Spain.",
-    ctaStart: "Start Your Journey",
+    ctaStart: "Book Appointment Now",
     taxTitle: "Stop Paying Too Much.",
     taxSubtitle: "Compare your current tax burden with our optimized solutions.",
     incomeLabel: "Annual Income",
@@ -89,7 +89,7 @@ export const translations = {
     // ... existing translations ...
     heroTitle: "FIRMENSGRÜNDUNG & STEUEROPTIMIERUNG.",
     heroSubtitle: "Rechtssichere Auswanderung. Visa-Service. Insolvenzschutz. Dubai & Spanien.",
-    ctaStart: "Reise Starten",
+    ctaStart: "Jetzt Termin vereinbaren",
     taxTitle: "Zahlen Sie nicht zu viel.",
     taxSubtitle: "Vergleichen Sie Ihre aktuelle Steuerlast mit unseren optimierten Lösungen.",
     incomeLabel: "Jahreseinkommen",
@@ -175,7 +175,7 @@ export const translations = {
     // ... existing translations ...
     heroTitle: "CREACIÓN DE EMPRESAS Y OPTIMIZACIÓN FISCAL.",
     heroSubtitle: "Emigración legalmente segura. Servicio de visados. Protección contra la insolvencia. Dubai y España.",
-    ctaStart: "Comenzar Viaje",
+    ctaStart: "Reservar Cita Ahora",
     taxTitle: "Deje de pagar de más.",
     taxSubtitle: "Compare su carga fiscal actual con nuestras soluciones optimizadas.",
     incomeLabel: "Ingresos Anuales",

@@ -132,7 +132,11 @@ export default function Home() {
           </p>
 
           <div className="pt-8 md:pt-12">
-            <Button size="lg" className="h-14 md:h-16 px-8 md:px-12 rounded-full bg-white text-black hover:bg-gray-200 text-base md:text-lg font-bold tracking-wide shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border-none">
+            <Button 
+              size="lg" 
+              onClick={() => setIsCalendarOpen(true)}
+              className="h-14 md:h-16 px-8 md:px-12 rounded-full bg-white text-black hover:bg-gray-200 text-base md:text-lg font-bold tracking-wide shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border-none"
+            >
               {t.ctaStart}
             </Button>
           </div>
@@ -470,7 +474,8 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-white mb-12 text-center">{t.faqsTitle}</h2>
           <Accordion type="single" collapsible className="space-y-4">
             {/* @ts-ignore */}
-            {(faqs || []).map((faq: any, index: number) => (
+            {/* @ts-ignore */}
+            {(faqs[lang] || faqs['EN']).map((faq: any, index: number) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:bg-white/10 transition-all">
                 <AccordionTrigger className="text-white hover:text-white/80 text-lg font-medium py-6 text-left">{faq.question || faq.q}</AccordionTrigger>
                 <AccordionContent className="text-white/60 text-base pb-6 leading-relaxed">
