@@ -8,6 +8,9 @@ import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import DubaiSetup from "./pages/DubaiSetup";
+import TaxServices from "./pages/TaxServices";
+import Insolvency from "./pages/Insolvency";
 
 
 function Router() {
@@ -17,6 +20,9 @@ function Router() {
       <Route path={"/impressum"} component={Impressum} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/terms"} component={Terms} />
+      <Route path={"/dubai-setup"} component={DubaiSetup} />
+      <Route path={"/tax-services"} component={TaxServices} />
+      <Route path={"/insolvency"} component={Insolvency} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

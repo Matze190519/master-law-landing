@@ -181,7 +181,7 @@ export default function Home() {
               </h2>
               
               <div className="space-y-6">
-                <div className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer">
+                <a href="/dubai-setup" className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer block">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
                     <Building2 className="w-6 h-6 text-white" />
                   </div>
@@ -192,20 +192,19 @@ export default function Home() {
                       Full repatriation of capital and profits. No currency restrictions.
                     </p>
                   </div>
-                </div>
+                </a>
                 
-                <div className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer">
+                <a href="/insolvency" className="glass-panel p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors cursor-pointer block">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
-                    <Coins className="w-6 h-6 text-white" />
+                    <Scale className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Spanish Golden Visa</h3>
+                    <h3 className="text-xl font-bold text-white">Insolvenz & Firmenbetreuung</h3>
                     <p className="text-white/60 mt-2 text-sm">
-                      Residency through real estate investment (€500k). 
-                      Freedom of movement within the Schengen Zone. Path to citizenship.
+                      Schnellere Restschuldbefreiung in Spanien (Vergleich DE). Laufende rechtliche Betreuung für Firmenkunden (Monthly Retainer).
                     </p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
