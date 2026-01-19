@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Building2, Globe, Shield, Plane, FileText, Coins, UserCheck, Briefcase, Stamp, CreditCard } from "lucide-react";
+import { Check, ArrowRight, Building2, Globe, Plane, FileText, Briefcase, Stamp } from "lucide-react";
 import { Link } from "wouter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { serviceFaqs } from "@/data/serviceFaqs";
@@ -17,7 +17,7 @@ export default function DubaiSetup() {
 
   const steps = [
     {
-      icon: <UserCheck className="w-6 h-6 text-white" />,
+      icon: <FileText className="w-6 h-6 text-white" />,
       title: "01. Beratung & Angebot",
       desc: "Wir analysieren Ihre Situation und erstellen ein maßgeschneidertes Angebot für Ihre Firmengründung."
     },
@@ -168,7 +168,10 @@ export default function DubaiSetup() {
                     ))}
                   </div>
 
-                  <Button className={`w-full h-12 font-bold ${pkg.popular ? 'bg-white text-black hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20'}`}>
+                  <Button 
+                    className={`w-full h-12 font-bold ${pkg.popular ? 'bg-white text-black hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20'}`}
+                    onClick={() => (document.getElementById('calendar-modal') as HTMLDialogElement)?.showModal()}
+                  >
                     Angebot anfordern
                   </Button>
                 </div>
@@ -247,7 +250,7 @@ export default function DubaiSetup() {
           <div className="text-center pt-12 border-t border-white/10">
             <h2 className="text-3xl font-bold text-white mb-6">Bereit für den Neustart?</h2>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Button size="lg" className="h-14 px-8 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-lg" onClick={() => window.open('https://calendly.com/master-law/30min', '_blank')}>
+              <Button size="lg" className="h-14 px-8 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-lg" onClick={() => (document.getElementById('calendar-modal') as HTMLDialogElement)?.showModal()}>
                 Beratung Buchen (Kostenlos) <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Link href="/contact">
