@@ -378,7 +378,7 @@ export default function Home() {
           <div className="w-full h-full bg-white">
             {/* Placeholder for Calendly - Replace src with actual Calendly URL */}
             <iframe 
-              src="https://calendly.com/master-law-firm/consultation" 
+              src="https://calendly.com/master-law" 
               width="100%" 
               height="100%" 
               frameBorder="0"
