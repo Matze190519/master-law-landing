@@ -1,105 +1,164 @@
-import Layout from "@/components/Layout";
+import { motion } from "framer-motion";
+import { Scale, Globe, Building2, ShieldCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Building2, Scale, Plane, ArrowRight } from "lucide-react";
-import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useLocation } from "wouter";
 
 export default function About() {
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [, setLocation] = useLocation();
+
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
 
   return (
-    <Layout>
-      {/* Hero Section */}
-      <section className="relative py-32 bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/grid.png')] opacity-10"></div>
-        <div className="container relative z-10">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tighter">
-              Über Uns
-            </h1>
-            <p className="text-xl text-white/60 leading-relaxed">
-              Wir sind spezialisiert auf internationale Steueroptimierung, Firmengründung und Insolvenzrecht. 
-              Unser Fokus liegt auf rechtssicheren Lösungen für Unternehmer und Privatpersonen in Spanien und Dubai.
+    <div className="min-h-screen pt-24 pb-16">
+      <div className="container mx-auto px-4">
+        {/* Hero Section */}
+        <motion.div 
+          className="max-w-4xl mx-auto text-center mb-20"
+          initial="initial"
+          animate="animate"
+          variants={fadeIn}
+        >
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">
+            Kanzlei Master Law
+          </h1>
+          <p className="text-xl text-white/60 mb-8 leading-relaxed">
+            Wir sind keine Agentur. Wir sind eine spezialisierte Kanzlei für internationales Steuerrecht und Insolvenzrecht.
+            Rechtsanwalt & Steuerberater Oliver Wagner und sein Team bieten Ihnen rechtssichere Lösungen statt leerer Versprechungen.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+              <Scale className="w-4 h-4 text-primary" />
+              <span className="text-sm">Rechtsanwälte & Steuerberater</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+              <ShieldCheck className="w-4 h-4 text-primary" />
+              <span className="text-sm">Haftung & Rechtssicherheit</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Core Pillars */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
+          {/* Pillar 1: Insolvency */}
+          <motion.div 
+            className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-6">
+              <Scale className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Insolvenz & Neustart Spanien</h3>
+            <p className="text-white/60 mb-6">
+              Nutzen Sie das spanische "Ley de Segunda Oportunidad" für einen echten Neustart. 
+              Anders als oft behauptet, ist dies kein "Tourismus", sondern ein geregeltes EU-Verfahren.
             </p>
-          </div>
+            <ul className="space-y-3 text-sm text-white/80 mb-8">
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                <span>Wohnsitzverlagerung nach Spanien (4-6 Monate Vorlaufzeit empfohlen)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                <span>Verfahrensdauer oft nur 3-6 Monate bis zur Restschuldbefreiung</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                <span>Rechtssichere Begleitung durch zugelassene Anwälte vor Ort</span>
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* Pillar 2: Dubai Setup */}
+          <motion.div 
+            className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-6">
+              <Building2 className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Firmengründung Dubai (VAE)</h3>
+            <p className="text-white/60 mb-6">
+              Maximale Steueroptimierung durch Nutzung aktueller Gesetze (Stand 2026). 
+              Wir gründen Ihre Freezone-Company rechtssicher und beraten zur Substanz.
+            </p>
+            <ul className="space-y-3 text-sm text-white/80 mb-8">
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                <span><strong>0% Körperschaftsteuer</strong> möglich durch "Small Business Relief" (bis 3 Mio. AED Umsatz)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                <span><strong>0% Einkommensteuer</strong> auf Gehälter und Entnahmen</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                <span>Komplettabwicklung inkl. Visa, Emirates ID und Bankkonto</span>
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* Pillar 3: Spain Tax/Legal */}
+          <motion.div 
+            className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-6">
+              <Globe className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Steuerberatung Spanien</h3>
+            <p className="text-white/60 mb-6">
+              Spezialisierte Betreuung für deutsche Auswanderer, S.L.-Gesellschaften und Autonomos auf Mallorca und dem Festland.
+            </p>
+            <ul className="space-y-3 text-sm text-white/80 mb-8">
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                <span><strong>Beckham Law:</strong> Pauschal 24% Steuer für Zuzügler (unter bestimmten Voraussetzungen)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                <span>Laufende Buchhaltung & Steuererklärungen (Deutsch/Spanisch)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                <span>Rechtsberatung im Immobilien- und Gesellschaftsrecht</span>
+              </li>
+            </ul>
+          </motion.div>
         </div>
-      </section>
 
-      {/* The 3 Pillars */}
-      <section className="py-20 bg-black border-t border-white/10">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {/* Pillar 1: Insolvency Migration */}
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 hover:bg-white/5 transition-colors group">
-              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Scale className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Insolvenz & Neustart</h3>
-              <p className="text-white/60 leading-relaxed mb-6">
-                Wir unterstützen Sie beim Umzug nach Spanien. Nach nur 4-6 Monaten Aufenthalt können Sie hier das spanische Insolvenzverfahren durchlaufen und eine schnelle Restschuldbefreiung (Ley de Segunda Oportunidad) erreichen.
-              </p>
-            </div>
-
-            {/* Pillar 2: Dubai Setup */}
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 hover:bg-white/5 transition-colors group">
-              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Dubai Firmengründung</h3>
-              <p className="text-white/60 leading-relaxed mb-6">
-                Gründung Ihrer steuerfreien Firma in Dubai (Freezone). Wir übernehmen den kompletten Prozess inklusive Visum, Bankkonto und Compliance für maximale Steueroptimierung.
-              </p>
-            </div>
-
-            {/* Pillar 3: Spain Tax & Legal */}
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 hover:bg-white/5 transition-colors group">
-              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Plane className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Rechts- & Steuerberatung Spanien</h3>
-              <p className="text-white/60 leading-relaxed mb-6">
-                Umfassende Betreuung für deutsche Auswanderer, S.L.-Gesellschaften und Autonomos auf Mallorca und dem Festland. Ihr deutscher Anwalt und Steuerberater vor Ort.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-black border-t border-white/10">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-            Bereit für Ihren Neustart?
-          </h2>
+        {/* CTA Section */}
+        <motion.div 
+          className="text-center bg-white/5 rounded-3xl p-12 border border-white/10"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-bold mb-6">Sprechen Sie mit Experten, nicht mit Verkäufern.</h2>
+          <p className="text-white/60 mb-8 max-w-2xl mx-auto">
+            Vereinbaren Sie ein kostenloses Erstgespräch, um Ihre Situation rechtlich fundiert zu analysieren.
+          </p>
           <Button 
             size="lg" 
-            onClick={() => setIsCalendarOpen(true)}
-            className="h-14 px-8 bg-white text-black hover:bg-gray-200 rounded-full text-lg font-bold"
+            className="bg-white text-black hover:bg-white/90 text-lg px-8 h-14 rounded-full"
+            onClick={() => (document.getElementById('calendar-modal') as HTMLDialogElement)?.showModal()}
           >
-            Jetzt Termin vereinbaren <ArrowRight className="ml-2 w-5 h-5" />
+            Kostenloses Erstgespräch vereinbaren <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
-        </div>
-      </section>
-
-      {/* Calendar Modal */}
-      <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-        <DialogContent className="sm:max-w-[900px] h-[80vh] bg-black/95 border-white/10 backdrop-blur-xl p-0 overflow-hidden">
-          <DialogHeader className="p-6 border-b border-white/10">
-            <DialogTitle className="text-2xl font-bold text-white">Beratung buchen</DialogTitle>
-          </DialogHeader>
-          <div className="w-full h-full bg-white">
-            <iframe 
-              src="https://calendly.com/master-law?hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff" 
-              width="100%" 
-              height="100%" 
-              frameBorder="0"
-              title="Calendly Scheduling"
-            ></iframe>
-          </div>
-        </DialogContent>
-      </Dialog>
-    </Layout>
+        </motion.div>
+      </div>
+    </div>
   );
 }

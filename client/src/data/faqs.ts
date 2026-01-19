@@ -1,59 +1,68 @@
 export const faqs = {
-  EN: [
-    {
-      question: "How does the 0% Corporate Tax in Dubai work?",
-      answer: "Since 2024, UAE Freezone companies can benefit from 0% Corporate Tax on 'Qualifying Income'. This generally applies to income derived from transactions with other Freezone entities or non-domestic activities. Income up to AED 375,000 (~€95,000) is also taxed at 0% for small businesses. We handle the full setup and compliance to ensure you meet all substance requirements."
-    },
-    {
-      question: "What is the 'Ley de Segunda Oportunidad' in Spain?",
-      answer: "It is a legal mechanism allowing individuals and self-employed persons to cancel their debts (BEPI) if they are insolvent and act in good faith. Unlike Germany's 3-year process, the Spanish procedure can often be completed in 12-18 months, offering a faster fresh start without a public Schufa-style record."
-    },
-    {
-      question: "Can I really save taxes with the Beckham Law?",
-      answer: "Yes. The Special Expats Regime (Beckham Law) allows you to pay a flat 24% tax rate on Spanish income up to €600,000, instead of the progressive rate which goes up to 47%. Crucially, your foreign income (e.g., dividends, interest outside Spain) remains tax-exempt in Spain. This is a massive advantage for high-net-worth individuals."
-    },
-    {
-      question: "Do I need to live in Dubai to have a company there?",
-      answer: "No, you do not need to live there permanently. However, to maintain tax residency and substance, it is recommended to visit at least once every 6 months and have a physical office presence (which we provide). This grants you a UAE Residency Visa."
-    },
-
-  ],
   DE: [
     {
-      question: "Wie funktioniert die 0% Körperschaftsteuer in Dubai?",
-      answer: "Seit 2024 können VAE-Freezone-Unternehmen von 0% Körperschaftsteuer auf 'Qualifying Income' profitieren. Dies gilt generell für Einkünfte aus Transaktionen mit anderen Freezone-Einheiten oder internationalen Aktivitäten. Gewinne bis zu 375.000 AED (~95.000 €) sind ebenfalls steuerfrei. Wir kümmern uns um die komplette Gründung und Compliance, um sicherzustellen, dass Sie alle Substanzanforderungen erfüllen."
+      question: "Wie funktioniert die Insolvenz in Spanien?",
+      answer: "Das spanische Insolvenzrecht (Ley de Segunda Oportunidad) ermöglicht eine Restschuldbefreiung oft schon nach 12 Monaten. Voraussetzung ist ein Wohnsitz in Spanien. Wir begleiten Sie beim Umzug und dem gesamten Verfahren."
     },
     {
-      question: "Was ist das 'Ley de Segunda Oportunidad' in Spanien?",
-      answer: "Es ist ein rechtlicher Mechanismus, der es Privatpersonen und Selbstständigen ermöglicht, ihre Schulden zu streichen (Restschuldbefreiung), wenn sie zahlungsunfähig sind und gutgläubig handeln. Im Gegensatz zum 3-jährigen Verfahren in Deutschland kann das spanische Verfahren oft in 12-18 Monaten abgeschlossen werden und bietet einen schnelleren Neustart ohne öffentlichen Schufa-Eintrag."
+      question: "Muss ich für die Insolvenz nach Spanien ziehen?",
+      answer: "Ja, der Lebensmittelpunkt muss nachweislich in Spanien liegen (mindestens 4-6 Monate Aufenthalt), um die Zuständigkeit der spanischen Gerichte zu begründen."
     },
     {
-      question: "Kann ich mit dem Beckham Law wirklich Steuern sparen?",
-      answer: "Ja. Das Sonderregime für Expats (Beckham Law) ermöglicht es Ihnen, einen Pauschalsatz von 24% auf spanisches Einkommen bis zu 600.000 € zu zahlen, anstatt des progressiven Satzes, der bis zu 47% steigt. Entscheidend ist, dass Ihr ausländisches Einkommen (z.B. Dividenden, Zinsen außerhalb Spaniens) in Spanien steuerfrei bleibt. Dies ist ein massiver Vorteil für vermögende Privatpersonen."
+      question: "Wie hoch sind die Steuern für eine Dubai-Firma?",
+      answer: "Seit 2024 gilt in den VAE eine Körperschaftsteuer von 9% für Gewinne über 375.000 AED (~95.000 €). Für 'Qualifying Income' in Freezones sowie für Gewinne unter dieser Freigrenze sind weiterhin 0% möglich. Es gibt keine Einkommensteuer auf Gehälter."
     },
     {
-      question: "Muss ich in Dubai leben, um dort eine Firma zu haben?",
-      answer: "Nein, Sie müssen nicht dauerhaft dort leben. Um jedoch die steuerliche Ansässigkeit und Substanz zu wahren, wird empfohlen, mindestens alle 6 Monate einzureisen und eine physische Bürospräsenz zu haben (die wir bereitstellen). Dies gewährt Ihnen ein VAE-Residency-Visum."
+      question: "Betreuen Sie auch deutsche Auswanderer in Spanien?",
+      answer: "Ja, wir bieten umfassende Rechts- und Steuerberatung für Deutsche in Spanien. Egal ob Rentner, Autonomo (Selbstständiger) oder S.L.-Geschäftsführer – wir kümmern uns um Ihre steuerlichen Pflichten vor Ort."
     },
-
+    {
+      question: "Was ist das Beckham Law?",
+      answer: "Das Beckham Law ist eine Sonderregelung für Zuzügler in Spanien. Sie zahlen pauschal 24% Steuern auf spanisches Einkommen (bis 600.000 €) und sind von der Steuer auf ausländisches Vermögen weitgehend befreit."
+    }
+  ],
+  EN: [
+    {
+      question: "How does insolvency in Spain work?",
+      answer: "Spanish insolvency law (Ley de Segunda Oportunidad) allows for debt discharge often within 12 months. Residency in Spain is required. We guide you through the relocation and the entire process."
+    },
+    {
+      question: "Do I have to move to Spain for insolvency?",
+      answer: "Yes, your center of life must be proven to be in Spain (at least 4-6 months of residence) to establish the jurisdiction of Spanish courts."
+    },
+    {
+      question: "What are the taxes for a Dubai company?",
+      answer: "Since 2024, a 9% corporate tax applies in the UAE for profits exceeding AED 375,000 (~€95,000). For 'Qualifying Income' in Freezones and profits below this threshold, 0% is still possible. There is no income tax on salaries."
+    },
+    {
+      question: "Do you also support German expats in Spain?",
+      answer: "Yes, we offer comprehensive legal and tax advice for Germans in Spain. Whether pensioner, Autonomo (self-employed), or S.L. director – we take care of your tax obligations locally."
+    },
+    {
+      question: "What is the Beckham Law?",
+      answer: "The Beckham Law is a special regime for new residents in Spain. You pay a flat 24% tax on Spanish income (up to €600,000) and are largely exempt from tax on foreign assets."
+    }
   ],
   ES: [
     {
-      question: "¿Cómo funciona el 0% de Impuesto Corporativo en Dubái?",
-      answer: "Desde 2024, las empresas de la Zona Franca de los EAU pueden beneficiarse del 0% de Impuesto Corporativo sobre 'Ingresos Calificados'. Esto se aplica generalmente a los ingresos derivados de transacciones con otras entidades de la Zona Franca o actividades internacionales. Los ingresos de hasta 375.000 AED (~95.000 €) también están exentos de impuestos. Nos encargamos de toda la configuración y el cumplimiento para garantizar que cumpla con todos los requisitos de sustancia."
+      question: "¿Cómo funciona la insolvencia en España?",
+      answer: "La Ley de Segunda Oportunidad permite la exoneración de deudas a menudo en 12 meses. Se requiere residencia en España. Le acompañamos en el traslado y todo el proceso."
     },
     {
-      question: "¿Qué es la 'Ley de Segunda Oportunidad' en España?",
-      answer: "Es un mecanismo legal que permite a particulares y autónomos cancelar sus deudas (BEPI) si son insolventes y actúan de buena fe. A diferencia del proceso de 3 años en Alemania, el procedimiento español a menudo se puede completar en 12-18 meses, ofreciendo un nuevo comienzo más rápido sin un registro público tipo Schufa."
+      question: "¿Tengo que mudarme a España para la insolvencia?",
+      answer: "Sí, su centro de vida debe estar demostrablemente en España (al menos 4-6 meses de residencia) para establecer la competencia de los tribunales españoles."
     },
     {
-      question: "¿Realmente puedo ahorrar impuestos con la Ley Beckham?",
-      answer: "Sí. El Régimen Especial para Expatriados (Ley Beckham) le permite pagar una tarifa plana del 24% sobre los ingresos españoles hasta 600.000 €, en lugar de la tasa progresiva que sube hasta el 47%. Crucialmente, sus ingresos extranjeros (por ejemplo, dividendos, intereses fuera de España) permanecen exentos de impuestos en España. Esta es una ventaja masiva para personas de alto patrimonio neto."
+      question: "¿Cuáles son los impuestos para una empresa en Dubai?",
+      answer: "Desde 2024, se aplica un impuesto corporativo del 9% en los EAU para beneficios superiores a 375.000 AED (~95.000 €). Para 'Ingresos Calificados' en Zonas Francas y beneficios por debajo de este umbral, sigue siendo posible el 0%. No hay impuesto sobre la renta en los salarios."
     },
     {
-      question: "¿Necesito vivir en Dubái para tener una empresa allí?",
-      answer: "¿No, no necesita vivir allí permanentemente. Sin embargo, para mantener la residencia fiscal y la sustancia, se recomienda visitar al menos una vez cada 6 meses y tener una presencia física de oficina (que nosotros proporcionamos). Esto le otorga una Visa de Residencia de los EAU."
+      question: "¿Apoyan también a expatriados alemanes en España?",
+      answer: "Sí, ofrecemos asesoramiento legal y fiscal integral para alemanes en España. Ya sea pensionista, autónomo o director de S.L., nos ocupamos de sus obligaciones fiscales locales."
     },
-
+    {
+      question: "¿Qué es la Ley Beckham?",
+      answer: "La Ley Beckham es un régimen especial para nuevos residentes en España. Paga un 24% fijo sobre los ingresos españoles (hasta 600.000 €) y está exento en gran medida de impuestos sobre activos extranjeros."
+    }
   ]
 };
