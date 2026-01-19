@@ -22,11 +22,11 @@ export default function Layout({ children }: LayoutProps) {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Dubai Setup", href: "/dubai-setup" },
-    { name: "Tax Services", href: "/tax-services" },
-    { name: "Insolvency", href: "/insolvency" },
-    { name: "About Us", href: "/about" },
+    { name: "Startseite", href: "/" },
+    { name: "Dubai Gründung", href: "/dubai-setup" },
+    { name: "Steuerberatung", href: "/tax-services" },
+    { name: "Insolvenzschutz", href: "/insolvency" },
+    { name: "Über Uns", href: "/about" },
   ];
 
   return (
@@ -54,7 +54,7 @@ export default function Layout({ children }: LayoutProps) {
                   MASTER LAW
                 </span>
                 <span className="text-[9px] uppercase tracking-[0.3em] text-white/50">
-                  Global Tax & Legal
+                  Global Tax & Rechtliches
                 </span>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function Layout({ children }: LayoutProps) {
 
             <a href="https://calendly.com/master-law/30min" target="_blank" rel="noopener noreferrer">
               <Button className="bg-white text-black hover:bg-white/90 font-medium rounded-full px-6 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 border-none">
-                Book Consultation
+                Beratung buchen
               </Button>
             </a>
           </div>
@@ -114,7 +114,7 @@ export default function Layout({ children }: LayoutProps) {
                   <div className="h-px w-full bg-white/10 my-4"></div>
                   <a href="https://calendly.com/master-law/30min" target="_blank" rel="noopener noreferrer" className="w-full">
                     <Button className="w-full bg-white text-black font-bold h-12 rounded-xl text-lg">
-                      Book Consultation
+                      Beratung buchen
                     </Button>
                   </a>
                 </div>
@@ -143,20 +143,20 @@ export default function Layout({ children }: LayoutProps) {
                 <span className="text-xl font-bold text-white tracking-wide">MASTER LAW</span>
               </div>
               <p className="text-white/50 max-w-md leading-relaxed">
-                International legal structures, tax optimization, and insolvency protection for high-net-worth individuals and corporations.
+                Internationale Rechtsstrukturen, Steueroptimierung und Insolvenzschutz für vermögende Privatpersonen und Unternehmen.
               </p>
             </div>
             
             <div>
-              <h3 className="text-white font-medium mb-6">Legal</h3>
+              <h3 className="text-white font-medium mb-6">Rechtliches</h3>
               <ul className="space-y-4 text-white/50">
-                <li><Link href="/imprint" className="hover:text-white transition-colors">Imprint</Link></li>
-                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/imprint" className="hover:text-white transition-colors">Impressum</Link></li>
+                <li><Link href="/privacy" className="hover:text-white transition-colors">Datenschutz</Link></li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-white font-medium mb-6">Contact</h3>
+              <h3 className="text-white font-medium mb-6">Kontakt</h3>
               <ul className="space-y-4 text-white/50">
                 <li>Avda. Alexandre Rosselló 15, 6º D<br/>07002 Palma de Mallorca</li>
                 <li>+34 871 24 24 04</li>
@@ -167,7 +167,7 @@ export default function Layout({ children }: LayoutProps) {
           
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
             <p>&copy; {new Date().getFullYear()} Master Law Firm SL. All rights reserved.</p>
-            <p>Designed with precision. <span className="text-green-500 font-bold ml-2">v2.0 (Live)</span></p>
+            <p>Präzise gestaltet. <span className="text-green-500 font-bold ml-2">v2.0 (Live)</span></p>
           </div>
         </div>
       </footer>

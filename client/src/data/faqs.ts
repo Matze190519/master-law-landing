@@ -16,10 +16,7 @@ export const faqs = {
       question: "Do I need to live in Dubai to have a company there?",
       answer: "No, you do not need to live there permanently. However, to maintain tax residency and substance, it is recommended to visit at least once every 6 months and have a physical office presence (which we provide). This grants you a UAE Residency Visa."
     },
-    {
-      question: "How long does the Golden Visa process take?",
-      answer: "The Spanish Golden Visa is one of the fastest in Europe. Once the investment (e.g., €500k in real estate) is made, the residence permit is typically approved within 20 working days. It grants you and your family full living and working rights in Spain."
-    }
+
   ],
   DE: [
     {
@@ -38,10 +35,7 @@ export const faqs = {
       question: "Muss ich in Dubai leben, um dort eine Firma zu haben?",
       answer: "Nein, Sie müssen nicht dauerhaft dort leben. Um jedoch die steuerliche Ansässigkeit und Substanz zu wahren, wird empfohlen, mindestens alle 6 Monate einzureisen und eine physische Bürospräsenz zu haben (die wir bereitstellen). Dies gewährt Ihnen ein VAE-Residency-Visum."
     },
-    {
-      question: "Wie lange dauert der Golden Visa Prozess?",
-      answer: "Das spanische Golden Visa ist eines der schnellsten in Europa. Sobald die Investition (z.B. 500.000 € in Immobilien) getätigt ist, wird die Aufenthaltserlaubnis in der Regel innerhalb von 20 Arbeitstagen genehmigt. Sie gewährt Ihnen und Ihrer Familie volle Lebens- und Arbeitsrechte in Spanien."
-    }
+
   ],
   ES: [
     {
@@ -60,9 +54,6 @@ export const faqs = {
       question: "¿Necesito vivir en Dubái para tener una empresa allí?",
       answer: "¿No, no necesita vivir allí permanentemente. Sin embargo, para mantener la residencia fiscal y la sustancia, se recomienda visitar al menos una vez cada 6 meses y tener una presencia física de oficina (que nosotros proporcionamos). Esto le otorga una Visa de Residencia de los EAU."
     },
-    {
-      question: "¿Cuánto tiempo tarda el proceso de la Golden Visa?",
-      answer: "La Golden Visa española es una de las más rápidas de Europa. Una vez realizada la inversión (por ejemplo, 500.000 € en bienes raíces), el permiso de residencia generalmente se aprueba dentro de los 20 días hábiles. Le otorga a usted y a su familia plenos derechos de vida y trabajo en España."
-    }
+
   ]
 };
