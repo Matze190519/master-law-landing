@@ -6,7 +6,7 @@ export const serviceFaqs = {
     },
     {
       q: "Wie lange dauert der gesamte Prozess?",
-      a: "Die Firmengründung (Lizenz) dauert ca. 3-5 Werktage. Das Visum und die Emirates ID nehmen weitere 5-7 Werktage in Anspruch. Das Bankkonto folgt im Anschluss (ca. 2-4 Wochen)."
+      a: "Die Firmengründung (Lizenz) dauert ca. 3-5 Werktage. Das Visum und die Emirates ID nehmen weitere 5-7 Werktage in Anspruch. Das Bankkonto erhalten Sie sofort nach Firmengründung."
     },
     {
       q: "Brauche ich einen lokalen Sponsor?",

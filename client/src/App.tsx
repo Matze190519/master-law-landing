@@ -8,27 +8,24 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import CookieBanner from "@/components/CookieBanner";
 import Home from "@/pages/Home";
 
-import Impressum from "./pages/Impressum";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
 import DubaiSetup from "./pages/DubaiSetup";
 import TaxServices from "./pages/TaxServices";
-import Insolvency from "./pages/Insolvency";
+import Insolvency from "@/pages/Insolvency";
+import Imprint from "@/pages/Imprint";
+import Privacy from "@/pages/Privacy";
+import Team from "@/pages/Team";
 
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-
-      <Route path={"/impressum"} component={Impressum} />
-      <Route path={"/privacy"} component={Privacy} />
-      <Route path={"/terms"} component={Terms} />
-      <Route path={"/dubai-setup"} component={DubaiSetup} />
-      <Route path={"/tax-services"} component={TaxServices} />
-      <Route path={"/insolvency"} component={Insolvency} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
+      <Route path="/dubai-setup" component={DubaiSetup} />
+      <Route path="/tax-services" component={TaxServices} />
+      <Route path="/insolvency" component={Insolvency} />
+      <Route path="/imprint" component={Imprint} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/team" component={Team} />
       <Route component={NotFound} />
     </Switch>
   );

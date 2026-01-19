@@ -34,7 +34,7 @@ export default function Insolvency() {
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
               Nutzen Sie das spanische "Ley de Segunda Oportunidad" für eine schnellere Restschuldbefreiung als in Deutschland. 
-              Legal, sicher und diskret.
+              Schuldenfrei in ca. 12 Monaten. Legal, sicher und diskret.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ export default function Insolvency() {
                     <Clock className="w-5 h-5 text-green-400 shrink-0 mt-1" />
                     <div>
                       <h4 className="text-white font-bold text-sm">Schnelles Verfahren</h4>
-                      <p className="text-white/50 text-sm">Restschuldbefreiung oft schon nach 12-18 Monaten möglich.</p>
+                      <p className="text-white/50 text-sm">Restschuldbefreiung oft schon nach ca. 12 Monaten möglich.</p>
                     </div>
                   </div>
                   
@@ -148,7 +148,7 @@ export default function Insolvency() {
                 { id: "q2", text: "Haben Sie Schulden, die Sie voraussichtlich nicht mehr bedienen können?", correctAnswer: true },
                 { id: "q3", text: "Sind Sie bereit, alle Vermögenswerte offenzulegen?", correctAnswer: true }
               ]}
-              successMessage="Sie erfüllen die Grundvoraussetzungen für das spanische Insolvenzverfahren (Ley de Segunda Oportunidad). Eine Restschuldbefreiung in 12-18 Monaten ist realistisch."
+              successMessage="Sie erfüllen die Grundvoraussetzungen für das spanische Insolvenzverfahren (Ley de Segunda Oportunidad). Eine Restschuldbefreiung in ca. 12 Monaten ist realistisch."
               failMessage="Das Verfahren erfordert einen echten Wohnsitzwechsel und Transparenz. Gerne prüfen wir in einem persönlichen Gespräch, ob es dennoch Wege für Sie gibt."
             />
           </div>

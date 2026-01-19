@@ -1,11 +1,21 @@
 import Layout from "@/components/Layout";
+import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
 
 export default function Privacy() {
+  const { lang } = useLanguage();
+
   return (
     <Layout>
+      <SEO 
+        title={lang === "DE" ? "Datenschutz" : lang === "ES" ? "Privacidad" : "Privacy Policy"}
+        description={lang === "DE" ? "Datenschutzerklärung" : lang === "ES" ? "Política de Privacidad" : "Privacy Policy"}
+      />
       <section className="pt-32 pb-20 min-h-screen">
         <div className="container max-w-3xl">
-          <h1 className="text-4xl font-bold text-white mb-8">Datenschutzerklärung</h1>
+          <h1 className="text-4xl font-bold text-white mb-8">
+            {lang === "DE" ? "Datenschutzerklärung" : lang === "ES" ? "Política de Privacidad" : "Privacy Policy"}
+          </h1>
           
           <div className="space-y-8 text-white/80">
             <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">

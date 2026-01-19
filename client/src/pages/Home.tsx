@@ -355,7 +355,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-white mb-12 text-center">{t.faqsTitle}</h2>
           <Accordion type="single" collapsible className="space-y-4">
             {/* @ts-ignore */}
-            {(t.faqs || []).map((faq: any, index: number) => (
+            {(faqs || []).map((faq: any, index: number) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:bg-white/10 transition-all">
                 <AccordionTrigger className="text-white hover:text-white/80 text-lg font-medium py-6 text-left">{faq.q}</AccordionTrigger>
                 <AccordionContent className="text-white/60 text-base pb-6 leading-relaxed">

@@ -51,7 +51,7 @@ export const translations = {
     
     // Dubai Page
     dubaiHeroTitle: "Dubai Freezone Setup",
-    dubaiHeroSubtitle: "0% Tax. 100% Ownership. Full Residency.",
+    dubaiHeroSubtitle: "0% Tax. 100% Ownership. Full Residency. Bank account immediately after incorporation.",
     dubaiPrice: "From €7,500",
     dubaiFeature1: "0% Corporate Tax",
     dubaiFeature2: "100% Foreign Ownership",
@@ -67,10 +67,10 @@ export const translations = {
     
     // Insolvency Page
     insolvencyPageTitle: "Insolvency Law",
-    insolvencyPageSubtitle: "Debt-free in 12-18 months with the Spanish 'Second Chance Law'.",
+    insolvencyPageSubtitle: "Debt-free in approx. 12 months with the Spanish 'Second Chance Law'. Legal, secure, and discreet.",
     insolvencyComparisonTitle: "Germany vs. Spain",
     insolvencyDeDuration: "3-6 Years",
-    insolvencyEsDuration: "12-18 Months",
+    insolvencyEsDuration: "approx. 12 Months",
   },
   DE: {
     // ... existing translations ...
@@ -124,7 +124,7 @@ export const translations = {
 
     // Dubai Page
     dubaiHeroTitle: "Dubai Freezone Gründung",
-    dubaiHeroSubtitle: "0% Steuern. 100% Eigentum. Volle Residenz.",
+    dubaiHeroSubtitle: "0% Steuern. 100% Eigentum. Volle Residenz. Bankkonto sofort nach Gründung.",
     dubaiPrice: "Ab €7.500",
     dubaiFeature1: "0% Körperschaftsteuer",
     dubaiFeature2: "100% Ausländisches Eigentum",
@@ -140,10 +140,10 @@ export const translations = {
 
     // Insolvency Page
     insolvencyPageTitle: "Insolvenzrecht",
-    insolvencyPageSubtitle: "Schuldenfrei in 12-18 Monaten mit dem spanischen 'Ley de Segunda Oportunidad'.",
+    insolvencyPageSubtitle: "Schuldenfrei in ca. 12 Monaten mit dem spanischen 'Ley de Segunda Oportunidad'. Legal, sicher und diskret.",
     insolvencyComparisonTitle: "Deutschland vs. Spanien",
     insolvencyDeDuration: "3-6 Jahre",
-    insolvencyEsDuration: "12-18 Monate",
+    insolvencyEsDuration: "ca. 12 Monate",
   },
   ES: {
     // ... existing translations ...
@@ -197,7 +197,7 @@ export const translations = {
 
     // Dubai Page
     dubaiHeroTitle: "Creación de Empresa en Dubai",
-    dubaiHeroSubtitle: "0% Impuestos. 100% Propiedad. Residencia Completa.",
+    dubaiHeroSubtitle: "0% Impuestos. 100% Propiedad. Residencia Completa. Cuenta bancaria inmediatamente después de la constitución.",
     dubaiPrice: "Desde €7.500",
     dubaiFeature1: "0% Impuesto Corporativo",
     dubaiFeature2: "100% Propiedad Extranjera",
@@ -213,9 +213,9 @@ export const translations = {
 
     // Insolvency Page
     insolvencyPageTitle: "Ley de Insolvencia",
-    insolvencyPageSubtitle: "Libre de deudas en 12-18 meses con la 'Ley de Segunda Oportunidad'.",
+    insolvencyPageSubtitle: "Libre de deudas en aprox. 12 meses con la 'Ley de Segunda Oportunidad'. Legal, seguro y discreto.",
     insolvencyComparisonTitle: "Alemania vs. España",
     insolvencyDeDuration: "3-6 Años",
-    insolvencyEsDuration: "12-18 Meses",
+    insolvencyEsDuration: "aprox. 12 Meses",
   }
 };
