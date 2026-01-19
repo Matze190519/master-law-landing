@@ -15,3 +15,7 @@
 - [ ] Neues GitHub Repository erstellen
 - [ ] Code committen und pushen
 - [ ] Repository-Link bereitstellen
+- [ ] Rechner: Schriftgrößen der Ergebnisse exakt angleichen
+- [ ] Services: Doppeltes "Dubai" entfernen und "Buchführung" hinzufügen
+- [ ] Chatbot: "Du bist ein professioneller..." Text entfernen (Recherche)
+- [ ] Chatbot: Knowledge Base Formatierung für System Prompt anpassen

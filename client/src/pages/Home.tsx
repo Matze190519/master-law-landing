@@ -109,8 +109,8 @@ export default function Home() {
                 <div className="flex items-center gap-4 text-white/80 bg-white/5 p-4 rounded-xl border border-white/10">
                   <Check className="w-6 h-6 text-green-400" /> 
                   <div>
-                    <div className="font-bold text-white">Dubai Freezone</div>
-                    <div className="text-sm text-white/50">0% Tax up to 375k AED (~95k EUR)</div>
+                    <div className="font-bold text-white">Accounting & Compliance</div>
+                    <div className="text-sm text-white/50">Full bookkeeping and audit support</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 text-white/80 bg-white/5 p-4 rounded-xl border border-white/10">
@@ -144,13 +144,13 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-4 pt-8 border-t border-white/10">
                   <div className="space-y-2">
                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsBeckham}</div>
-                    <div className="text-xl md:text-3xl font-bold text-white">
+                    <div className="text-2xl md:text-4xl font-bold text-white">
                       € {taxSavingsBeckham.toLocaleString()}
                     </div>
                   </div>
                   <div className="space-y-2">
                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsDubai}</div>
-                    <div className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                    <div className="text-2xl md:text-4xl font-bold text-white">
                       € {taxSavingsDubai.toLocaleString()}
                     </div>
                   </div>
