@@ -21,6 +21,9 @@ export default function Home() {
   const t = translations[lang];
   const [taxSavingsBeckham, setTaxSavingsBeckham] = useState(0);
   const [taxSavingsDubai, setTaxSavingsDubai] = useState(0);
+  const [germanTaxLiability, setGermanTaxLiability] = useState(0);
+  const [beckhamTaxLiability, setBeckhamTaxLiability] = useState(0);
+  const [dubaiTaxLiability, setDubaiTaxLiability] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [language, setLanguage] = useState("EN");
@@ -57,14 +60,43 @@ export default function Home() {
     
     // Dubai: 9% Corporate Tax on income > 375,000 AED (~95,000 EUR)
     // 0% up to 375,000 AED
+    // NOTE: This is Corporate Tax. Personal Income Tax is 0%.
+    // For a freelancer/entrepreneur, the comparison is usually:
+    // DE: Income Tax + Soli
+    // ES: Beckham Tax (24%)
+    // UAE: Corporate Tax (0-9%) + 0% Personal Tax (Salary distribution)
+    
+    // In UAE, you can pay yourself a salary which is a deductible expense for the company
+    // and tax-free for the individual. Thus, effective tax can be 0% even above threshold
+    // if structured correctly. However, to be conservative and accurate to the "Corporate Tax" law:
+    
     const aeThreshold = 95000; 
     let dubaiTax = 0;
+    
+    // Scenario: Profit is fully distributed as Salary -> 0% Tax
+    // Scenario: Profit is retained in Company -> 9% above threshold
+    // We assume optimized structure (Salary deduction) for maximum savings comparison,
+    // but let's stick to the 9% CT logic for "Company Profit" comparison to be safe,
+    // OR show the potential 0% if it's personal income comparison.
+    // Given the context "Jahreseinkommen" (Annual Income), it implies Personal Income.
+    // In UAE, Personal Income Tax is 0%.
+    
+    // However, if we treat it as "Business Profit":
     if (income > aeThreshold) {
       dubaiTax = (income - aeThreshold) * 0.09;
     }
-
-    setTaxSavingsBeckham(Math.max(0, germanTax - beckhamTax));
-    setTaxSavingsDubai(Math.max(0, germanTax - dubaiTax));
+    
+    // CRITICAL FIX: Ensure Dubai savings are calculated against German Tax
+    // German Tax is usually much higher than Dubai Tax (even with 9%).
+    
+    const savingsBeckham = Math.max(0, germanTax - beckhamTax);
+    const savingsDubai = Math.max(0, germanTax - dubaiTax);
+    
+    setGermanTaxLiability(germanTax);
+    setBeckhamTaxLiability(beckhamTax);
+    setDubaiTaxLiability(dubaiTax);
+    setTaxSavingsBeckham(savingsBeckham);
+    setTaxSavingsDubai(savingsDubai);
   }, [income]);
 
   return (
@@ -157,17 +189,42 @@ export default function Home() {
                   className="py-4"
                 />
                 
-                <div className="grid grid-cols-2 gap-4 pt-8 border-t border-white/10">
-                  <div className="space-y-2">
-                    <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsBeckham}</div>
-                    <div className="text-3xl font-bold text-white">
-                      € {taxSavingsBeckham.toLocaleString()}
-                    </div>
+                <div className="space-y-6 pt-8 border-t border-white/10">
+                  {/* German Tax Baseline */}
+                  <div className="flex justify-between items-center text-sm text-white/50">
+                    <span>Estimated German Tax (approx. 42% + Soli):</span>
+                    <span className="text-white">€ {Math.round(germanTaxLiability).toLocaleString()}</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsDubai}</div>
-                    <div className="text-3xl font-bold text-white">
-                      € {taxSavingsDubai.toLocaleString()}
+
+                  <div className="grid grid-cols-2 gap-6">
+                    {/* Spain / Beckham */}
+                    <div className="space-y-2 p-4 rounded-xl bg-white/5 border border-white/10">
+                      <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mb-2">Spain (Beckham Law)</div>
+                      <div className="flex justify-between text-xs text-white/60">
+                        <span>New Tax:</span>
+                        <span>€ {Math.round(beckhamTaxLiability).toLocaleString()}</span>
+                      </div>
+                      <div className="pt-2 border-t border-white/10">
+                        <div className="text-[10px] uppercase tracking-widest text-green-400">Your Savings</div>
+                        <div className="text-2xl font-bold text-white">
+                          € {Math.round(taxSavingsBeckham).toLocaleString()}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Dubai */}
+                    <div className="space-y-2 p-4 rounded-xl bg-white/5 border border-white/10">
+                      <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mb-2">Dubai (Freezone)</div>
+                      <div className="flex justify-between text-xs text-white/60">
+                        <span>New Tax:</span>
+                        <span>€ {Math.round(dubaiTaxLiability).toLocaleString()}</span>
+                      </div>
+                      <div className="pt-2 border-t border-white/10">
+                        <div className="text-[10px] uppercase tracking-widest text-green-400">Your Savings</div>
+                        <div className="text-2xl font-bold text-white">
+                          € {Math.round(taxSavingsDubai).toLocaleString()}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
