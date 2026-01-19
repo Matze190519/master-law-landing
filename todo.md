@@ -2,3 +2,13 @@
 - [ ] Hintergrundfarbe in `index.css` explizit auf Schwarz setzen, um White-on-White zu verhindern
 - [ ] Mobile-Darstellung der Bento-Grid-Karten prüfen und optimieren
 - [ ] Sicherstellen, dass alle Texte lesbar sind (Kontrastprüfung)
+
+- [ ] Verify Dubai bank account setup timeline (Master Law / Global Tax Saving)
+- [ ] Verify Spanish insolvency timeline (Master Law / Global Tax Saving)
+- [ ] Remove "zzgl. staatliche Gebühren" and provide all-inclusive pricing where possible
+- [ ] Correct Dubai Setup page content (timelines, pricing, structure)
+- [ ] Correct Insolvency page content (timelines, pricing, structure)
+- [ ] Review Tax Services page for similar "wischi waschi" content and fix
+- [ ] Ensure all pricing is transparent and final
+- [ ] Remove filler text and ensure "hard facts" style
+- [ ] Verify all changes against user's source material requirements

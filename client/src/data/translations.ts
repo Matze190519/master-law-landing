@@ -67,10 +67,10 @@ export const translations = {
     
     // Insolvency Page
     insolvencyPageTitle: "Insolvency Law",
-    insolvencyPageSubtitle: "Debt-free in 12-18 months with the Spanish 'Second Chance Law'.",
+    insolvencyPageSubtitle: "Debt-free in approx. 12 months with the Spanish 'Second Chance Law'. Legal, secure, and discreet.",
     insolvencyComparisonTitle: "Germany vs. Spain",
     insolvencyDeDuration: "3-6 Years",
-    insolvencyEsDuration: "12-18 Months",
+    insolvencyEsDuration: "approx. 12 Months",
   },
   DE: {
     // ... existing translations ...
@@ -140,10 +140,10 @@ export const translations = {
 
     // Insolvency Page
     insolvencyPageTitle: "Insolvenzrecht",
-    insolvencyPageSubtitle: "Schuldenfrei in 12-18 Monaten mit dem spanischen 'Ley de Segunda Oportunidad'.",
+    insolvencyPageSubtitle: "Schuldenfrei in ca. 12 Monaten mit dem spanischen 'Ley de Segunda Oportunidad'. Legal, sicher und diskret.",
     insolvencyComparisonTitle: "Deutschland vs. Spanien",
     insolvencyDeDuration: "3-6 Jahre",
-    insolvencyEsDuration: "12-18 Monate",
+    insolvencyEsDuration: "ca. 12 Monate",
   },
   ES: {
     // ... existing translations ...
@@ -213,9 +213,9 @@ export const translations = {
 
     // Insolvency Page
     insolvencyPageTitle: "Ley de Insolvencia",
-    insolvencyPageSubtitle: "Libre de deudas en 12-18 meses con la 'Ley de Segunda Oportunidad'.",
+    insolvencyPageSubtitle: "Libre de deudas en aprox. 12 meses con la 'Ley de Segunda Oportunidad'. Legal, seguro y discreto.",
     insolvencyComparisonTitle: "Alemania vs. España",
     insolvencyDeDuration: "3-6 Años",
-    insolvencyEsDuration: "12-18 Meses",
+    insolvencyEsDuration: "aprox. 12 Meses",
   }
 };
