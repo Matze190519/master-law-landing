@@ -490,11 +490,46 @@ export default function Home() {
             Schedule your private consultation today. Or ask our AI Concierge for immediate assistance.
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" className="h-16 px-10 bg-white text-black hover:bg-gray-200 rounded-full text-lg font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)] border-none transition-transform hover:scale-105">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+            <Button 
+              size="lg" 
+              onClick={() => setIsCalendarOpen(true)}
+              className="h-16 px-10 bg-white text-black hover:bg-gray-200 rounded-full text-lg font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)] border-none transition-transform hover:scale-105"
+            >
               {t.bookBtn}
             </Button>
-            
+          </div>
+
+          {/* Contact Form Fallback (Mailto) */}
+          <div className="glass-panel p-8 rounded-3xl border border-white/10 max-w-xl mx-auto text-left">
+            <h3 className="text-xl font-bold text-white mb-6">Direct Message</h3>
+            <form 
+              className="space-y-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const subject = `New Inquiry: ${formData.get('name')}`;
+                const body = `Name: ${formData.get('name')}%0D%0AEmail: ${formData.get('email')}%0D%0AMessage: ${formData.get('message')}`;
+                // Open mail client with CC to ensure both partners get it
+                window.location.href = `mailto:contact@master-law.com?cc=janine@master-law.com&subject=${subject}&body=${body}`;
+              }}
+            >
+              <div>
+                <Input name="name" placeholder="Your Name" className="bg-white/5 border-white/10 text-white" required />
+              </div>
+              <div>
+                <Input name="email" type="email" placeholder="Your Email" className="bg-white/5 border-white/10 text-white" required />
+              </div>
+              <div>
+                <Textarea name="message" placeholder="How can we help you?" className="bg-white/5 border-white/10 text-white min-h-[100px]" required />
+              </div>
+              <Button type="submit" className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20">
+                Send Message
+              </Button>
+              <p className="text-xs text-white/30 text-center mt-2">
+                Opens your email client to send securely to our team.
+              </p>
+            </form>
           </div>
         </div>
       </section>
