@@ -167,7 +167,7 @@ export default function Layout({ children }: LayoutProps) {
           
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
             <p>&copy; {new Date().getFullYear()} Master Law Firm SL. All rights reserved.</p>
-            <p>Designed with precision.</p>
+            <p>Designed with precision. <span className="text-green-500 font-bold ml-2">v2.0 (Live)</span></p>
           </div>
         </div>
       </footer>
