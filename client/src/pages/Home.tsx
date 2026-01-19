@@ -173,7 +173,7 @@ export default function Home() {
 
             {/* Calculator Card */}
             <div className="glass-panel rounded-3xl p-10 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               
               <div className="space-y-8 relative z-10">
                 <div className="flex justify-between items-end">
@@ -536,7 +536,8 @@ export default function Home() {
 
       {/* Chatbot is now handled by buildmyagent.io widget in index.html */}
       {/* FIXED BOTTOM BAR (Mobile) or FLOATING BUTTONS (Desktop) */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur-xl border-t border-white/10 md:bg-transparent md:border-none md:bottom-8 md:right-8 md:left-auto md:p-0 z-[100] flex gap-4 justify-center md:flex-col">
+      {/* Moved to bottom-left on desktop to avoid overlap with Chatbot widget (bottom-right) */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur-xl border-t border-white/10 md:bg-transparent md:border-none md:bottom-8 md:left-8 md:right-auto md:p-0 z-[100] flex gap-4 justify-center md:flex-col">
         <Button 
           size="lg" 
           onClick={() => setIsCalendarOpen(true)}
