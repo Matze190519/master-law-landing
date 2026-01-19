@@ -340,29 +340,29 @@ export default function Home() {
           </div>
           
           <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" action="mailto:info@master-law.de?cc=janine@master-law.com" method="post" encType="text/plain">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-white/70">Name</label>
-                  <Input placeholder="Max Mustermann" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" />
+                  <Input name="name" placeholder="Max Mustermann" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" required />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-white/70">E-Mail</label>
-                  <Input type="email" placeholder="max@beispiel.de" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" />
+                  <Input name="email" type="email" placeholder="max@beispiel.de" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" required />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label className="text-sm font-medium text-white/70">Betreff</label>
-                <Input placeholder="Firmengründung Dubai" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" />
+                <Input name="subject" placeholder="Firmengründung Dubai" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" required />
               </div>
               
               <div className="space-y-2">
                 <label className="text-sm font-medium text-white/70">Nachricht</label>
-                <Textarea placeholder="Ich interessiere mich für..." className="bg-white/5 border-white/10 text-white placeholder:text-white/30 min-h-[150px]" />
+                <Textarea name="message" placeholder="Ich interessiere mich für..." className="bg-white/5 border-white/10 text-white placeholder:text-white/30 min-h-[150px]" required />
               </div>
               
-              <Button className="w-full h-14 bg-white text-black font-bold text-lg rounded-xl hover:bg-gray-200 transition-all">
+              <Button type="submit" className="w-full h-14 bg-white text-black font-bold text-lg rounded-xl hover:bg-gray-200 transition-all">
                 Nachricht senden
               </Button>
             </form>

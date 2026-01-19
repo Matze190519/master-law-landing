@@ -97,7 +97,7 @@ export default function Contact() {
                   const formData = new FormData(e.currentTarget);
                   const subject = `New Inquiry: ${formData.get('name')}`;
                   const body = `Name: ${formData.get('name')}%0D%0AEmail: ${formData.get('email')}%0D%0AMessage: ${formData.get('message')}`;
-                  window.location.href = `mailto:contact@master-law.com?cc=janine@master-law.com&subject=${subject}&body=${body}`;
+                  window.location.href = `mailto:info@master-law.de?cc=janine@master-law.com&subject=${subject}&body=${body}`;
                 }}
               >
                 <div className="space-y-2">
