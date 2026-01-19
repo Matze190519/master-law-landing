@@ -12,3 +12,6 @@
 - [ ] Knowledge Base auf Deutsch übersetzen und hinzufügen
 - [ ] Knowledge Base auf Spanisch übersetzen und hinzufügen
 - [ ] Alle Sprachen in einer Datei zusammenführen
+- [ ] Neues GitHub Repository erstellen
+- [ ] Code committen und pushen
+- [ ] Repository-Link bereitstellen
