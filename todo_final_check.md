@@ -19,3 +19,5 @@
 - [ ] Services: Doppeltes "Dubai" entfernen und "Buchführung" hinzufügen
 - [ ] Chatbot: "Du bist ein professioneller..." Text entfernen (Recherche)
 - [ ] Chatbot: Knowledge Base Formatierung für System Prompt anpassen
+- [ ] netlify.toml erstellen (Redirects für SPA)
+- [ ] Änderungen (Rechner, Services, netlify.toml) zu GitHub pushen
