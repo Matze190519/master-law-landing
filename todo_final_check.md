@@ -9,3 +9,6 @@
 - [ ] Chatbot-Verhalten korrigieren (Widget statt neues Fenster)
 - [ ] Umfassende Wissensdatenbank (Knowledge Base) erstellen
 - [ ] Knowledge Base als Markdown-Datei speichern
+- [ ] Knowledge Base auf Deutsch übersetzen und hinzufügen
+- [ ] Knowledge Base auf Spanisch übersetzen und hinzufügen
+- [ ] Alle Sprachen in einer Datei zusammenführen
