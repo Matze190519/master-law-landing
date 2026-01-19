@@ -29,12 +29,8 @@ export default function Home() {
     // Beckham Law: 24% flat rate up to 600k
     const beckhamTax = income * 0.24;
     
-    // Dubai: 0% up to 375k AED (~95k EUR), 9% above
-    const dubaiThreshold = 95000;
-    let dubaiTax = 0;
-    if (income > dubaiThreshold) {
-      dubaiTax = (income - dubaiThreshold) * 0.09;
-    }
+    // Dubai: 0% Tax (Qualifying Income)
+    const dubaiTax = 0;
 
     setTaxSavingsBeckham(germanTax - beckhamTax);
     setTaxSavingsDubai(germanTax - dubaiTax);

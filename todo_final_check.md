@@ -21,3 +21,6 @@
 - [ ] Chatbot: Knowledge Base Formatierung für System Prompt anpassen
 - [ ] netlify.toml erstellen (Redirects für SPA)
 - [ ] Änderungen (Rechner, Services, netlify.toml) zu GitHub pushen
+- [ ] Rechner: Dubai-Steuer auf 0% setzen (unabhängig vom Einkommen)
+- [ ] Content: Texte von Kunden-Webseiten übernehmen (URLs fehlen noch)
+- [ ] Buchungssystem: Calendly/Booking-Link integrieren (Link fehlt noch)
