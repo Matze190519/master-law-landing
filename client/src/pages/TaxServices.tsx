@@ -191,8 +191,8 @@ export default function TaxServices() {
                 <p className="text-sm text-white/50">Beantragung und Einrichtung des FNMT Zertifikats für Online-Behördengänge.</p>
               </div>
               <div className="p-4 rounded-xl bg-black/20 border border-white/5">
-                <h4 className="font-bold text-white mb-2">Nicht-Residenten Steuer</h4>
-                <p className="text-sm text-white/50">Jährliche Erklärung für Immobilienbesitzer ohne Wohnsitz in Spanien (Modelo 210).</p>
+                <h4 className="font-bold text-white mb-2">Laufende Buchführung</h4>
+                <p className="text-sm text-white/50">Steuererklärungen für Autonomos und S.L. Gesellschaften.</p>
               </div>
             </div>
           </div>
