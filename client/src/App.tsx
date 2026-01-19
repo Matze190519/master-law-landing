@@ -16,6 +16,7 @@ import Imprint from "@/pages/Imprint";
 import Privacy from "@/pages/Privacy";
 import Team from "@/pages/Team";
 import AboutUs from "@/pages/AboutUs";
+import Contact from "@/pages/Contact";
 
 
 function Router() {
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/team" component={Team} />
       <Route path="/about" component={AboutUs} />
+      <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
   );
