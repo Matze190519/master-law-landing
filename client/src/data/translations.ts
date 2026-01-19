@@ -1,7 +1,7 @@
 export const translations = {
   EN: {
-    heroTitle: "BEYOND BORDERS.",
-    heroSubtitle: "Master Law architects your global freedom. Dubai Company Formation. Spanish Golden Visa. Tax Optimization.",
+    heroTitle: "COMPANY FORMATION & TAX OPTIMIZATION.",
+    heroSubtitle: "Legally secure emigration. Visa Service. Insolvency Protection. Dubai & Spain.",
     ctaStart: "Start Your Journey",
     taxTitle: "Stop Paying Too Much.",
     taxSubtitle: "Compare your current tax burden with our optimized solutions.",
@@ -44,8 +44,8 @@ export const translations = {
     ]
   },
   DE: {
-    heroTitle: "GRENZENLOS.",
-    heroSubtitle: "Master Law gestaltet Ihre globale Freiheit. Firmengründung Dubai. Golden Visa Spanien. Steueroptimierung.",
+    heroTitle: "FIRMENSGRÜNDUNG & STEUEROPTIMIERUNG.",
+    heroSubtitle: "Rechtssichere Auswanderung. Visa-Service. Insolvenzschutz. Dubai & Spanien.",
     ctaStart: "Reise Starten",
     taxTitle: "Zahlen Sie nicht zu viel.",
     taxSubtitle: "Vergleichen Sie Ihre aktuelle Steuerlast mit unseren optimierten Lösungen.",
@@ -88,8 +88,8 @@ export const translations = {
     ]
   },
   ES: {
-    heroTitle: "SIN FRONTERAS.",
-    heroSubtitle: "Master Law diseña su libertad global. Creación de empresas en Dubai. Golden Visa España. Optimización fiscal.",
+    heroTitle: "CREACIÓN DE EMPRESAS Y OPTIMIZACIÓN FISCAL.",
+    heroSubtitle: "Emigración legalmente segura. Servicio de visados. Protección contra la insolvencia. Dubai y España.",
     ctaStart: "Comenzar Viaje",
     taxTitle: "Deje de pagar de más.",
     taxSubtitle: "Compare su carga fiscal actual con nuestras soluciones optimizadas.",

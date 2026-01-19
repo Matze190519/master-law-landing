@@ -140,13 +140,13 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-4 pt-8 border-t border-white/10">
                   <div className="space-y-2">
                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsBeckham}</div>
-                    <div className="text-2xl md:text-4xl font-bold text-white">
+                    <div className="text-4xl font-bold text-white">
                       € {taxSavingsBeckham.toLocaleString()}
                     </div>
                   </div>
                   <div className="space-y-2">
                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{t.savingsDubai}</div>
-                    <div className="text-2xl md:text-4xl font-bold text-white">
+                    <div className="text-4xl font-bold text-white">
                       € {taxSavingsDubai.toLocaleString()}
                     </div>
                   </div>
@@ -333,7 +333,7 @@ export default function Home() {
       {/* SECTION 6: AI CONCIERGE & CONTACT */}
       <section className="py-32 bg-black text-center relative">
         <div className="container max-w-3xl">
-          <h2 className="text-5xl font-bold text-white mb-8">Ready to Upgrade?</h2>
+          <h2 className="text-4xl font-bold text-white mb-28">Ready to Upgrade?</h2>
           <p className="text-xl text-white/60 mb-12">
             Schedule your private consultation today. Or ask our AI Concierge for immediate assistance.
           </p>
