@@ -472,9 +472,9 @@ export default function Home() {
             {/* @ts-ignore */}
             {(faqs || []).map((faq: any, index: number) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:bg-white/10 transition-all">
-                <AccordionTrigger className="text-white hover:text-white/80 text-lg font-medium py-6 text-left">{faq.q}</AccordionTrigger>
+                <AccordionTrigger className="text-white hover:text-white/80 text-lg font-medium py-6 text-left">{faq.question || faq.q}</AccordionTrigger>
                 <AccordionContent className="text-white/60 text-base pb-6 leading-relaxed">
-                  {faq.a}
+                  {faq.answer || faq.a}
                 </AccordionContent>
               </AccordionItem>
             ))}
