@@ -225,7 +225,12 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-white mb-4">{t.package1Title}</h3>
               <p className="text-white/60 mb-8 h-20">{t.package1Desc}</p>
               <div className="space-y-2 relative z-20">
-                <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl relative z-20">{t.bookBtn}</Button>
+                <Button 
+                  className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl relative z-20"
+                  onClick={() => setIsCalendarOpen(true)}
+                >
+                  {t.bookBtn}
+                </Button>
                 <p className="text-xs text-center text-white/40">{t.consultationNote}</p>
               </div>
             </div>
@@ -236,7 +241,12 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-white mb-4">{t.package2Title}</h3>
                 <p className="text-white/60 mb-8 h-20">{t.package2Desc}</p>
                 <div className="space-y-2 relative z-20">
-                  <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl shadow-lg relative z-20">{t.bookBtn}</Button>
+                  <Button 
+                    className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl shadow-lg relative z-20"
+                    onClick={() => setIsCalendarOpen(true)}
+                  >
+                    {t.bookBtn}
+                  </Button>
                   <p className="text-xs text-center text-white/40">{t.consultationNote}</p>
                 </div>
               </div>
@@ -249,7 +259,12 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-white mb-4">{t.package3Title}</h3>
               <p className="text-white/60 mb-8 h-20">{t.package3Desc}</p>
               <div className="space-y-2 relative z-20">
-                <Button className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl relative z-20">{t.bookBtn}</Button>
+                <Button 
+                  className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl relative z-20"
+                  onClick={() => setIsCalendarOpen(true)}
+                >
+                  {t.bookBtn}
+                </Button>
                 <p className="text-xs text-center text-white/40">{t.consultationNote}</p>
               </div>
             </div>
