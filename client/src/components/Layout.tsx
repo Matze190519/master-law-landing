@@ -148,9 +148,9 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h3 className="text-white font-medium mb-6">Legal</h3>
               <ul className="space-y-4 text-white/50">
-                <li><Link href="/impressum"><a className="hover:text-white transition-colors">Imprint</a></Link></li>
-                <li><Link href="/privacy"><a className="hover:text-white transition-colors">Privacy Policy</a></Link></li>
-                <li><Link href="/terms"><a className="hover:text-white transition-colors">Terms of Service</a></Link></li>
+                <li><Link href="/impressum" className="hover:text-white transition-colors">Imprint</Link></li>
+                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               </ul>
             </div>
 

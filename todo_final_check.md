@@ -1,2 +1,8 @@
-- [ ] Checkpoint erstellen
-- [ ] Ergebnis präsentieren
+- [x] Checkpoint erstellen
+- [x] Ergebnis präsentieren
+- [ ] Embed-Code vom User erhalten
+- [ ] Embed-Code in Home.tsx einbauen
+- [ ] Finaler Test des Chatbots
+- [ ] React-Fehler "<a> cannot contain a nested <a>" finden und beheben
+- [ ] buildmyagent.io Script in index.html einfügen
+- [ ] Alten Chatbot-Code aus Home.tsx entfernen
