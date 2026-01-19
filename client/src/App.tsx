@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import CookieBanner from "@/components/CookieBanner";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Home from "@/pages/Home";
 
 import DubaiSetup from "./pages/DubaiSetup";
@@ -14,6 +15,7 @@ import Insolvency from "@/pages/Insolvency";
 import Imprint from "@/pages/Imprint";
 import Privacy from "@/pages/Privacy";
 import Team from "@/pages/Team";
+import AboutUs from "@/pages/AboutUs";
 
 
 function Router() {
@@ -26,6 +28,7 @@ function Router() {
       <Route path="/imprint" component={Imprint} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/team" component={Team} />
+      <Route path="/about" component={AboutUs} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -46,6 +49,7 @@ function App() {
         <LanguageProvider>
           <TooltipProvider>
             <Toaster />
+            <GoogleAnalytics />
             <CookieBanner />
             <Router />
           </TooltipProvider>

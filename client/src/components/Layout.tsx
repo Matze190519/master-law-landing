@@ -26,6 +26,7 @@ export default function Layout({ children }: LayoutProps) {
     { name: "Dubai Setup", href: "/dubai-setup" },
     { name: "Tax Services", href: "/tax-services" },
     { name: "Insolvency", href: "/insolvency" },
+    { name: "About Us", href: "/about" },
   ];
 
   return (
