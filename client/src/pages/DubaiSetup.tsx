@@ -32,10 +32,10 @@ export default function DubaiSetup() {
             <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight">
               Firmengründung <br/> <span className="text-white/50">in Dubai.</span>
             </h1>
-              <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-                Profitieren Sie von 0% Steuern, 100% Eigentum und voller Rechtssicherheit. 
-                Firmengründung in 3-5 Tagen. Bankkonto in ca. 2 Wochen.
-              </p>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              Profitieren Sie von 0% Steuern, 100% Eigentum und voller Rechtssicherheit. 
+              Wir begleiten Sie von der Gründung bis zum Bankkonto.
+            </p>
           </div>
 
           {/* Key Benefits Grid */}
@@ -66,7 +66,7 @@ export default function DubaiSetup() {
               </div>
               <h3 className="text-xl font-bold text-white">Bankkonto</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Schnelle Kontoeröffnung (Privat & Geschäft) in ca. 2 Wochen bei Top-Banken wie Wio, Mashreq oder Emirates NBD.
+                Garantierte Kontoeröffnung (Privat & Geschäft) bei Top-Banken wie Wio, Mashreq oder Emirates NBD.
               </p>
             </div>
           </div>
@@ -134,7 +134,7 @@ export default function DubaiSetup() {
               <div className="bg-black/40 rounded-xl p-6 text-center mb-6">
                 <span className="text-white/50 text-sm uppercase tracking-widest">Komplettpreis ab</span>
                 <div className="text-4xl font-bold text-white mt-2">€ 7.500</div>
-                <span className="text-white/30 text-xs">Inklusive aller staatlichen Gebühren</span>
+                <span className="text-white/30 text-xs">+ Staatliche Gebühren</span>
               </div>
 
               <Button className="w-full h-12 bg-white text-black font-bold hover:bg-gray-200">
