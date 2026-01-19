@@ -33,7 +33,7 @@ export const translations = {
     package3Title: "Insolvency & Restructuring",
     package3Desc: "Specialized in the Spanish 'Second Chance Law' for rapid debt relief and financial recovery.",
     package3Price: "Custom Quote",
-    bookBtn: "Book Consultation (49,90€)",
+    bookBtn: "Book Consultation (Free)",
     consultationNote: "Fee will be credited towards your first invoice.",
     chatBtn: "Ask AI Assistant",
     paymentMethods: "Secure payment with all major methods:",
@@ -51,15 +51,15 @@ export const translations = {
     
     // Dubai Page
     dubaiHeroTitle: "Dubai Freezone Setup",
-    dubaiHeroSubtitle: "0% Tax. 100% Ownership. Full Residency. Bank account immediately after incorporation.",
-    dubaiPrice: "From €7,500",
+    dubaiHeroSubtitle: "Start your tax-free business in the UAE. Legally secure, fast, and transparent. From €2,999.",
+    dubaiPrice: "From €2,999",
     dubaiFeature1: "0% Corporate Tax",
     dubaiFeature2: "100% Foreign Ownership",
     dubaiFeature3: "Residency Visa included",
     
     // Tax Page
     taxPageTitle: "Ongoing Tax Advisory",
-    taxPageSubtitle: "Focus on your business. We handle the bureaucracy.",
+    taxPageSubtitle: "Focus on your business. We handle the bureaucracy. For companies and freelancers in Spain and Dubai.",
     taxCorporateTitle: "For Companies (S.L. / LLC)",
     taxCorporateDesc: "All-inclusive package for corporations.",
     taxFreelancerTitle: "For Freelancers (Autónomos)",
@@ -106,7 +106,7 @@ export const translations = {
     package3Title: "Insolvenz & Sanierung",
     package3Desc: "Spezialisiert auf das spanische 'Ley de Segunda Oportunidad' für schnelle Restschuldbefreiung.",
     package3Price: "Individuelles Angebot",
-    bookBtn: "Beratung Buchen (49,90€)",
+    bookBtn: "Beratung Buchen (Kostenlos)",
     consultationNote: "Gebühr wird bei Auftragserteilung verrechnet.",
     chatBtn: "KI-Assistent Fragen",
     paymentMethods: "Sichere Zahlung mit allen gängigen Methoden:",
@@ -124,15 +124,15 @@ export const translations = {
 
     // Dubai Page
     dubaiHeroTitle: "Dubai Freezone Gründung",
-    dubaiHeroSubtitle: "0% Steuern. 100% Eigentum. Volle Residenz. Bankkonto sofort nach Gründung.",
-    dubaiPrice: "Ab €7.500",
+    dubaiHeroSubtitle: "Starten Sie Ihr steuerfreies Business in den VAE. Rechtssicher, schnell und transparent. Ab 2.999 €.",
+    dubaiPrice: "Ab €2.999",
     dubaiFeature1: "0% Körperschaftsteuer",
     dubaiFeature2: "100% Ausländisches Eigentum",
     dubaiFeature3: "Residency Visa inklusive",
 
     // Tax Page
     taxPageTitle: "Laufende Steuerberatung",
-    taxPageSubtitle: "Fokussieren Sie sich auf Ihr Geschäft. Wir kümmern uns um die Bürokratie.",
+    taxPageSubtitle: "Fokussieren Sie sich auf Ihr Geschäft. Wir kümmern uns um die Bürokratie. Für Firmen und Selbstständige in Spanien und Dubai.",
     taxCorporateTitle: "Für Firmen (S.L. / LLC)",
     taxCorporateDesc: "Rundum-Sorglos-Paket für Kapitalgesellschaften.",
     taxFreelancerTitle: "Für Selbstständige (Autónomos)",
@@ -179,7 +179,7 @@ export const translations = {
     package3Title: "Insolvencia y Reestructuración",
     package3Desc: "Especializados en la 'Ley de Segunda Oportunidad' española para la rápida exoneración de deudas.",
     package3Price: "Presupuesto a medida",
-    bookBtn: "Reservar Consulta (49,90€)",
+    bookBtn: "Reservar Consulta (Gratis)",
     consultationNote: "La tarifa se abonará en su primera factura.",
     chatBtn: "Preguntar a IA",
     paymentMethods: "Pago seguro con todos los métodos:",
@@ -197,15 +197,15 @@ export const translations = {
 
     // Dubai Page
     dubaiHeroTitle: "Creación de Empresa en Dubai",
-    dubaiHeroSubtitle: "0% Impuestos. 100% Propiedad. Residencia Completa. Cuenta bancaria inmediatamente después de la constitución.",
-    dubaiPrice: "Desde €7.500",
+    dubaiHeroSubtitle: "Inicie su negocio libre de impuestos en los EAU. Legalmente seguro, rápido y transparente. Desde €2.999.",
+    dubaiPrice: "Desde €2.999",
     dubaiFeature1: "0% Impuesto Corporativo",
     dubaiFeature2: "100% Propiedad Extranjera",
     dubaiFeature3: "Visa de Residencia incluida",
 
     // Tax Page
     taxPageTitle: "Asesoría Fiscal Continua",
-    taxPageSubtitle: "Concéntrese en su negocio. Nosotros nos encargamos de la burocracia.",
+    taxPageSubtitle: "Concéntrese en su negocio. Nosotros nos encargamos de la burocracia. Para empresas y autónomos en España y Dubai.",
     taxCorporateTitle: "Para Empresas (S.L. / LLC)",
     taxCorporateDesc: "Paquete todo incluido para corporaciones.",
     taxFreelancerTitle: "Para Autónomos",

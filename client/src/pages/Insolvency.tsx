@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Scale, Clock, ShieldAlert, XCircle, AlertTriangle, FileCheck } from "lucide-react";
+import { Check, ArrowRight, Scale, Clock, ShieldAlert, XCircle, AlertTriangle, FileCheck, UserCheck, Home, Gavel, FileSignature, ShieldCheck } from "lucide-react";
 import { Link } from "wouter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { serviceFaqs } from "@/data/serviceFaqs";
@@ -15,6 +15,79 @@ export default function Insolvency() {
   const { lang } = useLanguage();
   const t = translations[lang];
 
+  const steps = [
+    {
+      icon: <UserCheck className="w-6 h-6 text-white" />,
+      title: "01. Analyse & Strategie",
+      desc: "Prüfung Ihrer Verschuldungssituation und Machbarkeitsanalyse für das spanische Verfahren."
+    },
+    {
+      icon: <Home className="w-6 h-6 text-white" />,
+      title: "02. Wohnsitzverlagerung",
+      desc: "Rechtssichere Anmeldung in Spanien. Wir unterstützen bei NIE-Nummer und Wohnungssuche."
+    },
+    {
+      icon: <FileSignature className="w-6 h-6 text-white" />,
+      title: "03. Außergerichtliche Einigung",
+      desc: "Versuch einer Einigung mit den Gläubigern (notwendige Vorstufe, meist formell)."
+    },
+    {
+      icon: <Gavel className="w-6 h-6 text-white" />,
+      title: "04. Insolvenzantrag",
+      desc: "Einreichung des Antrags beim zuständigen spanischen Handelsgericht (Juzgado de lo Mercantil)."
+    },
+    {
+      icon: <Clock className="w-6 h-6 text-white" />,
+      title: "05. Verfahren",
+      desc: "Verwertung des pfändbaren Vermögens (falls vorhanden). Dauer: ca. 6-12 Monate."
+    },
+    {
+      icon: <ShieldCheck className="w-6 h-6 text-white" />,
+      title: "06. Restschuldbefreiung",
+      desc: "Gerichtlicher Beschluss (BEPI) zur Löschung aller Schulden. Gültig in der gesamten EU."
+    }
+  ];
+
+  const packages = [
+    {
+      name: "Analyse & Beratung",
+      price: "490 €",
+      desc: "Detaillierte Prüfung Ihrer Erfolgsaussichten.",
+      features: [
+        "Prüfung der Gläubigerliste",
+        "Analyse der Vermögenssituation",
+        "Strategiegespräch mit Anwalt",
+        "Schriftliche Handlungsempfehlung",
+        "Anrechnung bei Mandatserteilung"
+      ]
+    },
+    {
+      name: "Insolvenzverfahren",
+      price: "Auf Anfrage",
+      desc: "Komplette anwaltliche Vertretung bis zur Schuldenfreiheit.",
+      features: [
+        "Beantragung NIE & Wohnsitz",
+        "Korrespondenz mit Gläubigern",
+        "Gerichtliche Vertretung",
+        "Insolvenzverwalter-Kommunikation",
+        "Beantragung Restschuldbefreiung (BEPI)"
+      ],
+      popular: true
+    },
+    {
+      name: "Nachsorge",
+      price: "Inklusive",
+      desc: "Wir lassen Sie auch danach nicht allein.",
+      features: [
+        "Löschung aus Schuldnerverzeichnissen",
+        "Bestätigung der Schuldenfreiheit",
+        "Hilfe beim finanziellen Neustart",
+        "Bankkonto-Eröffnung",
+        "Steuerliche Erstberatung"
+      ]
+    }
+  ];
+
   return (
     <Layout>
       <SEO 
@@ -22,12 +95,12 @@ export default function Insolvency() {
         description={t.insolvencyPageSubtitle}
       />
       <div className="pt-32 pb-20 container">
-        <div className="max-w-5xl mx-auto space-y-16">
+        <div className="max-w-6xl mx-auto space-y-20">
           {/* Hero Section */}
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-white/10 bg-white/5">
               <Scale className="w-4 h-4 text-white" />
-              <span className="text-xs font-bold text-white uppercase tracking-widest">Insolvenzrecht</span>
+              <span className="text-xs font-bold text-white uppercase tracking-widest">EU-Insolvenzrecht</span>
             </div>
             <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight">
               Neustart <br/> <span className="text-white/50">in Spanien.</span>
@@ -120,20 +193,65 @@ export default function Insolvency() {
             </div>
           </div>
 
-          {/* Process Steps */}
-          <div className="space-y-8">
-            <h2 className="text-3xl font-bold text-white text-center">Der Ablauf</h2>
-            <div className="grid md:grid-cols-4 gap-4">
-              {[
-                { step: "01", title: "Analyse", desc: "Prüfung Ihrer Situation und Machbarkeit." },
-                { step: "02", title: "Umzug", desc: "Wohnsitzverlegung nach Spanien (wir helfen)." },
-                { step: "03", title: "Antrag", desc: "Einreichung des Insolvenzantrags beim spanischen Gericht." },
-                { step: "04", title: "Freiheit", desc: "Erteilung der Restschuldbefreiung (BEPI)." }
-              ].map((item, i) => (
-                <div key={i} className="glass-panel p-6 rounded-2xl border border-white/10 hover:bg-white/5 transition-colors">
-                  <div className="text-4xl font-bold text-white/10 mb-4">{item.step}</div>
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-white/50 text-sm">{item.desc}</p>
+          {/* Process Steps (6-Step Plan) */}
+          <div className="space-y-12">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-white mb-4">Der Weg zur Schuldenfreiheit</h2>
+              <p className="text-white/60">Ein klar strukturierter juristischer Prozess.</p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {steps.map((step, i) => (
+                <div key={i} className="glass-panel p-8 rounded-3xl border border-white/10 hover:bg-white/5 transition-colors relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-4 opacity-5 font-bold text-6xl text-white group-hover:opacity-10 transition-opacity">
+                    {i + 1}
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20 mb-6">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pricing Packages */}
+          <div className="space-y-12">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-white mb-4">Unser Honorar</h2>
+              <p className="text-white/60">Transparenz von Anfang an.</p>
+            </div>
+            <div className="grid lg:grid-cols-3 gap-8 items-start">
+              {packages.map((pkg, i) => (
+                <div key={i} className={`glass-panel p-8 rounded-3xl border ${pkg.popular ? 'border-white/40 bg-white/10' : 'border-white/10 bg-white/5'} relative overflow-hidden flex flex-col h-full`}>
+                  {pkg.popular && (
+                    <div className="absolute top-0 right-0 bg-white text-black text-xs font-bold px-3 py-1 rounded-bl-xl">
+                      EMPFOHLEN
+                    </div>
+                  )}
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-white mb-2">{pkg.name}</h3>
+                    <p className="text-white/50 text-sm mb-6">{pkg.desc}</p>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-sm text-white/50">ab</span>
+                      <span className="text-4xl font-bold text-white">{pkg.price}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4 mb-8 flex-grow">
+                    {pkg.features.map((feat, j) => (
+                      <div key={j} className="flex gap-3 items-start">
+                        <Check className="w-5 h-5 text-white shrink-0" />
+                        <span className="text-white/80 text-sm">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button className={`w-full h-12 font-bold ${pkg.popular ? 'bg-white text-black hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20'}`}>
+                    Termin vereinbaren
+                  </Button>
                 </div>
               ))}
             </div>
@@ -190,8 +308,8 @@ export default function Insolvency() {
           <div className="text-center pt-12 border-t border-white/10">
             <h2 className="text-3xl font-bold text-white mb-6">Starten Sie Ihr neues Leben schuldenfrei.</h2>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Button size="lg" className="h-14 px-8 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-lg">
-                Beratung Buchen (49,90€) <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="lg" className="h-14 px-8 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-lg" onClick={() => window.open('https://calendly.com/ihr-link', '_blank')}>
+                Beratung Buchen (Kostenlos) <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Link href="/contact">
                 <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-white/20 text-white hover:bg-white/10 font-bold text-lg">

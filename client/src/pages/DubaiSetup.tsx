@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Building2, Globe, Shield, Plane, FileText, Coins } from "lucide-react";
+import { Check, ArrowRight, Building2, Globe, Shield, Plane, FileText, Coins, UserCheck, Briefcase, Stamp, CreditCard } from "lucide-react";
 import { Link } from "wouter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { serviceFaqs } from "@/data/serviceFaqs";
@@ -15,6 +15,79 @@ export default function DubaiSetup() {
   const { lang } = useLanguage();
   const t = translations[lang];
 
+  const steps = [
+    {
+      icon: <UserCheck className="w-6 h-6 text-white" />,
+      title: "01. Beratung & Angebot",
+      desc: "Wir analysieren Ihre Situation und erstellen ein maßgeschneidertes Angebot für Ihre Firmengründung."
+    },
+    {
+      icon: <FileText className="w-6 h-6 text-white" />,
+      title: "02. Beantragung",
+      desc: "Zusammenstellung aller Dokumente und Einreichung bei den Behörden. Wir übernehmen den Papierkram."
+    },
+    {
+      icon: <Building2 className="w-6 h-6 text-white" />,
+      title: "03. Gründung",
+      desc: "Offizielle Eintragung Ihrer Firma. Sie erhalten Ihre Trade License und sind geschäftsfähig."
+    },
+    {
+      icon: <Stamp className="w-6 h-6 text-white" />,
+      title: "04. Lizenz & Genehmigung",
+      desc: "Erhalt aller notwendigen Genehmigungen und der Establishment Card für Ihr Unternehmen."
+    },
+    {
+      icon: <Plane className="w-6 h-6 text-white" />,
+      title: "05. Visa Prozess vor Ort",
+      desc: "Einreise für Medical Test und Emirates ID. Dauer: ca. 5-7 Tage. Wir begleiten Sie persönlich."
+    },
+    {
+      icon: <Briefcase className="w-6 h-6 text-white" />,
+      title: "06. Laufende Betreuung",
+      desc: "Wir kümmern uns um Buchhaltung, Compliance und die jährliche Erneuerung Ihrer Lizenz."
+    }
+  ];
+
+  const packages = [
+    {
+      name: "Basic (Nur Firma)",
+      price: "2.999 €",
+      desc: "Ideal für den Start ohne Wohnsitzverlagerung.",
+      features: [
+        "Firmengründung (Trade License)",
+        "100% Eigentum",
+        "Virtuelles Büro (Flexi Desk)",
+        "Kein Visum inklusive",
+        "Beratung zur Kontoeröffnung"
+      ]
+    },
+    {
+      name: "Standard (Firma + Visa)",
+      price: "4.999 €",
+      desc: "Das beliebteste Paket für Auswanderer.",
+      features: [
+        "Alles aus Basic",
+        "1 Residence Visa (2 Jahre)",
+        "Emirates ID Beantragung",
+        "Medical Test Begleitung",
+        "E-Channel Registrierung"
+      ],
+      popular: true
+    },
+    {
+      name: "Premium (All Inclusive)",
+      price: "7.500 €",
+      desc: "Rundum-Sorglos-Paket mit VIP Service.",
+      features: [
+        "Alles aus Standard",
+        "Garantierte Bankkonto-Eröffnung",
+        "VIP Betreuung vor Ort",
+        "Steuerregistrierung (CT)",
+        "Persönlicher Ansprechpartner 24/7"
+      ]
+    }
+  ];
+
   return (
     <Layout>
       <SEO 
@@ -22,128 +95,105 @@ export default function DubaiSetup() {
         description={t.dubaiHeroSubtitle}
       />
       <div className="pt-32 pb-20 container">
-        <div className="max-w-5xl mx-auto space-y-16">
+        <div className="max-w-6xl mx-auto space-y-20">
           {/* Hero Section */}
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-white/10 bg-white/5">
               <Globe className="w-4 h-4 text-white" />
-              <span className="text-xs font-bold text-white uppercase tracking-widest">Dubai Freezone</span>
+              <span className="text-xs font-bold text-white uppercase tracking-widest">Dubai Freezone Setup</span>
             </div>
             <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight">
               Firmengründung <br/> <span className="text-white/50">in Dubai.</span>
             </h1>
               <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-                Profitieren Sie von 0% Steuern, 100% Eigentum und voller Rechtssicherheit. 
-                Firmengründung in 3-5 Tagen. Bankkonto sofort nach Gründung.
+                Starten Sie Ihr steuerfreies Business in den VAE. 
+                Rechtssicher, schnell und transparent. Ab 2.999 €.
               </p>
           </div>
 
-          {/* Key Benefits Grid */}
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 space-y-4 hover:bg-white/5 transition-colors">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Freezone Setup</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
-                Komplettes Setup Ihrer Freezone Company inkl. Lizenz für bis zu 3 Geschäftsaktivitäten. 
-                Kein lokaler Sponsor notwendig.
-              </p>
+          {/* Process Steps (6-Step Plan) */}
+          <div className="space-y-12">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-white mb-4">Ihr Weg zur Firma in Dubai</h2>
+              <p className="text-white/60">In 6 einfachen Schritten zum Ziel. Wir übernehmen den kompletten Prozess.</p>
             </div>
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 space-y-4 hover:bg-white/5 transition-colors">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Visa & Emirates ID</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
-                Residence Visa (2 Jahre Gültigkeit) und Emirates ID für Sie, Ihre Familie und Angestellte. 
-                Inklusive Medical Check Begleitung.
-              </p>
-            </div>
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 space-y-4 hover:bg-white/5 transition-colors">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                <Coins className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Bankkonto</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
-                Sofortige Kontoeröffnung (Privat & Geschäft) nach Gründung bei Top-Banken wie Wio, Mashreq oder Emirates NBD.
-              </p>
-            </div>
-          </div>
-
-          {/* Detailed Process & Pricing */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-8">
-              <h2 className="text-3xl font-bold text-white">Warum Dubai?</h2>
-              <div className="space-y-6">
-                {[
-                  { title: "0% Körperschaftsteuer", desc: "Auf Qualifying Income bis 375.000 AED (~95.000€) Gewinn." },
-                  { title: "0% Einkommensteuer", desc: "Keine persönliche Einkommensteuer auf Gehälter oder Dividenden." },
-                  { title: "100% Ausländisches Eigentum", desc: "Sie behalten die volle Kontrolle über Ihr Unternehmen." },
-                  { title: "Keine Währungsrestriktionen", desc: "Freier Kapitalverkehr in alle Währungen (USD, EUR, AED)." },
-                  { title: "Strategische Lage", desc: "Perfekter Hub zwischen Europa, Asien und Afrika." }
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="mt-1">
-                      <Check className="w-5 h-5 text-green-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-bold">{item.title}</h4>
-                      <p className="text-white/50 text-sm">{item.desc}</p>
-                    </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {steps.map((step, i) => (
+                <div key={i} className="glass-panel p-8 rounded-3xl border border-white/10 hover:bg-white/5 transition-colors relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-4 opacity-5 font-bold text-6xl text-white group-hover:opacity-10 transition-opacity">
+                    {i + 1}
                   </div>
-                ))}
-              </div>
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20 mb-6">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 bg-white/5 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-4 opacity-20">
-                <Plane className="w-32 h-32 text-white" />
-              </div>
-              
-              <h3 className="text-2xl font-bold text-white mb-2">All-in-One Gründungspaket</h3>
-              <p className="text-white/60 mb-8">Alles was Sie für den Start benötigen.</p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                  <span className="text-white">Firmengründung (Lizenz)</span>
-                  <Check className="w-4 h-4 text-white/50" />
-                </div>
-                <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                  <span className="text-white">Establishment Card</span>
-                  <Check className="w-4 h-4 text-white/50" />
-                </div>
-                <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                  <span className="text-white">E-Channel Registrierung</span>
-                  <Check className="w-4 h-4 text-white/50" />
-                </div>
-                <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                  <span className="text-white">Visa & Emirates ID (1 Person)</span>
-                  <Check className="w-4 h-4 text-white/50" />
-                </div>
-                <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                  <span className="text-white">Bankkonto Eröffnung</span>
-                  <Check className="w-4 h-4 text-white/50" />
-                </div>
-                <div className="flex justify-between items-center pb-4">
-                  <span className="text-white">Medical Check Begleitung</span>
-                  <Check className="w-4 h-4 text-white/50" />
-                </div>
-              </div>
-
-              <div className="bg-black/40 rounded-xl p-6 text-center mb-6">
-                <span className="text-white/50 text-sm uppercase tracking-widest">Komplettpreis ab</span>
-                <div className="text-4xl font-bold text-white mt-2">€ 7.500</div>
-                <span className="text-white/30 text-xs">Inklusive aller staatlichen Gebühren</span>
-              </div>
-
-              <Button className="w-full h-12 bg-white text-black font-bold hover:bg-gray-200">
-                Jetzt Anfragen
-              </Button>
-              <p className="text-center text-white/30 text-xs mt-4">
-                Beratungsgebühr (49,90€) wird bei Auftragserteilung verrechnet.
-              </p>
+          {/* Pricing Packages */}
+          <div className="space-y-12">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-white mb-4">Transparente Preise</h2>
+              <p className="text-white/60">Keine versteckten Kosten. Wählen Sie das Paket, das zu Ihnen passt.</p>
             </div>
+            <div className="grid lg:grid-cols-3 gap-8 items-start">
+              {packages.map((pkg, i) => (
+                <div key={i} className={`glass-panel p-8 rounded-3xl border ${pkg.popular ? 'border-white/40 bg-white/10' : 'border-white/10 bg-white/5'} relative overflow-hidden flex flex-col h-full`}>
+                  {pkg.popular && (
+                    <div className="absolute top-0 right-0 bg-white text-black text-xs font-bold px-3 py-1 rounded-bl-xl">
+                      POPULAR
+                    </div>
+                  )}
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-white mb-2">{pkg.name}</h3>
+                    <p className="text-white/50 text-sm mb-6">{pkg.desc}</p>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-sm text-white/50">ab</span>
+                      <span className="text-4xl font-bold text-white">{pkg.price}</span>
+                    </div>
+                    <p className="text-white/30 text-xs mt-2">zzgl. staatliche Gebühren (transparent ausgewiesen)</p>
+                  </div>
+                  
+                  <div className="space-y-4 mb-8 flex-grow">
+                    {pkg.features.map((feat, j) => (
+                      <div key={j} className="flex gap-3 items-start">
+                        <Check className="w-5 h-5 text-white shrink-0" />
+                        <span className="text-white/80 text-sm">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button className={`w-full h-12 font-bold ${pkg.popular ? 'bg-white text-black hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20'}`}>
+                    Angebot anfordern
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Key Facts Grid */}
+          <div className="grid md:grid-cols-4 gap-6 pt-12 border-t border-white/10">
+             <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-white">0%</div>
+                <div className="text-white/50 text-sm">Steuern auf Einkommen</div>
+             </div>
+             <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-white">100%</div>
+                <div className="text-white/50 text-sm">Ausländisches Eigentum</div>
+             </div>
+             <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-white">3-5</div>
+                <div className="text-white/50 text-sm">Tage Gründungsdauer</div>
+             </div>
+             <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-white">Sofort</div>
+                <div className="text-white/50 text-sm">Bankkonto Eröffnung</div>
+             </div>
           </div>
 
           {/* Eligibility Check */}
@@ -197,8 +247,8 @@ export default function DubaiSetup() {
           <div className="text-center pt-12 border-t border-white/10">
             <h2 className="text-3xl font-bold text-white mb-6">Bereit für den Neustart?</h2>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Button size="lg" className="h-14 px-8 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-lg">
-                Beratung Buchen (49,90€) <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="lg" className="h-14 px-8 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-lg" onClick={() => window.open('https://calendly.com/ihr-link', '_blank')}>
+                Beratung Buchen (Kostenlos) <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Link href="/contact">
                 <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-white/20 text-white hover:bg-white/10 font-bold text-lg">

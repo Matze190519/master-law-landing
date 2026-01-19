@@ -12,3 +12,9 @@
 - [ ] Ensure all pricing is transparent and final
 - [ ] Remove filler text and ensure "hard facts" style
 - [ ] Verify all changes against user's source material requirements
+
+- [ ] Research additional competitors for Dubai Setup (e.g., Dubai-Auswandern, DLS Dubai)
+- [ ] Research additional competitors for Spanish Insolvency (e.g., Schuldnerberatung Spanien)
+- [ ] Synthesize findings into a unified "Master Law Concept" (6-step process, transparent pricing)
+- [ ] Update all service pages (Dubai, Tax, Insolvency) with the unified concept
+- [ ] Ensure all content is fact-based and lawyer-grade (no filler text)
