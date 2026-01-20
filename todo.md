@@ -22,3 +22,7 @@
 - [ ] Create `build:static` script in package.json (vite build only)
 - [ ] Update netlify.toml to use `npm run build:static`
 - [ ] Verify _redirects file content and location
+
+- [x] Create video ad for Dubai Gründung campaign (15-30 sec)
+- [x] Create video ad for Entschuldung campaign (15-30 sec)
+- [x] Create video ad for Steuerberatung campaign (15-30 sec)
