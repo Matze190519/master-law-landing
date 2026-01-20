@@ -26,3 +26,10 @@
 - [x] Create video ad for Dubai Gründung campaign (15-30 sec)
 - [x] Create video ad for Entschuldung campaign (15-30 sec)
 - [x] Create video ad for Steuerberatung campaign (15-30 sec)
+
+- [ ] Create Meta campaign for Dubai Gründung
+- [ ] Create Meta campaign for Entschuldung
+- [ ] Create Meta campaign for Steuerberatung
+- [ ] Upload all creative assets (images + videos)
+- [ ] Configure targeting and budget
+- [ ] Link landing page to all campaigns
