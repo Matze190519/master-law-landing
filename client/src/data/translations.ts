@@ -88,7 +88,7 @@ export const translations = {
   DE: {
     // ... existing translations ...
     heroTitle: "FIRMENSGRÜNDUNG & STEUEROPTIMIERUNG.",
-    heroSubtitle: "Rechtssichere Auswanderung. Visa-Service. Insolvenzschutz. Dubai & Spanien.",
+    heroSubtitle: "Rechtssichere Auswanderung. Visa-Service. Entschuldung. Dubai & Spanien.",
     ctaStart: "Jetzt Termin vereinbaren",
     taxTitle: "Zahlen Sie nicht zu viel.",
     taxSubtitle: "Vergleichen Sie Ihre aktuelle Steuerlast mit unseren optimierten Lösungen.",

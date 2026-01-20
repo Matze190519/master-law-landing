@@ -25,7 +25,7 @@ export default function Layout({ children }: LayoutProps) {
     { name: "Startseite", href: "/" },
     { name: "Dubai Gründung", href: "/dubai-setup" },
     { name: "Steuerberatung", href: "/tax-services" },
-    { name: "Insolvenzschutz", href: "/insolvency" },
+    { name: "Entschuldung", href: "/insolvency" },
     { name: "Über Uns", href: "/about" },
   ];
 
@@ -155,7 +155,7 @@ export default function Layout({ children }: LayoutProps) {
                 <span className="text-xl font-bold text-white tracking-wide">MASTER LAW</span>
               </div>
               <p className="text-white/50 max-w-md leading-relaxed">
-                Internationale Rechtsstrukturen, Steueroptimierung und Insolvenzschutz für vermögende Privatpersonen und Unternehmen.
+                Internationale Rechtsstrukturen, Steueroptimierung und Entschuldung für vermögende Privatpersonen und Unternehmen.
               </p>
             </div>
             
