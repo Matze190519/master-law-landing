@@ -1,19 +1,17 @@
 import Layout from "@/components/Layout";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Check, Shield, Globe, Building2, Scale, Clock, Calendar, ChevronRight, MessageSquare, Coins, X } from "lucide-react";
+import { Check, Shield, Globe, Building2, Scale } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Slider } from "@/components/ui/slider";
 import Globe3D from "@/components/Globe3D";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { faqs } from "@/data/faqs";
 import { translations } from "@/data/translations";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/SEO";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   const [income, setIncome] = useState(200000);
@@ -340,32 +338,7 @@ export default function Home() {
           </div>
           
           <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10">
-            <form className="space-y-6" action="mailto:info@lr-lifestyle.info?cc=janine@globaltaxsaving.com" method="post" encType="text/plain">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-white/70">Name</label>
-                  <Input name="name" placeholder="Max Mustermann" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" required />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-white/70">E-Mail</label>
-                  <Input name="email" type="email" placeholder="max@beispiel.de" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" required />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-white/70">Betreff</label>
-                <Input name="subject" placeholder="Firmengründung Dubai" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-12" required />
-              </div>
-              
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-white/70">Nachricht</label>
-                <Textarea name="message" placeholder="Ich interessiere mich für..." className="bg-white/5 border-white/10 text-white placeholder:text-white/30 min-h-[150px]" required />
-              </div>
-              
-              <Button type="submit" className="w-full h-14 bg-white text-black font-bold text-lg rounded-xl hover:bg-gray-200 transition-all">
-                Nachricht senden
-              </Button>
-            </form>
+            <ContactForm variant="full" />
           </div>
         </div>
       </section>
@@ -508,36 +481,10 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* Contact Form Fallback (Mailto) */}
+          {/* Contact Form */}
           <div className="glass-panel p-8 rounded-3xl border border-white/10 max-w-xl mx-auto text-left">
             <h3 className="text-xl font-bold text-white mb-6">Direct Message</h3>
-            <form 
-              className="space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                const subject = `New Inquiry: ${formData.get('name')}`;
-                const body = `Name: ${formData.get('name')}%0D%0AEmail: ${formData.get('email')}%0D%0AMessage: ${formData.get('message')}`;
-                // Open mail client with CC to ensure both partners get it
-                window.location.href = `mailto:info@lr-lifestyle.info?cc=janine@globaltaxsaving.com&subject=${subject}&body=${body}`;
-              }}
-            >
-              <div>
-                <Input name="name" placeholder="Your Name" className="bg-white/5 border-white/10 text-white" required />
-              </div>
-              <div>
-                <Input name="email" type="email" placeholder="Your Email" className="bg-white/5 border-white/10 text-white" required />
-              </div>
-              <div>
-                <Textarea name="message" placeholder="How can we help you?" className="bg-white/5 border-white/10 text-white min-h-[100px]" required />
-              </div>
-              <Button type="submit" className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20">
-                Send Message
-              </Button>
-              <p className="text-xs text-white/30 text-center mt-2">
-                Opens your email client to send securely to our team.
-              </p>
-            </form>
+            <ContactForm variant="compact" />
           </div>
         </div>
       </section>
