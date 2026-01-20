@@ -33,3 +33,4 @@
 - [ ] Upload all creative assets (images + videos)
 - [ ] Configure targeting and budget
 - [ ] Link landing page to all campaigns
+- [x] Meta Pixel ID 677297092936141 von lr-job.net integrieren
