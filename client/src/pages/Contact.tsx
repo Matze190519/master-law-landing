@@ -52,8 +52,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <div className="text-sm text-white/50 uppercase tracking-wider mb-1">Email</div>
-                      <a href="mailto:info@master-law.de" className="text-lg text-white hover:text-white/80 transition-colors">
-                        info@master-law.de
+                      <a href="mailto:info@lr-lifestyle.info" className="text-lg text-white hover:text-white/80 transition-colors">
+                        info@lr-lifestyle.info
                       </a>
                     </div>
                   </div>
@@ -97,7 +97,7 @@ export default function Contact() {
                   const formData = new FormData(e.currentTarget);
                   const subject = `New Inquiry: ${formData.get('name')}`;
                   const body = `Name: ${formData.get('name')}%0D%0AEmail: ${formData.get('email')}%0D%0AMessage: ${formData.get('message')}`;
-                  window.location.href = `mailto:info@master-law.de?cc=janine@master-law.com&subject=${subject}&body=${body}`;
+                  window.location.href = `mailto:info@lr-lifestyle.info?cc=janine@globaltaxsaving.com&subject=${subject}&body=${body}`;
                 }}
               >
                 <div className="space-y-2">
