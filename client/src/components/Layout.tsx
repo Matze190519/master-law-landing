@@ -112,6 +112,18 @@ export default function Layout({ children }: LayoutProps) {
                     </Link>
                   ))}
                   <div className="h-px w-full bg-white/10 my-4"></div>
+                  
+                  {/* Mobile Language Switcher */}
+                  <div className="flex items-center gap-4 text-lg font-medium text-white/50">
+                    <div className="flex items-center gap-2 bg-white/5 px-4 py-3 rounded-xl border border-white/10 w-full justify-center">
+                      <Globe className="w-5 h-5" />
+                      <span className={lang === "DE" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("DE")}>DE</span>
+                      <span className="text-white/20">|</span>
+                      <span className={lang === "EN" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("EN")}>EN</span>
+                      <span className="text-white/20">|</span>
+                      <span className={lang === "ES" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("ES")}>ES</span>
+                    </div>
+                  </div>
                   <a href="https://calendly.com/master-law/30min" target="_blank" rel="noopener noreferrer" className="w-full">
                     <Button className="w-full bg-white text-black font-bold h-12 rounded-xl text-lg">
                       Beratung buchen
