@@ -519,7 +519,7 @@ export default function Home() {
                 const subject = `New Inquiry: ${formData.get('name')}`;
                 const body = `Name: ${formData.get('name')}%0D%0AEmail: ${formData.get('email')}%0D%0AMessage: ${formData.get('message')}`;
                 // Open mail client with CC to ensure both partners get it
-                window.location.href = `mailto:contact@master-law.com?cc=janine@master-law.com&subject=${subject}&body=${body}`;
+                window.location.href = `mailto:info@master-law.de?cc=janine@master-law.com&subject=${subject}&body=${body}`;
               }}
             >
               <div>
