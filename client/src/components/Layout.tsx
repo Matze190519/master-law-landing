@@ -160,7 +160,7 @@ export default function Layout({ children }: LayoutProps) {
               <ul className="space-y-4 text-white/50">
                 <li>Avda. Alexandre Rosselló 15, 6º D<br/>07002 Palma de Mallorca</li>
                 <li>+34 871 24 24 04</li>
-                <li>info@master-law.de</li>
+                <li>info@lr-lifestyle.info</li>
               </ul>
             </div>
           </div>

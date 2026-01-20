@@ -340,7 +340,7 @@ export default function Home() {
           </div>
           
           <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10">
-            <form className="space-y-6" action="mailto:info@master-law.de?cc=janine@master-law.com" method="post" encType="text/plain">
+            <form className="space-y-6" action="mailto:info@lr-lifestyle.info?cc=janine@globaltaxsaving.com" method="post" encType="text/plain">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-white/70">Name</label>
@@ -519,7 +519,7 @@ export default function Home() {
                 const subject = `New Inquiry: ${formData.get('name')}`;
                 const body = `Name: ${formData.get('name')}%0D%0AEmail: ${formData.get('email')}%0D%0AMessage: ${formData.get('message')}`;
                 // Open mail client with CC to ensure both partners get it
-                window.location.href = `mailto:info@master-law.de?cc=janine@master-law.com&subject=${subject}&body=${body}`;
+                window.location.href = `mailto:info@lr-lifestyle.info?cc=janine@globaltaxsaving.com&subject=${subject}&body=${body}`;
               }}
             >
               <div>
