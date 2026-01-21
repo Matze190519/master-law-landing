@@ -50,21 +50,21 @@ export default function Insolvency() {
 
   const packages = [
     {
-      name: "Analyse & Beratung",
-      price: "490 €",
-      desc: "Detaillierte Prüfung Ihrer Erfolgsaussichten.",
+      name: "Kostenlose Erstberatung",
+      price: "0 €",
+      desc: "Unverbindliche Prüfung Ihrer Situation.",
       features: [
-        "Prüfung der Gläubigerliste",
-        "Analyse der Vermögenssituation",
-        "Strategiegespräch mit Anwalt",
-        "Schriftliche Handlungsempfehlung",
-        "Anrechnung bei Mandatserteilung"
+        "Analyse Ihrer Verschuldung",
+        "Prüfung der Erfolgsaussichten",
+        "Erklärung des Verfahrens",
+        "Transparente Kostenaufstellung",
+        "Keine versteckten Gebühren"
       ]
     },
     {
-      name: "Insolvenzverfahren",
-      price: "Auf Anfrage",
-      desc: "Komplette anwaltliche Vertretung bis zur Schuldenfreiheit.",
+      name: "Privatinsolvenz",
+      price: "Individuell",
+      desc: "Erfolgsbasierte Vergütung – faire Konditionen nach Erstgespräch.",
       features: [
         "Beantragung NIE & Wohnsitz",
         "Korrespondenz mit Gläubigern",
@@ -75,15 +75,15 @@ export default function Insolvency() {
       popular: true
     },
     {
-      name: "Nachsorge",
-      price: "Inklusive",
-      desc: "Wir lassen Sie auch danach nicht allein.",
+      name: "Firmeninsolvenz",
+      price: "Individuell",
+      desc: "Maßgeschneiderte Lösung für Unternehmer und Geschäftsführer.",
       features: [
+        "Analyse der Unternehmensschulden",
+        "Persönliche Haftungsbefreiung",
+        "Gerichtliche Vertretung",
         "Löschung aus Schuldnerverzeichnissen",
-        "Bestätigung der Schuldenfreiheit",
-        "Hilfe beim finanziellen Neustart",
-        "Bankkonto-Eröffnung",
-        "Steuerliche Erstberatung"
+        "Neustart-Beratung inklusive"
       ]
     }
   ];

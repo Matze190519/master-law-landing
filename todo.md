@@ -37,3 +37,6 @@
 
 - [x] Calendly durch Google Calendar Buchungssystem ersetzen
 - [ ] Urlaub 26.01.2026 - 06.02.2026 im Buchungssystem blockieren
+- [x] Steuerberatung Preise anpassen: Autonomo 115€, SL 350€, Beckham 250€
+- [x] Insolvenz Preise weich formulieren (keine harten Zahlen)
+- [ ] Dubai Firmengründung Preise anpassen (warte auf Preise vom Kunden)

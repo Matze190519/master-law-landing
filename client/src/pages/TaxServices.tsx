@@ -49,26 +49,26 @@ export default function TaxServices() {
 
   const packages = [
     {
-      name: "Basic (Autónomos)",
-      price: "80 €",
+      name: "Autónomo",
+      price: "115 €",
       period: "/ Monat",
       desc: "Für Selbstständige & Freiberufler in Spanien.",
       features: [
-        "Quartalsweise Steuererklärungen (IVA & IRPF)",
+        "Monatliche Steuererklärungen (IVA & IRPF)",
         "Jährliche Einkommensteuererklärung (Renta)",
         "Sozialversicherung Management",
-        "E-Mail Support",
+        "E-Mail & Telefon Support",
         "Digitale Belegverwaltung"
       ]
     },
     {
-      name: "Standard (S.L. / LLC)",
-      price: "250 €",
+      name: "S.L. / Kapitalgesellschaft",
+      price: "350 €",
       period: "/ Monat",
       desc: "Komplettservice für Kapitalgesellschaften.",
       features: [
         "Laufende Finanzbuchhaltung",
-        "Umsatzsteuervoranmeldungen",
+        "Monatliche Steuererklärungen",
         "Jahresabschluss & Bilanzierung",
         "Körperschaftsteuererklärung",
         "Lohnbuchhaltung (bis 5 MA)"
@@ -76,16 +76,16 @@ export default function TaxServices() {
       popular: true
     },
     {
-      name: "Premium (CFO Service)",
-      price: "Auf Anfrage",
-      period: "",
-      desc: "Strategische Finanzberatung für wachsende Unternehmen.",
+      name: "Beckham Law",
+      price: "250 €",
+      period: "einmalig",
+      desc: "Antrag auf Sonderbesteuerung für Neuzuzügler nach Spanien.",
       features: [
-        "Alles aus Standard",
-        "Monatliche BWA & Reporting",
-        "Liquiditätsplanung",
-        "Internationale Steuergestaltung",
-        "Persönlicher Ansprechpartner"
+        "Prüfung der Voraussetzungen",
+        "Komplette Antragsstellung",
+        "Kommunikation mit Finanzamt",
+        "24% Flat Tax auf spanisches Einkommen",
+        "Beratung zur optimalen Nutzung"
       ]
     }
   ];
