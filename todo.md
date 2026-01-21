@@ -34,3 +34,6 @@
 - [ ] Configure targeting and budget
 - [ ] Link landing page to all campaigns
 - [x] Meta Pixel ID 677297092936141 von lr-job.net integrieren
+
+- [x] Calendly durch Google Calendar Buchungssystem ersetzen
+- [ ] Urlaub 26.01.2026 - 06.02.2026 im Buchungssystem blockieren

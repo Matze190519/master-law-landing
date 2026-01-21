@@ -511,13 +511,13 @@ export default function Home() {
             <p className="text-sm text-white/60 mt-2">{t.consultationNote}</p>
           </DialogHeader>
           <div className="w-full h-full bg-white">
-            {/* Placeholder for Calendly - Replace src with actual Calendly URL */}
+            {/* Google Calendar Appointment Scheduling */}
             <iframe 
-              src="https://calendly.com/master-law?hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=ffffff" 
+              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3wwLw7jC1DnY87drg6?gv=true" 
               width="100%" 
               height="100%" 
               frameBorder="0"
-              title="Calendly Scheduling"
+              title="Termin buchen"
             ></iframe>
           </div>
         </DialogContent>

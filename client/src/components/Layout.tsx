@@ -85,7 +85,7 @@ export default function Layout({ children }: LayoutProps) {
               <span className={lang === "ES" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("ES")}>ES</span>
             </div>
 
-            <a href="https://calendly.com/master-law/30min" target="_blank" rel="noopener noreferrer">
+            <a href="https://calendar.app.google/wwLw7jC1DnY87drg6" target="_blank" rel="noopener noreferrer">
               <Button className="bg-white text-black hover:bg-white/90 font-medium rounded-full px-6 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 border-none">
                 Beratung buchen
               </Button>
@@ -124,7 +124,7 @@ export default function Layout({ children }: LayoutProps) {
                       <span className={lang === "ES" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("ES")}>ES</span>
                     </div>
                   </div>
-                  <a href="https://calendly.com/master-law/30min" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <a href="https://calendar.app.google/wwLw7jC1DnY87drg6" target="_blank" rel="noopener noreferrer" className="w-full">
                     <Button className="w-full bg-white text-black font-bold h-12 rounded-xl text-lg">
                       Beratung buchen
                     </Button>
