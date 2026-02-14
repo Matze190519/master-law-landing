@@ -47,7 +47,7 @@
 - [x] Google Calendar Link von Janine entfernen
 - [x] Lead-Zuordnung: Termine müssen dem Betreiber (Matze) zugeordnet werden
 - [x] Klarstellung: 49,90€ werden mit Beratung verrechnet
-- [ ] Neue Werbebilder: Dubai Firmengründung (A/B Test)
-- [ ] Neue Werbebilder: Insolvenz Spanien (A/B Test)
-- [ ] Neue Werbebilder: Steuerberatung/Betreuung Autonomo & SL (A/B Test)
+- [x] Neue Werbebilder: Dubai Firmengründung (A/B Test)
+- [x] Neue Werbebilder: Insolvenz Spanien (A/B Test)
+- [x] Neue Werbebilder: Steuerberatung/Betreuung Autonomo & SL (A/B Test)
 - [ ] Kompletter Website-Funktionstest für Meta Ads
