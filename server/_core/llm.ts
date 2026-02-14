@@ -209,14 +209,39 @@ const normalizeToolChoice = (
   return toolChoice;
 };
 
-const resolveApiUrl = () =>
-  ENV.forgeApiUrl && ENV.forgeApiUrl.trim().length > 0
-    ? `${ENV.forgeApiUrl.replace(/\/$/, "")}/v1/chat/completions`
-    : "https://forge.manus.im/v1/chat/completions";
+const resolveApiUrl = () => {
+  // If Manus Forge API is available, use it
+  if (ENV.forgeApiUrl && ENV.forgeApiUrl.trim().length > 0) {
+    return `${ENV.forgeApiUrl.replace(/\/$/, "")}/v1/chat/completions`;
+  }
+  // Fallback to OpenAI API directly
+  if (ENV.openaiApiKey && ENV.openaiApiKey.trim().length > 0) {
+    return "https://api.openai.com/v1/chat/completions";
+  }
+  return "https://forge.manus.im/v1/chat/completions";
+};
+
+const resolveApiKey = () => {
+  // Prefer Manus Forge API key
+  if (ENV.forgeApiKey && ENV.forgeApiKey.trim().length > 0) {
+    return ENV.forgeApiKey;
+  }
+  // Fallback to OpenAI API key
+  if (ENV.openaiApiKey && ENV.openaiApiKey.trim().length > 0) {
+    return ENV.openaiApiKey;
+  }
+  return "";
+};
+
+const isUsingOpenAI = () => {
+  return (!ENV.forgeApiKey || ENV.forgeApiKey.trim().length === 0) && 
+         ENV.openaiApiKey && ENV.openaiApiKey.trim().length > 0;
+};
 
 const assertApiKey = () => {
-  if (!ENV.forgeApiKey) {
-    throw new Error("OPENAI_API_KEY is not configured");
+  const key = resolveApiKey();
+  if (!key) {
+    throw new Error("No API key configured (BUILT_IN_FORGE_API_KEY or OPENAI_API_KEY)");
   }
 };
 
@@ -296,9 +321,15 @@ export async function invokeLLM(params: InvokeParams): Promise<InvokeResult> {
     payload.tool_choice = normalizedToolChoice;
   }
 
-  payload.max_tokens = 32768
-  payload.thinking = {
-    "budget_tokens": 128
+  // Only use thinking for Manus Forge API (Gemini), not for OpenAI
+  if (!isUsingOpenAI()) {
+    payload.max_tokens = 32768;
+    payload.thinking = {
+      "budget_tokens": 128
+    };
+  } else {
+    payload.model = "gpt-4o-mini";
+    payload.max_tokens = 1024;
   }
 
   const normalizedResponseFormat = normalizeResponseFormat({
@@ -316,7 +347,7 @@ export async function invokeLLM(params: InvokeParams): Promise<InvokeResult> {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      authorization: `Bearer ${ENV.forgeApiKey}`,
+      authorization: `Bearer ${resolveApiKey()}`,
     },
     body: JSON.stringify(payload),
   });

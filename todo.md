@@ -67,3 +67,8 @@
 
 - [x] Dubai Firmengründung Preise einfügen: Starter 1.999€, All-Inclusive 4.999€
 - [x] Chatbot Wissensdatenbank mit Dubai-Preisen aktualisieren
+
+- [ ] Stripe Success-URL im Booking-Flow korrekt einrichten
+- [ ] Booking-Success-Seite für Stripe Redirect optimieren
+- [ ] Vollständiger End-to-End Test des Buchungsablaufs
+- [x] Chatbot auf OpenAI API umstellen (funktioniert auf Netlify)
