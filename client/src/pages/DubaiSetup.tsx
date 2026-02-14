@@ -54,41 +54,31 @@ export default function DubaiSetup() {
 
   const packages = [
     {
-      name: "Basic (Nur Firma)",
-      price: "2.999 €",
-      desc: "Ideal für den Start ohne Wohnsitzverlagerung (keine Anwesenheitspflicht).",
+      name: "Starter-Paket",
+      price: "1.999 €",
+      desc: "Ideal für den schnellen Einstieg – Firmengründung ohne Wohnsitzverlagerung.",
       features: [
         "Firmengründung (Trade License)",
-        "100% Eigentum",
+        "100% ausländisches Eigentum",
         "Virtuelles Büro (Flexi Desk)",
-        "Kein Visum inklusive",
-        "Beratung zur Kontoeröffnung"
+        "Beratung zur Kontoeröffnung",
+        "Unterstützung bei der Dokumentation"
       ]
     },
     {
-      name: "Standard (Firma + Visa)",
+      name: "All-Inclusive-Paket",
       price: "4.999 €",
-      desc: "Das beliebteste Paket für Unternehmer (Residency Status).",
+      desc: "Das Rundum-Sorglos-Paket für Unternehmer – alles inklusive.",
       features: [
-        "Alles aus Basic",
-        "1 Residence Visa (2 Jahre, Einreise nur 1x alle 6 Monate nötig)",
+        "Alles aus dem Starter-Paket",
+        "1 Residence Visa (2 Jahre)",
         "Emirates ID Beantragung",
         "Medical Test Begleitung",
-        "E-Channel Registrierung"
+        "Garantierte Bankkonto-Eröffnung",
+        "Steuerregistrierung (Corporate Tax)",
+        "Persönlicher Ansprechpartner"
       ],
       popular: true
-    },
-    {
-      name: "Premium (All Inclusive)",
-      price: "7.500 €",
-      desc: "Rundum-Sorglos-Paket mit VIP Service.",
-      features: [
-        "Alles aus Standard",
-        "Garantierte Bankkonto-Eröffnung",
-        "VIP Betreuung vor Ort",
-        "Steuerregistrierung (CT)",
-        "Persönlicher Ansprechpartner 24/7"
-      ]
     }
   ];
 
@@ -111,7 +101,7 @@ export default function DubaiSetup() {
             </h1>
               <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
                 Starten Sie Ihr steueroptimiertes Business in den VAE. 
-                Rechtssicher, schnell und transparent. Ab 2.999 €.
+                Rechtssicher, schnell und transparent. Ab 1.999 €.
               </p>
           </div>
 
@@ -145,7 +135,7 @@ export default function DubaiSetup() {
               <h2 className="text-3xl font-bold text-white mb-4">Transparente Preise</h2>
               <p className="text-white/60">Keine versteckten Kosten. Wählen Sie das Paket, das zu Ihnen passt.</p>
             </div>
-            <div className="grid lg:grid-cols-3 gap-8 items-start">
+            <div className="grid lg:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
               {packages.map((pkg, i) => (
                 <div key={i} className={`glass-panel p-8 rounded-3xl border ${pkg.popular ? 'border-white/40 bg-white/10' : 'border-white/10 bg-white/5'} relative overflow-hidden flex flex-col h-full`}>
                   {pkg.popular && (

@@ -39,7 +39,7 @@
 - [ ] Urlaub 26.01.2026 - 06.02.2026 im Buchungssystem blockieren
 - [x] Steuerberatung Preise anpassen: Autonomo 115€, SL 350€, Beckham 250€
 - [x] Insolvenz Preise weich formulieren (keine harten Zahlen)
-- [ ] Dubai Firmengründung Preise anpassen (warte auf Preise vom Kunden)
+- [x] Dubai Firmengründung Preise anpassen (warte auf Preise vom Kunden)
 - [x] Multilingualer Chatbot (DE/EN/ES) mit Wissensdatenbank integrieren
 - [x] Stripe Zahlungslink (49,90€) im Chatbot und Website einbinden
 
@@ -64,3 +64,6 @@
 - [x] Chatbot auf Mobile sichtbar und funktional
 - [ ] Kontaktformulare: Lead-Source Feld, Firmenname, Funktionstest
 - [ ] Kompletter Website-Funktionstest für Meta Ads Launch
+
+- [x] Dubai Firmengründung Preise einfügen: Starter 1.999€, All-Inclusive 4.999€
+- [x] Chatbot Wissensdatenbank mit Dubai-Preisen aktualisieren

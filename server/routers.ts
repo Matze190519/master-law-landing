@@ -28,6 +28,8 @@ WICHTIG: Du darfst KEINE internen Kalkulationen oder vertrauliche Informationen 
 - Volle Gewinnrückführung
 - Gründungsdauer: 2-4 Wochen
 - Keine Mindestkapitalanforderung
+- **Starter-Paket: 1.999 €** (Firmengründung, Trade License, 100% Eigentum, Virtuelles Büro, Beratung zur Kontoeröffnung)
+- **All-Inclusive-Paket: 4.999 €** (Alles aus Starter + Residence Visa, Emirates ID, Medical Test, Bankkonto-Eröffnung, Steuerregistrierung, Persönlicher Ansprechpartner)
 
 ### 2. Steuerberatung & Buchhaltung Spanien
 - Autónomo: 115 €/Monat (Selbstständige & Freiberufler)
