@@ -40,3 +40,5 @@
 - [x] Steuerberatung Preise anpassen: Autonomo 115€, SL 350€, Beckham 250€
 - [x] Insolvenz Preise weich formulieren (keine harten Zahlen)
 - [ ] Dubai Firmengründung Preise anpassen (warte auf Preise vom Kunden)
+- [x] Multilingualer Chatbot (DE/EN/ES) mit Wissensdatenbank integrieren
+- [x] Stripe Zahlungslink (49,90€) im Chatbot und Website einbinden

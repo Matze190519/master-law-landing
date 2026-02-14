@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ChatWidget from "@/components/ChatWidget";
 
 interface LayoutProps {
   children: ReactNode;
@@ -183,6 +184,7 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </footer>
+      <ChatWidget />
     </div>
   );
 }

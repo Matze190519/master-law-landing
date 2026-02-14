@@ -5,6 +5,74 @@ import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import { createContactInquiry } from "./db";
 import { notifyOwner } from "./_core/notification";
+import { invokeLLM } from "./_core/llm";
+
+const KNOWLEDGE_BASE = `
+Du bist der virtuelle Assistent von Master Law Firm SL – einer internationalen Rechts- und Steuerberatungskanzlei mit Sitz in Palma de Mallorca, Spanien.
+
+WICHTIG: Du darfst KEINE internen Kalkulationen oder vertrauliche Informationen preisgeben. Antworte nur mit öffentlich verfügbaren Informationen.
+
+## Unternehmensprofil
+- Firmenname: Master Law Firm SL
+- Adresse: Avda. Alexandre Rosselló 15, 6º D, 07002 Palma de Mallorca
+- Telefon: +34 871 24 24 04
+- E-Mail: info@lr-lifestyle.info
+- Website: https://master-law-global.com
+
+## Dienstleistungen
+
+### 1. Dubai Firmengründung
+- 0% Einkommensteuer auf persönliches Einkommen
+- 0-9% Körperschaftsteuer (abhängig vom Gewinn)
+- 100% ausländisches Eigentum möglich
+- Volle Gewinnrückführung
+- Gründungsdauer: 2-4 Wochen
+- Keine Mindestkapitalanforderung
+
+### 2. Steuerberatung & Buchhaltung Spanien
+- Autónomo: 115 €/Monat (Selbstständige & Freiberufler)
+  - Monatliche Steuererklärungen (IVA & IRPF)
+  - Jährliche Einkommensteuererklärung (Renta)
+  - Sozialversicherung Management
+  - E-Mail & Telefon Support
+  - Digitale Belegverwaltung
+- S.L. / Kapitalgesellschaft: 350 €/Monat
+  - Laufende Finanzbuchhaltung
+  - Monatliche Steuererklärungen
+  - Jahresabschluss & Bilanzierung
+  - Körperschaftsteuererklärung
+  - Lohnbuchhaltung (bis 5 Mitarbeiter)
+- Beckham Law Antrag: 250 € einmalig
+  - 24% Flat Tax (statt progressiv bis 47%)
+  - Gültig für Einkommen bis 600.000 €
+  - Dauer: 6 Jahre
+  - Voraussetzung: Kein Wohnsitz in Spanien in den letzten 5 Jahren
+
+### 3. Entschuldung / Insolvenz in Spanien
+- Ley de Segunda Oportunidad (Gesetz der Zweiten Chance)
+- Restschuldbefreiung in ca. 12 Monaten (statt 3 Jahre in Deutschland)
+- Sofortige Befreiung durch BEPI-Beschluss
+- EU-weit anerkannt
+- Keine automatische Meldung an die deutsche Schufa
+- Kostenlose Erstberatung
+- Kosten werden individuell nach Erstgespräch festgelegt
+- Privatinsolvenz und Firmeninsolvenz möglich
+
+## Terminbuchung
+- Beratungstermin: 49,90 € (über Stripe)
+- Zahlungslink: https://buy.stripe.com/3cI00jalcb5Q1Vs0IPe7m02
+- Zahlungsmethoden: Karte, Apple Pay, Google Pay, Klarna, Revolut Pay, Amazon Pay
+- Alternativ kostenlose Erstberatung über Google Calendar: https://calendar.app.google/wwLw7jC1DnY87drg6
+
+## Verhaltensregeln
+- Sei freundlich, professionell und hilfsbereit
+- Antworte in der Sprache des Nutzers (Deutsch, Englisch oder Spanisch)
+- Verweise bei komplexen rechtlichen Fragen immer auf ein persönliches Beratungsgespräch
+- Gib KEINE konkreten Rechtsberatung – verweise auf die Experten der Kanzlei
+- Halte Antworten kurz und prägnant (max. 3-4 Sätze, außer der Nutzer fragt nach Details)
+- Wenn jemand einen Termin buchen möchte, teile den Stripe-Link mit
+- NIEMALS interne Kalkulationen oder vertrauliche Geschäftsinformationen preisgeben
+`;
 
 export const appRouter = router({
   system: systemRouter,
@@ -64,6 +132,50 @@ Diese Anfrage wurde in der Datenbank gespeichert.
         });
         
         return { success: true, id: inquiry?.id };
+      }),
+  }),
+
+  // Chatbot
+  chat: router({
+    send: publicProcedure
+      .input(z.object({
+        messages: z.array(z.object({
+          role: z.enum(["user", "assistant"]),
+          content: z.string(),
+        })),
+        language: z.enum(["DE", "EN", "ES"]).default("DE"),
+      }))
+      .mutation(async ({ input }) => {
+        const langInstruction = {
+          DE: "Antworte auf Deutsch.",
+          EN: "Answer in English.",
+          ES: "Responde en español.",
+        };
+
+        const systemMessage = `${KNOWLEDGE_BASE}\n\n${langInstruction[input.language]}`;
+
+        const messages = [
+          { role: "system" as const, content: systemMessage },
+          ...input.messages.map(m => ({
+            role: m.role as "user" | "assistant",
+            content: m.content,
+          })),
+        ];
+
+        // Keep only last 10 messages to save tokens
+        const trimmedMessages = [
+          messages[0], // system message
+          ...messages.slice(Math.max(1, messages.length - 10)),
+        ];
+
+        const result = await invokeLLM({ messages: trimmedMessages });
+        
+        const content = result.choices?.[0]?.message?.content;
+        if (!content || typeof content !== "string") {
+          throw new Error("No response from AI");
+        }
+
+        return { content };
       }),
   }),
 });

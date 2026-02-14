@@ -109,7 +109,7 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-dubai-cinematic.jpg" 
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029098351/gTzPuCJJHcnjqpFX.jpg" 
             alt="Dubai Skyline Night" 
             className="w-full h-full object-cover opacity-80"
           />
