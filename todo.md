@@ -51,3 +51,16 @@
 - [x] Neue Werbebilder: Insolvenz Spanien (A/B Test)
 - [x] Neue Werbebilder: Steuerberatung/Betreuung Autonomo & SL (A/B Test)
 - [ ] Kompletter Website-Funktionstest für Meta Ads
+
+- [x] Stripe Booking Flow: Automatische Weiterleitung nach Zahlung zur Terminbuchung
+- [x] Booking Success Page erstellen (/booking-success)
+- [x] Conversion-Optimierung: Stärkere CTAs, Urgency-Elemente, Trust-Badges
+- [x] Social Proof: Testimonials, Kundenzähler, Bewertungen
+- [x] Micro-Interactions: Hover-Effekte, Scroll-Animationen, Loading-States
+- [x] SEO-Optimierung: Meta-Tags, Open Graph, strukturierte Daten
+- [x] Meta Ads Pixel Events: ViewContent, Lead, Purchase Events
+- [x] Performance-Optimierung: Lazy Loading, Bildkomprimierung
+- [ ] Mobile-Optimierung: Alle Elemente auf Mobile testen und anpassen
+- [x] Chatbot auf Mobile sichtbar und funktional
+- [ ] Kontaktformulare: Lead-Source Feld, Firmenname, Funktionstest
+- [ ] Kompletter Website-Funktionstest für Meta Ads Launch

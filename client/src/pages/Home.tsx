@@ -13,6 +13,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/SEO";
 import ContactForm from "@/components/ContactForm";
+import TrustBadges from "@/components/TrustBadges";
+import SocialProofCounter from "@/components/SocialProofCounter";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 export default function Home() {
   const [income, setIncome] = useState(200000);
@@ -26,6 +29,7 @@ export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isExitPopupBooking, setIsExitPopupBooking] = useState(false);
   const [language, setLanguage] = useState("EN");
 
   // Calculate tax savings
@@ -135,11 +139,23 @@ export default function Home() {
             <Button 
               size="lg" 
               onClick={() => setIsBookingOpen(true)}
-              className="h-14 md:h-16 px-8 md:px-12 rounded-full bg-white text-black hover:bg-gray-200 text-base md:text-lg font-bold tracking-wide shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border-none"
+              className="h-14 md:h-16 px-8 md:px-12 rounded-full bg-white text-black hover:bg-gray-200 text-base md:text-lg font-bold tracking-wide shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border-none animate-pulse-glow"
             >
               {t.ctaStart}
             </Button>
           </div>
+
+          {/* Trust Badges */}
+          <div className="pt-8">
+            <TrustBadges />
+          </div>
+        </div>
+      </section>
+
+      {/* SOCIAL PROOF COUNTER */}
+      <section className="py-16 bg-black border-y border-white/5">
+        <div className="container">
+          <SocialProofCounter />
         </div>
       </section>
 
@@ -506,6 +522,7 @@ export default function Home() {
       </div>
 
       <BookingModal open={isBookingOpen} onOpenChange={setIsBookingOpen} />
+      <ExitIntentPopup onBooking={() => setIsBookingOpen(true)} />
     </Layout>
   );
 }

@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Calendar, Clock, CreditCard, CheckCircle, ArrowRight, Loader2 } from "lucide-react";
+import { Calendar, Clock, CreditCard, CheckCircle, ArrowRight, Loader2, Lock, Shield } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -155,8 +155,26 @@ export default function BookingModal({ open, onOpenChange, defaultService }: Boo
   };
 
   const handleNext = () => {
-    if (step === 1 && validateStep1()) setStep(2);
-    else if (step === 2 && validateStep2()) setStep(3);
+    if (step === 1 && validateStep1()) {
+      // Track Lead event when user provides contact info
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead", {
+          content_name: formData.service,
+          content_category: "consultation",
+        });
+      }
+      setStep(2);
+    } else if (step === 2 && validateStep2()) {
+      // Track InitiateCheckout when user selects date
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "InitiateCheckout", {
+          value: 49.90,
+          currency: "EUR",
+          content_name: "Beratungstermin",
+        });
+      }
+      setStep(3);
+    }
   };
 
   const handleSubmitAndPay = async () => {
@@ -176,8 +194,8 @@ export default function BookingModal({ open, onOpenChange, defaultService }: Boo
 
       if (result.success && result.stripeUrl) {
         setStep(4); // Show success
-        // Open Stripe in new tab
-        window.open(result.stripeUrl, "_blank");
+        // Redirect to Stripe payment
+        window.location.href = result.stripeUrl;
       }
     } catch (error) {
       console.error("Booking error:", error);
@@ -386,6 +404,20 @@ export default function BookingModal({ open, onOpenChange, defaultService }: Boo
                 <span className="text-sm text-white/70">{t.payInfo}</span>
               </div>
               <p className="text-xs text-white/40">{t.payMethods}</p>
+            </div>
+
+            {/* Credit Note */}
+            <div className="bg-green-500/10 rounded-xl p-3 border border-green-500/20">
+              <p className="text-xs text-green-400 text-center font-medium">
+                Die 49,90 € werden bei Beauftragung vollständig mit dem Honorar verrechnet.
+              </p>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex justify-center gap-4 text-[10px] text-white/30">
+              <span className="flex items-center gap-1"><Lock className="w-3 h-3" /> SSL</span>
+              <span className="flex items-center gap-1"><Shield className="w-3 h-3" /> DSGVO</span>
+              <span>Stripe Secure</span>
             </div>
 
             <div className="flex gap-3">

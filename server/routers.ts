@@ -185,7 +185,7 @@ Buchung wurde in der Datenbank gespeichert (ID: ${booking?.id}).
         return { 
           success: true, 
           id: booking?.id,
-          stripeUrl: "https://buy.stripe.com/3cI00jalcb5Q1Vs0IPe7m02"
+          stripeUrl: `https://buy.stripe.com/3cI00jalcb5Q1Vs0IPe7m02?prefilled_email=${encodeURIComponent(input.email)}&client_reference_id=${booking?.id || ''}`
         };
       }),
   }),

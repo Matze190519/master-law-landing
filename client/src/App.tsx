@@ -17,6 +17,7 @@ import Privacy from "@/pages/Privacy";
 import Team from "@/pages/Team";
 import AboutUs from "@/pages/AboutUs";
 import Contact from "@/pages/Contact";
+import BookingSuccess from "@/pages/BookingSuccess";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -31,6 +32,7 @@ function Router() {
       <Route path="/team" component={Team} />
       <Route path="/about" component={AboutUs} />
       <Route path="/contact" component={Contact} />
+      <Route path="/booking-success" component={BookingSuccess} />
       <Route component={NotFound} />
     </Switch>
   );
