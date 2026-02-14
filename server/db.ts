@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, contactInquiries, InsertContactInquiry } from "../drizzle/schema";
+import { InsertUser, users, contactInquiries, InsertContactInquiry, bookings, InsertBooking } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -123,4 +123,54 @@ export async function getContactInquiries() {
   }
 
   return await db.select().from(contactInquiries).orderBy(contactInquiries.createdAt);
+}
+
+// Booking functions
+export async function createBooking(booking: Omit<InsertBooking, 'id' | 'paymentStatus' | 'bookingStatus' | 'createdAt' | 'updatedAt'>) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create booking: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.insert(bookings).values({
+      name: booking.name,
+      email: booking.email,
+      phone: booking.phone,
+      company: booking.company || null,
+      service: booking.service,
+      preferredDate: booking.preferredDate,
+      preferredTime: booking.preferredTime,
+      alternativeDate: booking.alternativeDate || null,
+      message: booking.message || null,
+      stripePaymentId: booking.stripePaymentId || null,
+      source: booking.source || null,
+    });
+    
+    return { id: result[0].insertId };
+  } catch (error) {
+    console.error("[Database] Failed to create booking:", error);
+    throw error;
+  }
+}
+
+export async function getBookings() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get bookings: database not available");
+    return [];
+  }
+
+  return await db.select().from(bookings).orderBy(desc(bookings.createdAt));
+}
+
+export async function updateBookingPayment(bookingId: number, stripePaymentId: string) {
+  const db = await getDb();
+  if (!db) return null;
+
+  await db.update(bookings)
+    .set({ stripePaymentId, paymentStatus: "paid" })
+    .where(eq(bookings.id, bookingId));
+  return true;
 }

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Shield, Globe, Building2, Scale } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import BookingModal from "@/components/BookingModal";
 import { Slider } from "@/components/ui/slider";
 import Globe3D from "@/components/Globe3D";
 import { faqs } from "@/data/faqs";
@@ -24,6 +25,7 @@ export default function Home() {
   const [dubaiTaxLiability, setDubaiTaxLiability] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [language, setLanguage] = useState("EN");
 
   // Calculate tax savings
@@ -132,7 +134,7 @@ export default function Home() {
           <div className="pt-8 md:pt-12">
             <Button 
               size="lg" 
-              onClick={() => setIsCalendarOpen(true)}
+              onClick={() => setIsBookingOpen(true)}
               className="h-14 md:h-16 px-8 md:px-12 rounded-full bg-white text-black hover:bg-gray-200 text-base md:text-lg font-bold tracking-wide shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border-none"
             >
               {t.ctaStart}
@@ -268,7 +270,7 @@ export default function Home() {
                 </div>
 
                 <Button 
-                  onClick={() => setIsCalendarOpen(true)}
+                  onClick={() => setIsBookingOpen(true)}
                   className="w-full h-14 bg-white text-black font-bold rounded-xl hover:bg-gray-200 shadow-lg border-none mt-4"
                 >
                   {t.ctaStart}
@@ -358,7 +360,7 @@ export default function Home() {
               <div className="space-y-2 relative z-20">
                 <Button 
                   className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl relative z-20"
-                  onClick={() => setIsCalendarOpen(true)}
+                  onClick={() => setIsBookingOpen(true)}
                 >
                   {t.bookBtn}
                 </Button>
@@ -374,7 +376,7 @@ export default function Home() {
                 <div className="space-y-2 relative z-20">
                   <Button 
                     className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl shadow-lg relative z-20"
-                    onClick={() => setIsCalendarOpen(true)}
+                    onClick={() => setIsBookingOpen(true)}
                   >
                     {t.bookBtn}
                   </Button>
@@ -392,7 +394,7 @@ export default function Home() {
               <div className="space-y-2 relative z-20">
                 <Button 
                   className="w-full bg-white text-black hover:bg-gray-200 font-bold rounded-xl relative z-20"
-                  onClick={() => setIsCalendarOpen(true)}
+                  onClick={() => setIsBookingOpen(true)}
                 >
                   {t.bookBtn}
                 </Button>
@@ -474,7 +476,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
             <Button 
               size="lg" 
-              onClick={() => setIsCalendarOpen(true)}
+              onClick={() => setIsBookingOpen(true)}
               className="h-16 px-10 bg-white text-black hover:bg-gray-200 rounded-full text-lg font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)] border-none transition-transform hover:scale-105"
             >
               {t.bookBtn}
@@ -495,7 +497,7 @@ export default function Home() {
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur-xl border-t border-white/10 md:bg-transparent md:border-none md:bottom-8 md:left-8 md:right-auto md:p-0 z-[100] flex gap-4 justify-center md:flex-col">
         <Button 
           size="lg" 
-          onClick={() => setIsCalendarOpen(true)}
+          onClick={() => setIsBookingOpen(true)}
           className="h-14 md:h-16 px-6 md:px-10 bg-white text-black hover:bg-gray-200 rounded-full text-base md:text-lg font-bold shadow-[0_0_30px_rgba(255,255,255,0.3)] border-none transition-transform hover:scale-105"
         >
           {t.bookBtn}
@@ -503,25 +505,7 @@ export default function Home() {
         
       </div>
 
-      {/* CALENDAR MODAL */}
-      <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-        <DialogContent className="sm:max-w-[900px] h-[80vh] bg-black/95 border-white/10 backdrop-blur-xl p-0 overflow-hidden">
-          <DialogHeader className="p-6 border-b border-white/10">
-            <DialogTitle className="text-2xl font-bold text-white">{t.bookBtn}</DialogTitle>
-            <p className="text-sm text-white/60 mt-2">{t.consultationNote}</p>
-          </DialogHeader>
-          <div className="w-full h-full bg-white">
-            {/* Google Calendar Appointment Scheduling */}
-            <iframe 
-              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3wwLw7jC1DnY87drg6?gv=true" 
-              width="100%" 
-              height="100%" 
-              frameBorder="0"
-              title="Termin buchen"
-            ></iframe>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <BookingModal open={isBookingOpen} onOpenChange={setIsBookingOpen} />
     </Layout>
   );
 }

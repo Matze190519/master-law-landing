@@ -3,7 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { createContactInquiry } from "./db";
+import { createContactInquiry, createBooking, getBookings } from "./db";
 import { notifyOwner } from "./_core/notification";
 import { invokeLLM } from "./_core/llm";
 
@@ -62,7 +62,7 @@ WICHTIG: Du darfst KEINE internen Kalkulationen oder vertrauliche Informationen 
 - Beratungstermin: 49,90 € (über Stripe)
 - Zahlungslink: https://buy.stripe.com/3cI00jalcb5Q1Vs0IPe7m02
 - Zahlungsmethoden: Karte, Apple Pay, Google Pay, Klarna, Revolut Pay, Amazon Pay
-- Alternativ kostenlose Erstberatung über Google Calendar: https://calendar.app.google/wwLw7jC1DnY87drg6
+- Die 49,90 € werden bei Beauftragung mit dem Honorar verrechnet
 
 ## Verhaltensregeln
 - Sei freundlich, professionell und hilfsbereit
@@ -132,6 +132,61 @@ Diese Anfrage wurde in der Datenbank gespeichert.
         });
         
         return { success: true, id: inquiry?.id };
+      }),
+  }),
+
+  // Booking system
+  booking: router({
+    create: publicProcedure
+      .input(z.object({
+        name: z.string().min(2, "Name muss mindestens 2 Zeichen haben"),
+        email: z.string().email("Ungültige E-Mail-Adresse"),
+        phone: z.string().min(5, "Telefonnummer erforderlich"),
+        company: z.string().optional(),
+        service: z.enum(["dubai_gruendung", "steuerberatung", "entschuldung", "sonstiges"]),
+        preferredDate: z.string().min(1, "Wunschtermin erforderlich"),
+        preferredTime: z.string().min(1, "Wunschzeit erforderlich"),
+        alternativeDate: z.string().optional(),
+        message: z.string().optional(),
+        source: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const booking = await createBooking(input);
+
+        const serviceLabels: Record<string, string> = {
+          dubai_gruendung: "Dubai Gründung",
+          steuerberatung: "Steuerberatung",
+          entschuldung: "Entschuldung",
+          sonstiges: "Sonstiges",
+        };
+
+        await notifyOwner({
+          title: `Neuer Beratungstermin: ${serviceLabels[input.service]} - ${input.name}`,
+          content: `
+📅 **Neuer Beratungstermin gebucht**
+
+**Name:** ${input.name}
+**E-Mail:** ${input.email}
+**Telefon:** ${input.phone}
+**Firma:** ${input.company || "Nicht angegeben"}
+**Service:** ${serviceLabels[input.service]}
+**Wunschtermin:** ${input.preferredDate} um ${input.preferredTime}
+**Alternativtermin:** ${input.alternativeDate || "Keiner"}
+**Quelle:** ${input.source || "Direkt"}
+
+**Nachricht:** ${input.message || "Keine"}
+
+💳 **Zahlung:** Kunde wird zu Stripe weitergeleitet (49,90 €)
+---
+Buchung wurde in der Datenbank gespeichert (ID: ${booking?.id}).
+          `.trim(),
+        });
+
+        return { 
+          success: true, 
+          id: booking?.id,
+          stripeUrl: "https://buy.stripe.com/3cI00jalcb5Q1Vs0IPe7m02"
+        };
       }),
   }),
 

@@ -42,3 +42,26 @@ export const contactInquiries = mysqlTable("contact_inquiries", {
 
 export type ContactInquiry = typeof contactInquiries.$inferSelect;
 export type InsertContactInquiry = typeof contactInquiries.$inferInsert;
+
+// Booking appointments table for lead tracking
+export const bookings = mysqlTable("bookings", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 50 }).notNull(),
+  company: varchar("company", { length: 255 }),
+  service: mysqlEnum("service", ["dubai_gruendung", "steuerberatung", "entschuldung", "sonstiges"]).notNull(),
+  preferredDate: varchar("preferredDate", { length: 50 }).notNull(),
+  preferredTime: varchar("preferredTime", { length: 50 }).notNull(),
+  alternativeDate: varchar("alternativeDate", { length: 50 }),
+  message: text("message"),
+  stripePaymentId: varchar("stripePaymentId", { length: 255 }),
+  paymentStatus: mysqlEnum("paymentStatus", ["pending", "paid", "refunded"]).default("pending").notNull(),
+  bookingStatus: mysqlEnum("bookingStatus", ["new", "confirmed", "completed", "cancelled"]).default("new").notNull(),
+  source: varchar("source", { length: 100 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Booking = typeof bookings.$inferSelect;
+export type InsertBooking = typeof bookings.$inferInsert;

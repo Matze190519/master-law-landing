@@ -1,4 +1,5 @@
 import { ReactNode, useState, useEffect } from "react";
+import BookingModal from "@/components/BookingModal";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
@@ -12,6 +13,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const { lang, setLang } = useLanguage();
 
   useEffect(() => {
@@ -86,11 +88,9 @@ export default function Layout({ children }: LayoutProps) {
               <span className={lang === "ES" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("ES")}>ES</span>
             </div>
 
-            <a href="https://calendar.app.google/wwLw7jC1DnY87drg6" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-white text-black hover:bg-white/90 font-medium rounded-full px-6 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 border-none">
-                Beratung buchen
-              </Button>
-            </a>
+            <Button onClick={() => setIsBookingOpen(true)} className="bg-white text-black hover:bg-white/90 font-medium rounded-full px-6 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 border-none">
+              Beratung buchen
+            </Button>
           </div>
 
           {/* Mobile Menu */}
@@ -125,11 +125,9 @@ export default function Layout({ children }: LayoutProps) {
                       <span className={lang === "ES" ? "text-white" : "hover:text-white cursor-pointer"} onClick={() => setLang("ES")}>ES</span>
                     </div>
                   </div>
-                  <a href="https://calendar.app.google/wwLw7jC1DnY87drg6" target="_blank" rel="noopener noreferrer" className="w-full">
-                    <Button className="w-full bg-white text-black font-bold h-12 rounded-xl text-lg">
-                      Beratung buchen
-                    </Button>
-                  </a>
+                  <Button onClick={() => setIsBookingOpen(true)} className="w-full bg-white text-black font-bold h-12 rounded-xl text-lg">
+                    Beratung buchen
+                  </Button>
                 </div>
               </SheetContent>
             </Sheet>
@@ -185,6 +183,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </footer>
       <ChatWidget />
+      <BookingModal open={isBookingOpen} onOpenChange={setIsBookingOpen} />
     </div>
   );
 }

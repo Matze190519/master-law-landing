@@ -42,3 +42,12 @@
 - [ ] Dubai Firmengründung Preise anpassen (warte auf Preise vom Kunden)
 - [x] Multilingualer Chatbot (DE/EN/ES) mit Wissensdatenbank integrieren
 - [x] Stripe Zahlungslink (49,90€) im Chatbot und Website einbinden
+
+- [x] Eigenes Buchungssystem bauen (Stripe 49,90€ → Terminbuchung → Lead-Tracking)
+- [x] Google Calendar Link von Janine entfernen
+- [x] Lead-Zuordnung: Termine müssen dem Betreiber (Matze) zugeordnet werden
+- [x] Klarstellung: 49,90€ werden mit Beratung verrechnet
+- [ ] Neue Werbebilder: Dubai Firmengründung (A/B Test)
+- [ ] Neue Werbebilder: Insolvenz Spanien (A/B Test)
+- [ ] Neue Werbebilder: Steuerberatung/Betreuung Autonomo & SL (A/B Test)
+- [ ] Kompletter Website-Funktionstest für Meta Ads

@@ -9,10 +9,13 @@ import { Quote } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/data/translations";
 import SEO from "@/components/SEO";
+import BookingModal from "@/components/BookingModal";
+import { useState } from "react";
 
 export default function TaxServices() {
   const { lang } = useLanguage();
   const t = translations[lang];
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const steps = [
     {
@@ -234,8 +237,8 @@ export default function TaxServices() {
           <div className="text-center pt-12 border-t border-white/10">
             <h2 className="text-3xl font-bold text-white mb-6">Lassen Sie uns Ihre Steuern optimieren.</h2>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Button size="lg" className="h-14 px-8 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-lg" onClick={() => window.open('https://calendar.app.google/wwLw7jC1DnY87drg6', '_blank')}>
-                Beratung Buchen (Kostenlos) <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="lg" className="h-14 px-8 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-lg" onClick={() => setIsBookingOpen(true)}>
+                Beratung Buchen (49,90 €) <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Link href="/contact">
                 <Button variant="outline" size="lg" className="h-14 px-8 rounded-full border-white/20 text-white hover:bg-white/10 font-bold text-lg">
@@ -246,6 +249,7 @@ export default function TaxServices() {
           </div>
         </div>
       </div>
+      <BookingModal open={isBookingOpen} onOpenChange={setIsBookingOpen} defaultService="steuerberatung" />
     </Layout>
   );
 }
